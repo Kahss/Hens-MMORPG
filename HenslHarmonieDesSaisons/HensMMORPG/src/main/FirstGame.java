@@ -17,7 +17,7 @@ public class FirstGame extends StateBasedGame {
 	}
 
 	 public static void main(String[] args) throws SlickException {
-		 		AppGameContainer container = new AppGameContainer(new FirstGame("TP-Creation jeu 2D"));
+		 		AppGameContainer container = new AppGameContainer(new FirstGame("Hens L'harmonie des Saisons"));
 	            container.setDisplayMode(1024, 768, false);
 	            container.setTargetFrameRate(60);
 	            container.setMultiSample(4);
@@ -28,7 +28,8 @@ public class FirstGame extends StateBasedGame {
 	
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		 	menu = new Menu();
-	        gameState = new GameState();
+	      
+		 	gameState = new GameState();
 	        createCharacter = new CreateCharacter();
 	        addState(menu);
 	        addState(gameState);
