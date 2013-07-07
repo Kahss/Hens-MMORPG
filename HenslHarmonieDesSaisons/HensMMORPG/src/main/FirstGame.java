@@ -4,6 +4,8 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+
+
 public class FirstGame extends StateBasedGame {
 	private Menu menu;
 	private GameState gameState;
@@ -28,7 +30,6 @@ public class FirstGame extends StateBasedGame {
 	
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		 	menu = new Menu();
-	      
 		 	gameState = new GameState();
 	        createCharacter = new CreateCharacter();
 	        addState(menu);

@@ -1,6 +1,10 @@
 package main;
 
 
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
 import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -17,7 +21,13 @@ public class GameState extends BasicGameState{
 	private Image fond;
 	private int c,d,invc,invd,xMouse,yMouse;
 	private Input input;
-	private Player youri;
+	private Player me;
+	int id,x,y;
+
+
+	 
+	
+	
 	
 	public void init(GameContainer container, StateBasedGame arg1)
 			throws SlickException {
@@ -27,9 +37,10 @@ public class GameState extends BasicGameState{
 		invd=0;
 		invc=0;
 		input = container.getInput();
-		 youri = new Player(input);
-	        youri.init();
+		me = new Player(x, y ,id ,input);
+	        me.init();
 		container.setShowFPS(false);
+		
 	}
 
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
@@ -37,7 +48,7 @@ public class GameState extends BasicGameState{
 		 g.drawString("Bienvenue dans le jeu!",100,100);
 		 fond.draw(invc,invd);
 
-		 youri.render(g);
+		 me.render(g);
 		  g.drawString(String.valueOf(xMouse),20,140);
 	        g.drawString(String.valueOf(yMouse),80,140); 
 	}
@@ -45,15 +56,16 @@ public class GameState extends BasicGameState{
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		youri.update(container, delta);
-		c=youri.getxChar();
-		d=youri.getyChar();
+		me.update(container, delta);
+		c=me.getxChar();
+		d=me.getyChar();
 	 	xMouse=input.getAbsoluteMouseX(); 
     	yMouse=input.getAbsoluteMouseY();
-
+    	Client.players = new Vector<Player>();
         c=xMouse;
     	d=yMouse;
-
+    	
+    	Client.players = Client.ct.players;
 	    	if ( input.isKeyPressed(Input.KEY_ESCAPE))
 	         {
 	             System.exit(0);

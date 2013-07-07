@@ -1,5 +1,7 @@
 package main;
 
+import java.io.Serializable;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -7,51 +9,60 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.AbstractComponent;
 import org.newdawn.slick.gui.ComponentListener;
-public class Player{
+import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
+
+public class Player implements Serializable{
+   private static final long serialVersionUID = 1L;
+   int x;
+   int y;
+   int id;
+   private Input input;
+   private Image  upleft, downright, downleft, upright, currentSprite,down,left,right,up;
+   private int xChar,yChar,xMouse,yMouse,xGrid,yGrid;
+   private int xTileChar,yTileChar;
+   
+   public Player(int x, int y, int id, Input input){
+      this.x = x;
+      this.y = y;
+      this.id = id;
+   }
+   
+   public void init() throws SlickException
+   {
+       downleft = new Image("image/Skin/pers34dgauche.png");
+       upright = new Image("image/Skin/persdodroite.png");
+       upleft = new Image("image/Skin/persdogauche.png");
+       downright = new Image("image/Skin/pers34droite.png");
+       down = new Image ("image/Skin/persface.png");
+       right = new Image ("image/Skin/persprofildroite.png");
+       left= new Image("image/Skin/persprofilgauche.png");
+       up= new Image ("image/Skin/persdos.png");
+       
+       currentSprite = down;
+       
+       xChar=489+27;
+       yChar=328+120;
+       xGrid=0;
+       yGrid=0;
+       
+   }
+   
+   public void render (Graphics g)
+   {
+       currentSprite.draw(xChar-27,yChar-120);
+       g.drawString(String.valueOf(xTileChar), 800, 100);
+       g.drawString(String.valueOf(yTileChar), 880, 100);
      
-    private Input input;
-    private Image  upleft, downright, downleft, upright, currentSprite,down,left,right,up;
-    private int xChar,yChar,xMouse,yMouse,xGrid,yGrid;
-    private int xTileChar,yTileChar;
-    public Player(Input input)
-    {
-        this.input = input;
-    }
-    public void init() throws SlickException
-    {
-        downleft = new Image("image/Skin/pers34dgauche.png");
-        upright = new Image("image/Skin/persdodroite.png");
-        upleft = new Image("image/Skin/persdogauche.png");
-        downright = new Image("image/Skin/pers34droite.png");
-        down = new Image ("image/Skin/persface.png");
-        right = new Image ("image/Skin/persprofildroite.png");
-        left= new Image("image/Skin/persprofilgauche.png");
-        up= new Image ("image/Skin/persdos.png");
-        
-        currentSprite = down;
-        
-        xChar=489+27;
-        yChar=328+120;
-        xGrid=0;
-        yGrid=0;
-        
-    }
+   }
     
-    public void render (Graphics g)
-    {
-        currentSprite.draw(xChar-27,yChar-120);
-        g.drawString(String.valueOf(xTileChar), 800, 100);
-        g.drawString(String.valueOf(yTileChar), 880, 100);
-      
-    }
-     
-    public void update (GameContainer container, int delta)
-    {  input = container.getInput();
-    	xMouse=input.getAbsoluteMouseX(); 
-    	yMouse=input.getAbsoluteMouseY();
-          
-        
-        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
+   public void update (GameContainer container, int delta)
+   {  input = container.getInput();
+   	xMouse=input.getAbsoluteMouseX(); 
+   	yMouse=input.getAbsoluteMouseY();
+         
+       
+       if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 		     if (xMouse>xChar && yMouse>yChar)
 		     {
 		    
@@ -91,15 +102,11 @@ public class Player{
 		             
 		        }
 		         
+       
         
-         
-    }
-     
+   } 
+}
    
-      
-		
-		
-	}
 	public Input getInput() {
 		return input;
 	}
@@ -196,6 +203,5 @@ public class Player{
 	public void setyTileChar(int yTileChar) {
 		this.yTileChar = yTileChar;
 	}
+   
 }
-
-      

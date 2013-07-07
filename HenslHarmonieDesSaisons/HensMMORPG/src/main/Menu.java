@@ -1,4 +1,8 @@
 package main;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
 import org.newdawn.slick.gui.AbstractComponent;
 import org.newdawn.slick.gui.ComponentListener;
 import org.newdawn.slick.gui.MouseOverArea;
@@ -18,8 +22,20 @@ public class Menu extends BasicGameState implements ComponentListener {
 	private Image menu;
 	private MouseOverArea quit; 
 	private MouseOverArea play;
+	ClientThread ct;
+	 Vector<main.Player> players;
+	   main.Player me;
+	   int ALL_KEYS = 0xFF;
 	
-	  
+	public void connect(){
+	      String ip = JOptionPane.showInputDialog("Input server IP.");
+	       ct = new ClientThread(ip);
+	        ct.start();
+	        //ct.setPriority(Thread.MAX_PRIORITY);
+	        
+	        me = ct.me;
+	        players = ct.players;
+	    } 
 	
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -33,6 +49,7 @@ public class Menu extends BasicGameState implements ComponentListener {
 		play.setNormalColor(new Color(0.7f,0.7f,0.7f,1f));
 		play.setMouseOverColor(new Color(0.9f,0.9f,0.9f,1f));
 		container.setShowFPS(false);
+		connect();
 	}
 
 
