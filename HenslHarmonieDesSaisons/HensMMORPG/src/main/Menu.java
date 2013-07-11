@@ -46,7 +46,7 @@ public class Menu extends BasicGameState implements ComponentListener {
 		quit.setMouseOverColor(new Color(0.9f,0.9f,0.9f,1f)); 
 
      	play = new MouseOverArea(container,new Image("image/play.png"), 350, 430, this);
-		play.setNormalColor(new Color(0.7f,0.7f,0.7f,1f));
+		play.setNormalColor(new Color(0.5f,0.4f,0.4f,1f));
 		play.setMouseOverColor(new Color(0.9f,0.9f,0.9f,1f));
 		container.setShowFPS(false);
 		connect();
