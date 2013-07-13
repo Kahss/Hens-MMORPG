@@ -1,13 +1,15 @@
-package principal;
+package main;
 import java.net.*;
 import java.util.Vector;
 import java.io.*;
 import javax.swing.*;
 
+import com.thoughtworks.xstream.XStream;
+
 public class SlickServer extends JFrame{
    
    private static final long serialVersionUID = 1L;
-   
+   public static XStream xstream ;
    JTextArea textArea;
    JScrollPane scrollPane;
    
@@ -44,6 +46,7 @@ public class SlickServer extends JFrame{
            new ServerThread(serverSocket.accept(), player, playerID, ss.textArea).start();
            playerID++;
            ss.textArea.append("Players: " + player.size() + "\n");
+           
         }
 
         serverSocket.close();

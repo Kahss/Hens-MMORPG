@@ -1,8 +1,8 @@
-package principal;
+package main;
 
-import principal.CreateCharacter;
-import principal.GameState;
-import principal.Menu;
+import main.CreateCharacter;
+import main.GameState;
+import main.Menu;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -27,7 +27,7 @@ public class Client extends StateBasedGame{
 	private CreateCharacter createCharacter;
  	public static  ClientThread ct;
    public static Vector<Player> players;
-   public static XStream xstream = new XStream();
+   	
    Player me;
    int ALL_KEYS = 0xFF;
    boolean keys[];
@@ -35,18 +35,6 @@ public class Client extends StateBasedGame{
    public Client()
     {
         super("Test Online Client - by William Starkovich");
-    }
-   
-  
-   
-   public void connect(){
-      String ip = JOptionPane.showInputDialog("Input server IP.");
-       ct = new ClientThread(ip);
-        ct.start();
-        //ct.setPriority(Thread.MAX_PRIORITY);
-        
-        me = ct.me;
-        players = ct.players;
     }
    
   
