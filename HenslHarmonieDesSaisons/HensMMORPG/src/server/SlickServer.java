@@ -1,8 +1,10 @@
-package main;
+package server;
 import java.net.*;
 import java.util.Vector;
 import java.io.*;
 import javax.swing.*;
+
+import principal.Player;
 
 import com.thoughtworks.xstream.XStream;
 

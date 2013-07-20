@@ -1,4 +1,4 @@
-package main;
+package principal;
 
 import java.io.Serializable;
 
@@ -14,9 +14,9 @@ import org.newdawn.slick.Input;
 
 public class Player implements Serializable{
    private static final long serialVersionUID = 1L;
-   int x;
-   int y;
-   int id;
+   public int x;
+   public int y;
+   public int id;
    private Input input;
    private Image  upleft, downright, downleft, upright, currentSprite,down,left,right,up;
    private int xChar,yChar,xMouse,yMouse,xGrid,yGrid;

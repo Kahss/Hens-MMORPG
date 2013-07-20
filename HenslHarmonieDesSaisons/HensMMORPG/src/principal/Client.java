@@ -1,8 +1,8 @@
-package main;
+package principal;
 
-import main.CreateCharacter;
-import main.GameState;
-import main.Menu;
+import principal.CreateCharacter;
+import principal.GameState;
+import principal.Menu;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;

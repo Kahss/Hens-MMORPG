@@ -1,4 +1,4 @@
-package main;
+package principal;
 
 
 import java.util.Vector;
@@ -36,9 +36,11 @@ public class GameState extends BasicGameState{
 		d=0;
 		invd=0;
 		invc=0;
-		input = container.getInput();
+		input = container.getInput(); 
 		me = new Player(x, y ,id ,input);
-	        me.init();
+        me.init();
+		Client.players = new Vector<Player>();
+	
 		container.setShowFPS(false);
 		
 	}
@@ -64,8 +66,6 @@ public class GameState extends BasicGameState{
     	Client.players = new Vector<Player>();
         c=xMouse;
     	d=yMouse;
-    	
-    	Client.players = Client.ct.players;
 	    	if ( input.isKeyPressed(Input.KEY_ESCAPE))
 	         {
 	             System.exit(0);

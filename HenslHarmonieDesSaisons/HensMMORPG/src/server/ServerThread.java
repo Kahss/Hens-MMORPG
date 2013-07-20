@@ -1,4 +1,4 @@
-package main;
+package server;
 
 import java.io.ObjectOutputStream;
 import java.net.*;
@@ -7,6 +7,8 @@ import java.io.*;
 import javax.swing.*;
 
 import org.newdawn.slick.Input;
+
+import principal.Player;
 
 public class ServerThread extends Thread implements Runnable{
    int playerID;
