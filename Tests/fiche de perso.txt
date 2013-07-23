@@ -1,0 +1,17 @@
+STR Pseudo
+STR Compte posséseur
+int niveau
+float HP
+float harmonie(mana)
+float HP régen 
+float Har régén
+float puissance
+float défense
+float vitesse ( réduction des temps de lancement) 
+float concentration ( cdr)
+array int skin (un tableau de int suffit)
+array int ou dimension (deux valeurs) position case (duo de int ( en tableau))
+position map (int ID)
+... ( si on ajoute, esquive, renvoi fixe, dégat fixe etc... )
+
+[je te laisse gérer l'inventaire]
