@@ -48,7 +48,7 @@ public class SlickServer extends JFrame{
            new ServerThread(serverSocket.accept(), player, playerID, ss.textArea).start();
            playerID++;
            ss.textArea.append("Players: " + player.size() + "\n");
-           
+         
         }
 
         serverSocket.close();
