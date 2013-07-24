@@ -1,4 +1,4 @@
-package principal;
+package game;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
@@ -23,8 +23,8 @@ public class Menu extends BasicGameState implements ComponentListener {
 	private MouseOverArea quit; 
 	private MouseOverArea play;
 	ClientThread ct;
-	 Vector<principal.Player> players;
-	   principal.Player me;
+	 Vector<game.Player> players;
+	   game.Player me;
 	   int ALL_KEYS = 0xFF;
 	
 	public void connect(){

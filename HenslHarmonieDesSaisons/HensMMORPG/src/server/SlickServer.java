@@ -4,7 +4,7 @@ import java.util.Vector;
 import java.io.*;
 import javax.swing.*;
 
-import principal.Player;
+import game.Player;
 
 import com.thoughtworks.xstream.XStream;
 

@@ -1,4 +1,4 @@
-package principal;
+package game;
 
 import java.util.Scanner;
 
@@ -69,7 +69,7 @@ public class CreateCharacter extends BasicGameState implements ComponentListener
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 	
-		g.drawString("Bienvenue dans la création de personnage!!", 50, 20);
+		g.drawString("Bienvenue dans la crï¿½ation de personnage!!", 50, 20);
 		
 		g.setBackground(Color.gray);
 	    if(Type==0){g.drawString("Veuillez choisir la classe de votre personnage", 50, 90);
@@ -90,7 +90,7 @@ public class CreateCharacter extends BasicGameState implements ComponentListener
 	    	ValidName.render(container, g);
 	    	if(name!=null){
 	    		if(name=="Rubis"){
-	    			g.drawString("Veuillez choisir un autre prénom", 50, 350);
+	    			g.drawString("Veuillez choisir un autre prï¿½nom", 50, 350);
 	    		}
 	    		else{
 	    			g.drawString("vous avez choisi"+name, 50, 400);
@@ -114,7 +114,7 @@ public class CreateCharacter extends BasicGameState implements ComponentListener
 	    	
 	    	if(name!=null){
 	    		if(name=="Rubis"){
-	    			g.drawString("Veuillez choisir un autre prénom", 50, 350);
+	    			g.drawString("Veuillez choisir un autre prï¿½nom", 50, 350);
 	    		}
 	    		else{
 	    			g.drawString("vous avez choisi "+name, 50, 400);
@@ -134,7 +134,7 @@ public class CreateCharacter extends BasicGameState implements ComponentListener
 	    	ValidName.render(container, g);
 	    	if(name!=null){
 	    		if(name=="Rubis"){
-	    			g.drawString("Veuillez choisir un autre prénom", 50, 350);
+	    			g.drawString("Veuillez choisir un autre prï¿½nom", 50, 350);
 	    		}
 	    		else{
 	    			g.drawString("vous avez choisi "+name, 50, 400);
@@ -153,7 +153,7 @@ public class CreateCharacter extends BasicGameState implements ComponentListener
 	    	ValidName.render(container, g);
 	    	if(name!=null){
 	    		if(name=="Rubis"){
-	    			g.drawString("Veuillez choisir un autre prénom", 50, 350);
+	    			g.drawString("Veuillez choisir un autre prï¿½nom", 50, 350);
 	    		}
 	    		else{
 	    			g.drawString("vous avez choisi "+name, 50, 400);

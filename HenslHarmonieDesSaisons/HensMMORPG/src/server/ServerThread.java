@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import org.newdawn.slick.Input;
 
-import principal.Player;
+import game.Player;
 
 public class ServerThread extends Thread implements Runnable{
    int playerID;

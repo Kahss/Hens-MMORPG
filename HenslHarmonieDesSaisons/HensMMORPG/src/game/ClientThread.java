@@ -1,4 +1,4 @@
-package principal;
+package game;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

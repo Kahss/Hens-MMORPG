@@ -1,4 +1,4 @@
-package principal;
+package game;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -18,7 +18,7 @@ public class FirstGame extends StateBasedGame {
 		
 	}
 
-	 public static void principal(String[] args) throws SlickException {
+	 public static void game(String[] args) throws SlickException {
 		 		AppGameContainer container = new AppGameContainer(new FirstGame("Hens L'harmonie des Saisons"));
 	            container.setDisplayMode(1024, 768, false);
 	            container.setTargetFrameRate(60);
