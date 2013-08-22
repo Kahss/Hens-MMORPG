@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="isometric" width="24" height="24" tilewidth="128" tileheight="64">
+ <tileset name="Sans titre" firstgid="1" tilewidth="128" tileheight="64">
+  <image source="ressources/sol.png" trans="ffffff"/>
+ </tileset>
+ <tileset name="Sans titre" firstgid="37" tilewidth="128" tileheight="64">
+  <image source="ressources/arbres1.png" trans="ee2171"/>
+ </tileset>
+ <tileset name="Sans titre" firstgid="165" tilewidth="128" tileheight="64">
+  <image source="ressources/fleurs.png" trans="ed1c35"/>
+ </tileset>
+ <tileset name="Sans titre" firstgid="237" tilewidth="128" tileheight="64">
+  <image source="ressources/batimentsulimo.png" trans="ed1666"/>
+ </tileset>
+ <layer name="sol" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAHWWbY6DMAxEQ0AyaTmFe/87bpE86uus+8NayMcbZ+zQzTFGvmO+Y1Xc70+LrHghNPeo/Q9EVCS4CxxpBJ41v1VQ5+bvGLs1LuNNRNYanm3iLC/oPLFvBzuMK+YEW+dfmAswO42Fv/QnoZPFud9HzQ/4m42OcrgsZ+bWheoQxdH59P4c3/Xdbb/Yq2EH8l9YM6Axx6fOW42J6bVN40g3sH+axoTGBl3WZJpOgDuQp/ILjLm3W3nEezOxXjlvNh7G0Rnl92Wayj9tD70hc5TmaOq0N+s9H/Wc58u8eCadUcH76/pcR34UXxrqc7EvrJGG9us5TYd9rrkL7O3Hc+dZQsN7ZGtYF7T8zOq3KPaOd+d7Lzpv2vj5jgMa9KerLRmKZWsOaJzj+45rnP6T5feoq3sYP8A/G++p5XdrNmx6r/zlvWqW4/t7/Msj/0b5Hed3ixpin5aj+Idp8ndJPcJn3jX2v3JyHfLdK/Ylgzpno9HVkKF1Cf4Bz+n7aRq/+AlvHuN/T6sW/n/JH3ok0LEACQAA
+  </data>
+ </layer>
+ <layer name="case bloquante" width="24" height="24">
+  <properties>
+   <property name="casebloquante" value="blocsquare"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2Stw2AQBTFuKkIBSMQdyDuQNyBOAUbUuAGCQqkDwU6N5au8CvuG4ZGc8ZRh2Ml37ZpRrgU3LBohbjAvcCGSSPAOe7wKrDh08hwixeBtkcjxQ2eBdouTmjVeMKb4B9XtMabpnv9/IjhhbvXfI/ELWj+zQ7snaGWAAkAAA==
+  </data>
+ </layer>
+ <layer name="objet" width="24" height="24" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXkgkcD7YBRMArQwMmBdgCVwKaBdgAdwFDw4z4CfFraRWtArfIblufo7X5ageHiD2IAALJ+Y+0ACQAA
+  </data>
+ </layer>
+ <layer name="perso" width="24" height="24" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BAQEAAACCIP+vbkhAAQB8GfAKkrAACQAA
+  </data>
+ </layer>
+ <layer name="frange" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2Stw2AQBAEIcIVgZPIgAjfAwn914CpgGRISHhe9xIINplsdnU6y/pGNhjY8u4V+rhTwY4FejgTOAh0zNDFFcMeTgIdDo4IdgbuH+JsBd0ZLGFjYHcB6wv3eYtK8sMNx4uOY0tzo6PS3GIiqlveHp1fuBudX1DN/wt/npQdA1IDlQAJAAA=
+  </data>
+ </layer>
+ <layer name="frange2" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYGgCNkba2yFHBztGwSgYBaNgFNAfAAAnx+UHAAkAAA==
+  </data>
+ </layer>
+</map>
