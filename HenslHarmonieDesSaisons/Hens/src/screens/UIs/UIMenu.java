@@ -24,6 +24,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
+import java.net.URL;
+
 public class UIMenu extends Stage {
 	
 	private String verifs;
@@ -84,7 +86,6 @@ private void logins(){
 		public void changed (ChangeEvent event, Actor actor) {
 			String compteInput=compteField.getText();
 			String mdpInput=mdpField.getText();
-			String initialPath = "C:/Users/Thibaut/Desktop/Workspace/Hens-android/assets/";
 			Compte compteLoaded =xStreamUtil.loadCompte(compteInput);
 			Compte compteTest=new Compte(compteInput,mdpInput);
 			if(compteLoaded.getMdp().equals(compteTest.getMdp())){
