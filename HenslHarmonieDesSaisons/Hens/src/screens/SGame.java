@@ -74,13 +74,13 @@ public class SGame implements Screen {
 				
 		batch.begin();
 		
-<<<<<<< HEAD
+
 		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
 		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0); //cheveux ulmo
-=======
+
 		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0);
 		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0);
->>>>>>> c990719e5fa114f1cb683c70dc2b6de87d8b30f5
+
 		xCurrentV.draw(batch, "xCurrent : " + String.valueOf(xCurrent),10,120);
 		yCurrentV.draw(batch, "yCurrent : " + String.valueOf(yCurrent),10,100);
 		xFinalV.draw(batch, "xFinal : " + String.valueOf(xFinal),10,80);
@@ -90,11 +90,11 @@ public class SGame implements Screen {
 		
 		batch.end();
 		
-<<<<<<< HEAD
+
 		renderer.render(layersTop); //couches supérieures de la map
-=======
+
 		renderer.render(layersTop);
->>>>>>> c990719e5fa114f1cb683c70dc2b6de87d8b30f5
+
 		xClic=keyBinding.getX();
 		yClic=keyBinding.getY();
 		camera.position.y=getY1();
