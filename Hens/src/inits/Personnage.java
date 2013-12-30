@@ -1,17 +1,19 @@
 package inits;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Personnage {
+public class Personnage extends Entite {
 
 	// Les attributs
 	
 	private String pseudo;
 	private String owner;
 	private int sexe;
-	
 	private int niveau;
 	private float vie;
 	private float harmonie;
@@ -31,17 +33,17 @@ public class Personnage {
 	float vitesseCurrent;
 	float concentrationCurrent;
 	
-	int[] skin;
-	int[] pos;
+	List<Integer> skin;
+	List<Integer> pos;
 	int mapID;
 	int direction;
 	int orientation;
 	int hairChosen,bodyChosen,hatChosen,animation,animSelec;	
 	Texture bodySkin;
-	TextureRegion body;
+	private TextureRegion body;
 	// Les getters et setters (merci la génération automatique *o* !) 
 	
-	public void loadCurrentSkin(){
+	public TextureRegion loadCurrentBody(int ori){
 		if(sexe==0){
 			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 			}
@@ -50,30 +52,9 @@ public class Personnage {
 			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 			}
 		
-		switch(direction){
-		case 0: orientation=00;break;
-		case 1: orientation=300;break;
-		case 2: orientation=600;break;
-		case 3: orientation=900;break;
-		case 4: orientation=1200;break;
-		case 5: orientation=1500;break;
-		case 6: orientation=1800;break;
-		case 7: orientation=2100;break;
-		}
-	
-		
-		switch(skin[0]){
-		case 1: orientation=300;break;
-		case 2: orientation=600;break;
-		case 3: orientation=900;break;
-		case 4: orientation=1200;break;
-		case 5: orientation=1500;break;
-		case 6: orientation=1800;break;
-		case 7: orientation=2100;break;
-		}
-
-		body.setRegion(orientation,0,300,300);
-		
+		setBody(new TextureRegion(bodySkin));
+		getBody().setRegion(ori,0,300,300);
+		return getBody();
 	}
 	
 	public String getPseudo() {
@@ -228,21 +209,6 @@ public class Personnage {
 		this.concentrationCurrent = concentrationCurrent;
 	}
 
-	public int[] getSkin() {
-		return skin;
-	}
-
-	public void setSkin(int[] skin) {
-		this.skin = skin;
-	}
-
-	public int[] getPos() {
-		return pos;
-	}
-
-	public void setPos(int[] pos) {
-		this.pos = pos;
-	}
 
 	public int getMapID() {
 		return mapID;
@@ -278,8 +244,8 @@ public class Personnage {
 		float vitesseCurrent,
 		float concentrationCurrent,
 		
-		int[] skin,
-		int[] pos,
+		List<Integer> skin,
+		List<Integer> pos,
 		int mapID) {
 		
 		this.pseudo = pseudo;
@@ -314,8 +280,44 @@ public class Personnage {
 		this.mapID = mapID;
 	}
 	
+	public List<Integer> getSkin() {
+		return skin;
+	}
+
+	public void setSkin(List<Integer> skin) {
+		this.skin = skin;
+	}
+
+	public List<Integer> getPos() {
+		return pos;
+	}
+
+	public void setPos(List<Integer> pos) {
+		this.pos = pos;
+	}
+
 	public Personnage(){
 		
 	
+	}
+
+
+	public TextureRegion loadCurrentHair(int selec, int ori) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public TextureRegion loadCurrentHabit(int selec, int ori) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TextureRegion getBody() {
+		return body;
+	}
+
+	public void setBody(TextureRegion body) {
+		this.body = body;
 	}
 }

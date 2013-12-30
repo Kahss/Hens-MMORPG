@@ -21,8 +21,6 @@ public class SMenu implements Screen {
 	private SpriteBatch batch;
 	private Texture fond,GUI,fondCreaChar,fond2CreaChar;
 	private Sprite sprite,sFondUlmo;
-
-	CreateChar createChar;
 	private game.Hens hens;
 	private UIMenu stage;
 	
@@ -36,6 +34,7 @@ public class SMenu implements Screen {
 		stage = new UIMenu(this);
 		stage.loadUI();
 		Gdx.input.setInputProcessor(stage);
+		
 	}
 	@Override
 	public void render(float delta) {
@@ -49,15 +48,12 @@ public class SMenu implements Screen {
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 		
-		if(Gdx.input.isKeyPressed(Keys.C)){
-			getHens().setScreen(getHens().sCreateChar);
-		}
 	}
 	
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

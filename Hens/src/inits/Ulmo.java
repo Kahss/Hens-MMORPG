@@ -1,5 +1,9 @@
 package inits;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -21,7 +25,7 @@ public class Ulmo extends Personnage {
 			float vieCurrent, float harmonieCurrent, float vieRegenCurrent,
 			float harRegenCurrent, float puissanceCurrent,
 			float defenseCurrent, float vitesseCurrent,
-			float concentrationCurrent, int[] skin, int[] pos, int mapID) {
+			float concentrationCurrent, List<Integer> skin,  List<Integer> pos, int mapID) {
 		super(pseudo, owner, niveau, vie, harmonie, vieRegen, harRegen, puissance,
 				defense, vitesse, concentration, vieCurrent, harmonieCurrent,
 				vieRegenCurrent, harRegenCurrent, puissanceCurrent, defenseCurrent,
@@ -35,10 +39,14 @@ public class Ulmo extends Personnage {
 
 
 	@Override
-	public void loadCurrentSkin() {
-		super.loadCurrentSkin();
-		hairSkin=new Texture(Gdx.files.internal("data/Skins/COUPE_ULMOFILLE.png"));
-		switch(skin[1]){
+	public TextureRegion loadCurrentHair(int selec,int ori) {
+		hairSkin=new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		List<Integer> skin= new ArrayList<Integer>(5);
+		skin.add(0);
+		skin.add(0);
+	
+		skin.set(1, selec);
+		switch(skin.get(1)){
 		case 1: hairChosen=300;break;
 		case 2: hairChosen=600;break;
 		case 3: hairChosen=900;break;
@@ -48,7 +56,14 @@ public class Ulmo extends Personnage {
 		case 7: hairChosen=2100;break;
 		}
 		
-		switch(skin[2]){
+		hair = new TextureRegion(hairSkin);
+		hair.setRegion(ori,hairChosen,300,300);
+		return hair;
+	}
+	
+	public TextureRegion loadCurrentHat(int ori){
+	
+		switch(skin.get(2)){
 		case 1: hatChosen=0;break;
 		case 2: hatChosen=300;break;
 		case 3: hatChosen=600;break;
@@ -57,9 +72,16 @@ public class Ulmo extends Personnage {
 		case 6: hatChosen=1800;break;
 		case 7: hatChosen=2100;break;
 		}
-		
-		hair.setRegion(orientation,hairChosen,300,300);
-		
+		return hat;
+	}
+
+	public TextureRegion getHair() {
+		return hair;
+	}
+
+
+	public void setHair(TextureRegion hair) {
+		this.hair = hair;
 	}
 
 

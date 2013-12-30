@@ -1,10 +1,13 @@
 package screens.UIs;
 
+import java.io.IOException;
+
 import screens.SCreateChar;
 import screens.SCreateSkin;
 import game.Hens;
 import inits.Anar;
 import inits.Personnage;
+import inits.util.XStreamUtil;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -28,10 +31,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class UICreateChar extends Stage {
 	Skin skin;
-	private Personnage me1,me;
 	Table table;
 	 TextButton sulimoButton,ulmoButton,anarButton,wilwarButton,validName; 
 	private TextField enterNameField;
@@ -40,6 +44,14 @@ public class UICreateChar extends Stage {
 	private int classSelected,classeVerif;
 	
 	
+public SCreateChar getsCreateChar() {
+		return sCreateChar;
+	}
+
+	public void setsCreateChar(SCreateChar sCreateChar) {
+		this.sCreateChar = sCreateChar;
+	}
+
 public void loadUI(){
 	skin = new Skin();
 	Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
@@ -72,8 +84,8 @@ public void loadUI(){
 	nameField();
 }
 
-public UICreateChar(SCreateChar sCreateChar){
-	this.sCreateChar = sCreateChar;
+public UICreateChar(SCreateChar sCreateChar1){
+	this.sCreateChar = sCreateChar1;
 	
 }
 
@@ -177,19 +189,20 @@ public void nameField(){
 			name=enterNameField.getText();
 			switch(classSelected){
 			case 1:
-				sCreateChar.CreatePersonnage(name,"Wilwar","Scaramento");
+				sCreateChar.CreatePersonnage(name,"Wilwar",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
 			case 2:
-				sCreateChar.CreatePersonnage(name,"Anar","Scaramento");
+				sCreateChar.CreatePersonnage(name,"Anar",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
 			case 3: 
-				sCreateChar.CreatePersonnage(name,"Sulimo","Scaramento");
+				sCreateChar.CreatePersonnage(name,"Sulimo",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
 			case 4:
-				sCreateChar.CreatePersonnage(name,"Ulmo","Scaramento");
+				sCreateChar.CreatePersonnage(name,"Ulmo",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
-				
+
 			}
+		
 		}
 		});
 	table.row();
@@ -198,8 +211,16 @@ public void nameField(){
 	table.add(validChar);
 	validChar.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-
-			sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar,classeVerif));
+			sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
+			try{
+			
+				XStreamUtil xStreamCreator= new XStreamUtil();
+				xStreamCreator.createChar(sCreateChar.getMe().getPseudo());
+				xStreamCreator.saveAccount(sCreateChar.getMyCompte());
+				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe()));
+			} catch (IOException e) {			
+				e.printStackTrace();
+			}
 			System.out.println("ça marche?");
 		
 		}

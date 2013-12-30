@@ -1,9 +1,16 @@
 package screens.UIs;
 
+import inits.util.XStreamUtil;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import screens.SCreateCaractere;
 import screens.SCreateSkin;
 import screens.SGame;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,20 +29,25 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class UICreateSkin extends Stage {
-	SCreateSkin sCreateSkin;
+	private SCreateSkin sCreateSkin;
 	Skin	skinUICreaSkin;
 	TextButton boxHair1, boxHair2, boxHair3,
 	boxHabit1,boxHabit2,boxHabit3,
 	turnSkinRight,turnSkinLeft,goToCar, goToGame;
 	Table table;
 	Label titre, tHair,tHabit;
+	XStream xstream = new XStream ( new DomDriver());
+	
 	public UICreateSkin(SCreateSkin sCreateSkin) {
-		this.sCreateSkin=sCreateSkin;
+		this.setsCreateSkin(sCreateSkin);
+		sCreateSkin.setMe(this.getsCreateSkin().getMe());
 	}
 	
-public void loadUI(){
+public void loadUI() {
 	skinUICreaSkin=new Skin();
 	Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
 	pixmap.setColor(Color.WHITE);
@@ -97,17 +109,20 @@ private void boxHair(){
 		boxHair3=new TextButton("Cheveux3",skinUICreaSkin.get("default",TextButtonStyle.class));
 	boxHair1.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateSkin.setHairSelection(1);	
+			getsCreateSkin().setHairSelection(0);	
+			sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getHairSelection(),sCreateSkin.getSkinPos()));
 		}	
 	});
 	boxHair2.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateSkin.setHairSelection(2);		
+			getsCreateSkin().setHairSelection(1);	
+			sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getHairSelection(),sCreateSkin.getSkinPos()));
 		}
 	});
 	boxHair3.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateSkin.setHairSelection(3);		
+			getsCreateSkin().setHairSelection(2);		
+			sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getHairSelection(),sCreateSkin.getSkinPos()));
 		}
 	});
 }
@@ -122,27 +137,32 @@ private void rotateSkin(){
 	turnSkinRight=new TextButton("Rotate right",skinUICreaSkin.get("default",TextButtonStyle.class));
 	turnSkinLeft=new TextButton("Rotate left",skinUICreaSkin.get("default",TextButtonStyle.class));
 	turnSkinLeft.addListener(new ChangeListener() {
-		public void changed (ChangeEvent event, Actor actor) {
-			if(sCreateSkin.getSkinPos()>=0){
-				sCreateSkin.setSkinPos(sCreateSkin.getSkinPos()-1);
+		public void changed (ChangeEvent event, Actor actor) {	
+			if(getsCreateSkin().getSkinPos()>=0){
+				getsCreateSkin().setSkinPos(getsCreateSkin().getSkinPos()-300);
 			}
-			if(sCreateSkin.getSkinPos()==-1){
-				sCreateSkin.setSkinPos(7);
+			if(getsCreateSkin().getSkinPos()==-300){
+				getsCreateSkin().setSkinPos(2100);
 			}
 			System.out.println("allo?")	;	
+			sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getHairSelection(),sCreateSkin.getSkinPos()));
+			sCreateSkin.setBodyCurrent(sCreateSkin.getMe().loadCurrentBody(sCreateSkin.getSkinPos()));
 		}	
 		});
 
 turnSkinRight.addListener(new ChangeListener() {
 	public void changed (ChangeEvent event, Actor actor) {
-		if(sCreateSkin.getSkinPos()<=7){
-			sCreateSkin.setSkinPos(sCreateSkin.getSkinPos()+1);
+		if(getsCreateSkin().getSkinPos()<=2100){
+			getsCreateSkin().setSkinPos(getsCreateSkin().getSkinPos()+300);
 		}
-		if(sCreateSkin.getSkinPos()==8){
-			sCreateSkin.setSkinPos(0);
+		if(getsCreateSkin().getSkinPos()==2400){
+			getsCreateSkin().setSkinPos(0);
 		}
 		System.out.println("allo?");
+		sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getHairSelection(),sCreateSkin.getSkinPos()));
+		sCreateSkin.setBodyCurrent(sCreateSkin.getMe().loadCurrentBody(sCreateSkin.getSkinPos()));
 	}	
+	
 	});
 }
 
@@ -156,22 +176,30 @@ private void goToCaractere(){
 	goToCar=new TextButton("Définir son caractére",skinUICreaSkin.get("default",TextButtonStyle.class));
 	goToCar.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateSkin.getHens().setScreen(new SCreateCaractere(sCreateSkin.getHens(),1));
+			getsCreateSkin().getHens().setScreen(new SCreateCaractere(getsCreateSkin().getHens(),1));
 		}	
 		});
 }
 
 private void goToGame(){
+
 	goToGame=new TextButton("Go!",skinUICreaSkin.get("default",TextButtonStyle.class));
 	goToGame.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateSkin.getHens().setScreen(new SGame(sCreateSkin.getHens(),sCreateSkin.getMe()));
+			getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
 		}	
 		});
 
-
+	
 }
 
+public SCreateSkin getsCreateSkin() {
+	return sCreateSkin;
 }
+
+public void setsCreateSkin(SCreateSkin sCreateSkin) {
+	this.sCreateSkin = sCreateSkin;
+}}
+
 		
 

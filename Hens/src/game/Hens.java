@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import screens.SCreateSkin;
 import screens.SMenu;
-import screens.CreateChar;
 import screens.SCreateChar;
 
 
@@ -22,7 +21,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 
 public class Hens extends Game {
-	public CreateChar createChar;
 	public SMenu smenu;
 	public SCreateChar sCreateChar;
 	private OrthographicCamera camera;

@@ -1,5 +1,7 @@
 package inits;
 
+import java.util.List;
+
 public class Sulimo extends Personnage {
 	private int Solitaire;
 	private int Libre;
@@ -13,7 +15,7 @@ public class Sulimo extends Personnage {
 			float vieCurrent, float harmonieCurrent, float vieRegenCurrent,
 			float harRegenCurrent, float puissanceCurrent,
 			float defenseCurrent, float vitesseCurrent,
-			float concentrationCurrent, int[] skin, int[] pos, int mapID) {
+			float concentrationCurrent, List<Integer> skin,  List<Integer> pos, int mapID) {
 		super(pseudo, owner, niveau, vie, harmonie, vieRegen, harRegen, puissance,
 				defense, vitesse, concentration, vieCurrent, harmonieCurrent,
 				vieRegenCurrent, harRegenCurrent, puissanceCurrent, defenseCurrent,

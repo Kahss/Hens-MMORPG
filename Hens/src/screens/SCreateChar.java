@@ -16,9 +16,13 @@
 
 package screens;
 
+import java.util.List;
+
 import screens.UIs.UICreateChar;
 import game.Hens;
 import inits.*;
+import inits.util.XStreamUtil;
+
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
@@ -35,16 +39,17 @@ public class SCreateChar implements Screen  {
 	
 	UICreateChar stage;
 	SpriteBatch batch;
-	Personnage me;
+	private Personnage me;
 	Texture GUI,fondCreaChar,fondCreaChar2;
 	TextureRegion fondAnar, fondUlmo,fondWilwar,fondSulimo;
  	private Sprite sFond;
 	private Hens hens;
 	public String verifs;
+	private Compte myCompte;
 
-
- 	public SCreateChar(Hens hens){
+ 	public SCreateChar(Hens hens,Compte compte){
  		this.setHens(hens);
+ 		this.setMyCompte(compte);
 		batch = new SpriteBatch();
 		stage = new UICreateChar(this);
 		textureLoad();
@@ -63,6 +68,7 @@ public class SCreateChar implements Screen  {
 		
 
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+		stage.setsCreateChar(this);
 		stage.draw();
 		Table.drawDebug(stage);
 		
@@ -73,25 +79,26 @@ public class SCreateChar implements Screen  {
 		if(Gdx.input.isKeyPressed(Keys.N)){
 			verif.draw(batch,"Un Anarien à été crée, son nom est ",50,20);
 			sFond = new Sprite(fondUlmo);
+			
 		}
 		
-		if(me!=null){
+		if(getMe()!=null){
 			if(verifs.equals("Anar")){
-				verif.draw(batch,"Un Anarien à été crée, son nom est "+me.getPseudo(),10,20);
+				verif.draw(batch,"Un Anarien à été crée, son nom est "+getMe().getPseudo(),10,20);
 		
 			}
 			
 			if(verifs.equals("Wilwar")){
-				verif.draw(batch,"Un Wilwarien à été crée, son nom est "+me.getPseudo(),10,20);
+				verif.draw(batch,"Un Wilwarien à été crée, son nom est "+getMe().getPseudo(),10,20);
 			
 			}
 			
 			if(verifs.equals("Sulimo")){
-				verif.draw(batch,"Un Sulimois à été crée, son nom est "+me.getPseudo(),10,20);
+				verif.draw(batch,"Un Sulimois à été crée, son nom est "+getMe().getPseudo(),10,20);
 			
 			}
 			if(verifs.equals("Ulmo")){
-				verif.draw(batch,"Un Ulmois à été crée, son nom est "+me.getPseudo(),10,20);
+				verif.draw(batch,"Un Ulmois à été crée, son nom est "+getMe().getPseudo(),10,20);
 		
 			}
 			else{
@@ -163,24 +170,23 @@ public void resume() {
 public void CreatePersonnage(String Name, String Classe,  String NdCompte ){
 	int lvl,map;
 	float vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC;
-	int[] skin,pos;
+	List<Integer> skin = null;
+	List<Integer> pos =null;
 	lvl=1;
 		verifs=Classe;
 		vie=60;	har=80;	vieR=1;	harR=8;
 		puis=0; def=8; vit=100; conc=0;
 		vieC=60; harC=60; vieRC=1; harRC=8;
 		puisC=0; defC=8; vitC=100; concC=0; 
-		skin=new int[5]; pos=new int[2];
-		skin[0]=1;		pos[0]=1;
 		map=45;
 		if(Classe.equals("Anar"))
-		 me = new Anar (Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map);
+		 setMe(new Anar (Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Ulmo"))
-		 me = new Ulmo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map);
+		 setMe(new Ulmo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Wilwar"))
-		 me = new Wilwar(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map);
+		 setMe(new Wilwar(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Sulimo"))
-		 me = new Sulimo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map);
+		 setMe(new Sulimo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 }
 
 public TextureRegion getFondAnar() {
@@ -229,6 +235,22 @@ public Hens getHens() {
 
 public void setHens(Hens hens) {
 	this.hens = hens;
+}
+
+public Personnage getMe() {
+	return me;
+}
+
+public void setMe(Personnage me) {
+	this.me = me;
+}
+
+public Compte getMyCompte() {
+	return myCompte;
+}
+
+public void setMyCompte(Compte myCompte) {
+	this.myCompte = myCompte;
 }
 
 }

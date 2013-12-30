@@ -1,0 +1,42 @@
+<inits.Compte>
+  <nomDeCompte>Annick</nomDeCompte>
+  <mdp>mot de passe</mdp>
+  <initialPath>C:/Users/Thibaut/Desktop/Workspace/Hens-android/assets/</initialPath>
+  <createdChar>
+    <inits.Ulmo>
+      <pseudo>Machin</pseudo>
+      <owner>Annick</owner>
+      <sexe>0</sexe>
+      <niveau>1</niveau>
+      <vie>60.0</vie>
+      <harmonie>80.0</harmonie>
+      <vieRegen>1.0</vieRegen>
+      <harRegen>8.0</harRegen>
+      <puissance>0.0</puissance>
+      <defense>8.0</defense>
+      <vitesse>100.0</vitesse>
+      <concentration>0.0</concentration>
+      <vieCurrent>60.0</vieCurrent>
+      <harmonieCurrent>60.0</harmonieCurrent>
+      <vieRegenCurrent>1.0</vieRegenCurrent>
+      <harRegenCurrent>8.0</harRegenCurrent>
+      <puissanceCurrent>0.0</puissanceCurrent>
+      <defenseCurrent>8.0</defenseCurrent>
+      <vitesseCurrent>100.0</vitesseCurrent>
+      <concentrationCurrent>0.0</concentrationCurrent>
+      <mapID>45</mapID>
+      <direction>0</direction>
+      <orientation>0</orientation>
+      <hairChosen>0</hairChosen>
+      <bodyChosen>0</bodyChosen>
+      <hatChosen>0</hatChosen>
+      <animation>0</animation>
+      <animSelec>0</animSelec>
+      <Calme>0</Calme>
+      <Lunatique>0</Lunatique>
+      <Vagabond>0</Vagabond>
+      <Altruiste>0</Altruiste>
+      <classe>Ulmo</classe>
+    </inits.Ulmo>
+  </createdChar>
+</inits.Compte>

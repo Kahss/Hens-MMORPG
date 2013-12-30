@@ -1,5 +1,7 @@
 package screens;
 
+import java.io.IOException;
+
 import inits.Personnage;
 import screens.UIs.UICreateChar;
 import screens.UIs.UICreateSkin;
@@ -18,62 +20,85 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox.CheckBoxStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class SCreateSkin implements Screen {
 	Hens hens;
 	UICreateSkin stage;
 	SpriteBatch batch;
 	Skin skinCreaSkin;
-	SCreateChar sCreateChar;
 	Texture ulmoBody, ulmoHair,ulmoHabit;
-	TextureRegion ulmoBody1,ulmoHair1,ulmoBodyCurrent,ulmoHairCurrent;
+	TextureRegion ulmoBody1,ulmoHair1,bodyCurrent,hairCurrent,habitCurrent;
 	private int classe;
 	private int skinPos,hairSelection;
 	int orientation,hairChosen;
 	private Personnage me;
 
+
 	
-public SCreateSkin (Hens hens, SCreateChar sCreateChar,int classe){
+public SCreateSkin (Hens hens, Personnage meselec) throws IOException{
 	this.setClasse(classe);
-	this.sCreateChar=sCreateChar;
 	this.hens=hens;
+	this.me=meselec;
 	batch = new SpriteBatch();
 	stage = new UICreateSkin(this);
 	textureLoad();
 	stage.loadUI();	
 	Gdx.input.setInputProcessor(stage);
-	ulmoBodyCurrent=ulmoBody1;
-	ulmoHairCurrent=ulmoHair1;
-	skinPos=4;
-	setMe(sCreateChar.me);
-
+	skinPos=600;
+	bodyCurrent=me.loadCurrentBody(skinPos);
+	hairCurrent=me.loadCurrentHair(hairSelection, skinPos);
 }
 	
 
 	@Override
 	public void render(float delta) {
 		// TODO Auto-generated method stub
-		
-		switch(getClasse()){
-		case 1:Gdx.gl.glClearColor(0.3f, 0.35f, 0.3f, 1);
-		break;
-		case 2:Gdx.gl.glClearColor(0.35f, 0.3f, 0.3f, 1);
-		break;
-		case 3:Gdx.gl.glClearColor(0.34f, 0.34f, 0.3f, 1);
-		break;
-		case 4:Gdx.gl.glClearColor(0.3f, 0.3f, 0.35f, 1);
-		break;
-		}
-		
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClearColor(0.3f, 0.35f, 0.3f, 1);
 		batch.begin();
-		batch.draw(ulmoBodyCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
-		batch.draw(ulmoHairCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
+	
+		//habitCurrent=me.loadCurrentHabit();
+		batch.draw(bodyCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
+		batch.draw(hairCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
+		//batch.draw(habitCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
 		batch.end();
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
-		loadCurrentSkin();
+		stage.setsCreateSkin(this);
+	
 	}
+
+	public TextureRegion getBodyCurrent() {
+		return bodyCurrent;
+	}
+
+
+	public void setBodyCurrent(TextureRegion bodyCurrent) {
+		this.bodyCurrent = bodyCurrent;
+	}
+
+
+	public TextureRegion getHairCurrent() {
+		return hairCurrent;
+	}
+
+
+	public void setHairCurrent(TextureRegion hairCurrent) {
+		this.hairCurrent = hairCurrent;
+	}
+
+
+	public TextureRegion getHabitCurrent() {
+		return habitCurrent;
+	}
+
+
+	public void setHabitCurrent(TextureRegion habitCurrent) {
+		this.habitCurrent = habitCurrent;
+	}
+
 
 	public Hens getHens() {
 		return hens;
@@ -128,44 +153,7 @@ public SCreateSkin (Hens hens, SCreateChar sCreateChar,int classe){
 	ulmoBody1=new TextureRegion(ulmoBody,600,0,300,300);
 	
 }
-	public void loadCurrentSkin(){
-		switch(getSkinPos()){
-		case 0: orientation=00;break;
-		case 1: orientation=300;break;
-		case 2: orientation=600;break;
-		case 3: orientation=900;break;
-		case 4: orientation=1200;break;
-		case 5: orientation=1500;break;
-		case 6: orientation=1800;break;
-		case 7: orientation=2100;break;
-		}
 	
-		
-		switch(hairSelection){
-		case 1: hairChosen=0;break;
-		case 2: hairChosen=300;break;
-		case 3: hairChosen=600;break;
-		}
-		
-		ulmoBody1.setRegion(orientation, 0, 300, 300);
-		ulmoHair1.setRegion(orientation, hairChosen, 300, 300);
-	}
-	
-	public TextureRegion getUlmoBodyCurrent() {
-	return ulmoBodyCurrent;
-}
-
-public void setUlmoBodyCurrent(TextureRegion ulmoBodyCurrent) {
-	this.ulmoBodyCurrent = ulmoBodyCurrent;
-}
-
-public TextureRegion getUlmoHairCurrent() {
-	return ulmoHairCurrent;
-}
-
-public void setUlmoHairCurrent(TextureRegion ulmoHairCurrent) {
-	this.ulmoHairCurrent = ulmoHairCurrent;
-}
 
 
 public int getSkinPos() {
