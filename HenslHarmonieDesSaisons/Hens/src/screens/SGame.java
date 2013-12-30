@@ -56,17 +56,17 @@ public class SGame implements Screen {
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT); // nettoyer l'écran
 
 		 int[] layers ={0,1,2,3};
 		 int[] layersTop={4,5,6,7};
-		renderer.render(layers);
-		
+		renderer.render(layers); //couches inférieures de la map
+				
 		batch.begin();
-		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0);
-		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0);
+		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
+		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0); //cheveux ulmo
 		batch.end();
-		renderer.render(layersTop);
+		renderer.render(layersTop); //couches supérieures de la map
 		xClic=keyBinding.getX();
 		yClic=keyBinding.getY();
 		camera.position.y=getY1();

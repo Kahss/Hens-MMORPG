@@ -103,7 +103,7 @@ public void loadUI() {
 	
 	}
 	
-private void boxHair(){
+private void boxHair(){ // Choix des cheveux
 		boxHair1=new TextButton("Cheveux1",skinUICreaSkin.get("default",TextButtonStyle.class));
 		boxHair2=new TextButton("Cheveux2",skinUICreaSkin.get("default",TextButtonStyle.class));
 		boxHair3=new TextButton("Cheveux3",skinUICreaSkin.get("default",TextButtonStyle.class));
@@ -127,13 +127,13 @@ private void boxHair(){
 	});
 }
 	
-private void boxHabit(){
+private void boxHabit(){ //choix du chapeau
 	boxHabit1=new TextButton("Habits1",skinUICreaSkin.get("default",TextButtonStyle.class));
 	boxHabit2=new TextButton("Habits2",skinUICreaSkin.get("default",TextButtonStyle.class));
 	boxHabit3=new TextButton("Habits3",skinUICreaSkin.get("default",TextButtonStyle.class));
 }
 
-private void rotateSkin(){
+private void rotateSkin(){ // boutons pour orienter le skin
 	turnSkinRight=new TextButton("Rotate right",skinUICreaSkin.get("default",TextButtonStyle.class));
 	turnSkinLeft=new TextButton("Rotate left",skinUICreaSkin.get("default",TextButtonStyle.class));
 	turnSkinLeft.addListener(new ChangeListener() {

@@ -61,6 +61,27 @@ public class Ulmo extends Personnage {
 		return hair;
 	}
 	
+	public void hairUpdate(int selec,int ori) {
+		hairSkin=new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		List<Integer> skin= new ArrayList<Integer>(5);
+		skin.add(0);
+		skin.add(0);
+	
+		skin.set(1, selec);
+		switch(skin.get(1)){
+		case 1: hairChosen=300;break;
+		case 2: hairChosen=600;break;
+		case 3: hairChosen=900;break;
+		case 4: hairChosen=1200;break;
+		case 5: hairChosen=1500;break;
+		case 6: hairChosen=1800;break;
+		case 7: hairChosen=2100;break;
+		}
+		
+		hair = new TextureRegion(hairSkin);
+		hair.setRegion(ori,hairChosen,300,300);
+	}
+	
 	public TextureRegion loadCurrentHat(int ori){
 	
 		switch(skin.get(2)){
