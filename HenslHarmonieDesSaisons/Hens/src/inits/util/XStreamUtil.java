@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+
+import screens.UIs.UIMenu;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -19,8 +22,12 @@ public class XStreamUtil {
 	XStream xStream;
 	
 public XStreamUtil()	{
-	initialPath = "C:/Users/Thibaut/Desktop/Workspace/Hens-android/assets/";
-	 xStream = new XStream ( new DomDriver());
+	/* initialPath = "C:/Users/Thibaut/Desktop/Workspace/Hens-android/assets/";
+	C:\Users\Denis\Documents\GitHub\Hens-MMORPG\HenslHarmonieDesSaisons\Hens\bin\screens\UIs\
+	URL tempPath0 = UIMenu.class.getResource("").toString().substring("file:/".length(), UIMenu.class.getResource("").toString().length()); */
+	URL tempPath = UIMenu.class.getResource("");
+	initialPath = tempPath.toString().substring("file:/".length(), tempPath.toString().length()-"/Hens/bin/screens/UIs".length()) + "Hens-android/assets/";
+	xStream = new XStream ( new DomDriver());
 }
 
 

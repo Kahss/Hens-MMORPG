@@ -11,6 +11,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -30,6 +31,7 @@ public class SGame implements Screen {
 	private int xDiff,yDiff,xDelta,yDelta;
 	private float nFrame;
 	private KBGeneral keyBinding;
+	private BitmapFont var1;
 	
 	
 	public SGame (Hens hens, Personnage me){
@@ -43,6 +45,7 @@ public class SGame implements Screen {
 		camera=new OrthographicCamera();
 		keyBinding=new KBGeneral(this);
 		Gdx.input.setInputProcessor(new InputMultiplexer(stage,keyBinding));
+		stage.loadUI();
 		xCurrent=2000;
 		yCurrent=0;
 		xFinal=2000;
@@ -55,6 +58,13 @@ public class SGame implements Screen {
 
 	@Override
 	public void render(float delta) {
+		BitmapFont xCurrentV = new BitmapFont();
+		BitmapFont yCurrentV = new BitmapFont();
+		BitmapFont xFinalV = new BitmapFont();
+		BitmapFont yFinalV = new BitmapFont();
+		BitmapFont x1V = new BitmapFont();
+		BitmapFont y1V = new BitmapFont();
+		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
@@ -63,9 +73,18 @@ public class SGame implements Screen {
 		renderer.render(layers);
 		
 		batch.begin();
+		
 		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0);
 		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0);
+		xCurrentV.draw(batch, "xCurrent : " + String.valueOf(xCurrent),10,120);
+		yCurrentV.draw(batch, "yCurrent : " + String.valueOf(yCurrent),10,100);
+		xFinalV.draw(batch, "xFinal : " + String.valueOf(xFinal),10,80);
+		yFinalV.draw(batch, "yFinal : " + String.valueOf(yFinal),10,60);
+		x1V.draw(batch, "x1 : " + String.valueOf(x1),10,40);
+		y1V.draw(batch, "y1 : " + String.valueOf(y1),10,20);
+		
 		batch.end();
+		
 		renderer.render(layersTop);
 		xClic=keyBinding.getX();
 		yClic=keyBinding.getY();

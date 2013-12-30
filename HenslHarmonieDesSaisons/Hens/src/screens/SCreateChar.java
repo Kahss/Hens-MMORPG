@@ -72,6 +72,8 @@ public class SCreateChar implements Screen  {
 		stage.draw();
 		Table.drawDebug(stage);
 		
+		// Prendre ici pour afficher texte
+		
 		BitmapFont verif = new BitmapFont();
 		batch.begin();
 		BitmapFont classe = new BitmapFont();
