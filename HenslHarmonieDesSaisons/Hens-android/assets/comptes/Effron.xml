@@ -7361,7 +7361,7 @@
       <mapID defined-in="inits.Entite">0</mapID>
       <direction defined-in="inits.Entite">0</direction>
       <orientation defined-in="inits.Entite">0</orientation>
-      <pseudo></pseudo>
+      <pseudo>truc</pseudo>
       <owner>effron</owner>
       <sexe>0</sexe>
       <niveau>1</niveau>
@@ -7394,6 +7394,346 @@
       <Vagabond>0</Vagabond>
       <Altruiste>0</Altruiste>
       <classe>Ulmo</classe>
+    </inits.Ulmo>
+    <inits.Ulmo>
+      <sexe defined-in="inits.Entite">0</sexe>
+      <niveau defined-in="inits.Entite">0</niveau>
+      <vie defined-in="inits.Entite">0.0</vie>
+      <harmonie defined-in="inits.Entite">0.0</harmonie>
+      <vieRegen defined-in="inits.Entite">0.0</vieRegen>
+      <harRegen defined-in="inits.Entite">0.0</harRegen>
+      <puissance defined-in="inits.Entite">0.0</puissance>
+      <defense defined-in="inits.Entite">0.0</defense>
+      <vitesse defined-in="inits.Entite">0.0</vitesse>
+      <concentration defined-in="inits.Entite">0.0</concentration>
+      <vieCurrent defined-in="inits.Entite">0.0</vieCurrent>
+      <harmonieCurrent defined-in="inits.Entite">0.0</harmonieCurrent>
+      <vieRegenCurrent defined-in="inits.Entite">0.0</vieRegenCurrent>
+      <harRegenCurrent defined-in="inits.Entite">0.0</harRegenCurrent>
+      <puissanceCurrent defined-in="inits.Entite">0.0</puissanceCurrent>
+      <defenseCurrent defined-in="inits.Entite">0.0</defenseCurrent>
+      <vitesseCurrent defined-in="inits.Entite">0.0</vitesseCurrent>
+      <concentrationCurrent defined-in="inits.Entite">0.0</concentrationCurrent>
+      <mapID defined-in="inits.Entite">0</mapID>
+      <direction defined-in="inits.Entite">0</direction>
+      <orientation defined-in="inits.Entite">0</orientation>
+      <pseudo>youpi</pseudo>
+      <owner>effron</owner>
+      <sexe>0</sexe>
+      <niveau>1</niveau>
+      <vie>60.0</vie>
+      <harmonie>80.0</harmonie>
+      <vieRegen>1.0</vieRegen>
+      <harRegen>8.0</harRegen>
+      <puissance>0.0</puissance>
+      <defense>8.0</defense>
+      <vitesse>100.0</vitesse>
+      <concentration>0.0</concentration>
+      <vieCurrent>60.0</vieCurrent>
+      <harmonieCurrent>60.0</harmonieCurrent>
+      <vieRegenCurrent>1.0</vieRegenCurrent>
+      <harRegenCurrent>8.0</harRegenCurrent>
+      <puissanceCurrent>0.0</puissanceCurrent>
+      <defenseCurrent>8.0</defenseCurrent>
+      <vitesseCurrent>100.0</vitesseCurrent>
+      <concentrationCurrent>0.0</concentrationCurrent>
+      <mapID>45</mapID>
+      <direction>0</direction>
+      <orientation>0</orientation>
+      <hairChosen>0</hairChosen>
+      <bodyChosen>0</bodyChosen>
+      <hatChosen>0</hatChosen>
+      <animation>0</animation>
+      <animSelec>0</animSelec>
+      <Calme>0</Calme>
+      <Lunatique>0</Lunatique>
+      <Vagabond>0</Vagabond>
+      <Altruiste>0</Altruiste>
+      <classe>Ulmo</classe>
+    </inits.Ulmo>
+    <inits.Ulmo>
+      <sexe defined-in="inits.Entite">0</sexe>
+      <niveau defined-in="inits.Entite">0</niveau>
+      <vie defined-in="inits.Entite">0.0</vie>
+      <harmonie defined-in="inits.Entite">0.0</harmonie>
+      <vieRegen defined-in="inits.Entite">0.0</vieRegen>
+      <harRegen defined-in="inits.Entite">0.0</harRegen>
+      <puissance defined-in="inits.Entite">0.0</puissance>
+      <defense defined-in="inits.Entite">0.0</defense>
+      <vitesse defined-in="inits.Entite">0.0</vitesse>
+      <concentration defined-in="inits.Entite">0.0</concentration>
+      <vieCurrent defined-in="inits.Entite">0.0</vieCurrent>
+      <harmonieCurrent defined-in="inits.Entite">0.0</harmonieCurrent>
+      <vieRegenCurrent defined-in="inits.Entite">0.0</vieRegenCurrent>
+      <harRegenCurrent defined-in="inits.Entite">0.0</harRegenCurrent>
+      <puissanceCurrent defined-in="inits.Entite">0.0</puissanceCurrent>
+      <defenseCurrent defined-in="inits.Entite">0.0</defenseCurrent>
+      <vitesseCurrent defined-in="inits.Entite">0.0</vitesseCurrent>
+      <concentrationCurrent defined-in="inits.Entite">0.0</concentrationCurrent>
+      <mapID defined-in="inits.Entite">0</mapID>
+      <direction defined-in="inits.Entite">0</direction>
+      <orientation defined-in="inits.Entite">0</orientation>
+      <pseudo>youpa</pseudo>
+      <owner>effron</owner>
+      <sexe>0</sexe>
+      <niveau>1</niveau>
+      <vie>60.0</vie>
+      <harmonie>80.0</harmonie>
+      <vieRegen>1.0</vieRegen>
+      <harRegen>8.0</harRegen>
+      <puissance>0.0</puissance>
+      <defense>8.0</defense>
+      <vitesse>100.0</vitesse>
+      <concentration>0.0</concentration>
+      <vieCurrent>60.0</vieCurrent>
+      <harmonieCurrent>60.0</harmonieCurrent>
+      <vieRegenCurrent>1.0</vieRegenCurrent>
+      <harRegenCurrent>8.0</harRegenCurrent>
+      <puissanceCurrent>0.0</puissanceCurrent>
+      <defenseCurrent>8.0</defenseCurrent>
+      <vitesseCurrent>100.0</vitesseCurrent>
+      <concentrationCurrent>0.0</concentrationCurrent>
+      <mapID>45</mapID>
+      <direction>0</direction>
+      <orientation>0</orientation>
+      <hairChosen>0</hairChosen>
+      <bodyChosen>0</bodyChosen>
+      <hatChosen>0</hatChosen>
+      <animation>0</animation>
+      <animSelec>0</animSelec>
+      <Calme>0</Calme>
+      <Lunatique>0</Lunatique>
+      <Vagabond>0</Vagabond>
+      <Altruiste>0</Altruiste>
+      <classe>Ulmo</classe>
+    </inits.Ulmo>
+    <inits.Ulmo>
+      <sexe defined-in="inits.Entite">0</sexe>
+      <niveau defined-in="inits.Entite">0</niveau>
+      <vie defined-in="inits.Entite">0.0</vie>
+      <harmonie defined-in="inits.Entite">0.0</harmonie>
+      <vieRegen defined-in="inits.Entite">0.0</vieRegen>
+      <harRegen defined-in="inits.Entite">0.0</harRegen>
+      <puissance defined-in="inits.Entite">0.0</puissance>
+      <defense defined-in="inits.Entite">0.0</defense>
+      <vitesse defined-in="inits.Entite">0.0</vitesse>
+      <concentration defined-in="inits.Entite">0.0</concentration>
+      <vieCurrent defined-in="inits.Entite">0.0</vieCurrent>
+      <harmonieCurrent defined-in="inits.Entite">0.0</harmonieCurrent>
+      <vieRegenCurrent defined-in="inits.Entite">0.0</vieRegenCurrent>
+      <harRegenCurrent defined-in="inits.Entite">0.0</harRegenCurrent>
+      <puissanceCurrent defined-in="inits.Entite">0.0</puissanceCurrent>
+      <defenseCurrent defined-in="inits.Entite">0.0</defenseCurrent>
+      <vitesseCurrent defined-in="inits.Entite">0.0</vitesseCurrent>
+      <concentrationCurrent defined-in="inits.Entite">0.0</concentrationCurrent>
+      <mapID defined-in="inits.Entite">0</mapID>
+      <direction defined-in="inits.Entite">0</direction>
+      <orientation defined-in="inits.Entite">0</orientation>
+      <pseudo>youpo</pseudo>
+      <owner>effron</owner>
+      <sexe>0</sexe>
+      <niveau>1</niveau>
+      <vie>60.0</vie>
+      <harmonie>80.0</harmonie>
+      <vieRegen>1.0</vieRegen>
+      <harRegen>8.0</harRegen>
+      <puissance>0.0</puissance>
+      <defense>8.0</defense>
+      <vitesse>100.0</vitesse>
+      <concentration>0.0</concentration>
+      <vieCurrent>60.0</vieCurrent>
+      <harmonieCurrent>60.0</harmonieCurrent>
+      <vieRegenCurrent>1.0</vieRegenCurrent>
+      <harRegenCurrent>8.0</harRegenCurrent>
+      <puissanceCurrent>0.0</puissanceCurrent>
+      <defenseCurrent>8.0</defenseCurrent>
+      <vitesseCurrent>100.0</vitesseCurrent>
+      <concentrationCurrent>0.0</concentrationCurrent>
+      <skin>
+        <int>0</int>
+        <int>0</int>
+      </skin>
+      <mapID>45</mapID>
+      <direction>0</direction>
+      <orientation>0</orientation>
+      <hairChosen>0</hairChosen>
+      <bodyChosen>0</bodyChosen>
+      <hatChosen>0</hatChosen>
+      <animation>0</animation>
+      <animSelec>0</animSelec>
+      <bodySkin>
+        <minFilter>Nearest</minFilter>
+        <magFilter>Nearest</magFilter>
+        <uWrap>ClampToEdge</uWrap>
+        <vWrap>ClampToEdge</vWrap>
+        <glHandle>778</glHandle>
+        <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+          <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+            <file>data\Skin\SKINS_FILLE.png</file>
+            <type>Internal</type>
+          </file>
+          <width>4096</width>
+          <height>1024</height>
+          <format>RGBA8888</format>
+          <useMipMaps>false</useMipMaps>
+          <isPrepared>false</isPrepared>
+        </data>
+      </bodySkin>
+      <body>
+        <texture reference="../../bodySkin"/>
+        <u>0.14648438</u>
+        <v>0.0</v>
+        <u2>0.21972656</u2>
+        <v2>0.29296875</v2>
+        <regionWidth>300</regionWidth>
+        <regionHeight>300</regionHeight>
+      </body>
+      <Calme>0</Calme>
+      <Lunatique>0</Lunatique>
+      <Vagabond>0</Vagabond>
+      <Altruiste>0</Altruiste>
+      <classe>Ulmo</classe>
+      <hairSkin>
+        <minFilter>Nearest</minFilter>
+        <magFilter>Nearest</magFilter>
+        <uWrap>ClampToEdge</uWrap>
+        <vWrap>ClampToEdge</vWrap>
+        <glHandle>779</glHandle>
+        <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+          <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+            <file>data\Skin\COUPE_ULMOFILLE.png</file>
+            <type>Internal</type>
+          </file>
+          <width>4096</width>
+          <height>1024</height>
+          <format>RGBA8888</format>
+          <useMipMaps>false</useMipMaps>
+          <isPrepared>false</isPrepared>
+        </data>
+      </hairSkin>
+      <hair>
+        <texture reference="../../hairSkin"/>
+        <u>0.14648438</u>
+        <v>0.0</v>
+        <u2>0.21972656</u2>
+        <v2>0.29296875</v2>
+        <regionWidth>300</regionWidth>
+        <regionHeight>300</regionHeight>
+      </hair>
+    </inits.Ulmo>
+    <inits.Ulmo>
+      <sexe defined-in="inits.Entite">0</sexe>
+      <niveau defined-in="inits.Entite">0</niveau>
+      <vie defined-in="inits.Entite">0.0</vie>
+      <harmonie defined-in="inits.Entite">0.0</harmonie>
+      <vieRegen defined-in="inits.Entite">0.0</vieRegen>
+      <harRegen defined-in="inits.Entite">0.0</harRegen>
+      <puissance defined-in="inits.Entite">0.0</puissance>
+      <defense defined-in="inits.Entite">0.0</defense>
+      <vitesse defined-in="inits.Entite">0.0</vitesse>
+      <concentration defined-in="inits.Entite">0.0</concentration>
+      <vieCurrent defined-in="inits.Entite">0.0</vieCurrent>
+      <harmonieCurrent defined-in="inits.Entite">0.0</harmonieCurrent>
+      <vieRegenCurrent defined-in="inits.Entite">0.0</vieRegenCurrent>
+      <harRegenCurrent defined-in="inits.Entite">0.0</harRegenCurrent>
+      <puissanceCurrent defined-in="inits.Entite">0.0</puissanceCurrent>
+      <defenseCurrent defined-in="inits.Entite">0.0</defenseCurrent>
+      <vitesseCurrent defined-in="inits.Entite">0.0</vitesseCurrent>
+      <concentrationCurrent defined-in="inits.Entite">0.0</concentrationCurrent>
+      <mapID defined-in="inits.Entite">0</mapID>
+      <direction defined-in="inits.Entite">0</direction>
+      <orientation defined-in="inits.Entite">0</orientation>
+      <pseudo>youpu</pseudo>
+      <owner>effron</owner>
+      <sexe>0</sexe>
+      <niveau>1</niveau>
+      <vie>60.0</vie>
+      <harmonie>80.0</harmonie>
+      <vieRegen>1.0</vieRegen>
+      <harRegen>8.0</harRegen>
+      <puissance>0.0</puissance>
+      <defense>8.0</defense>
+      <vitesse>100.0</vitesse>
+      <concentration>0.0</concentration>
+      <vieCurrent>60.0</vieCurrent>
+      <harmonieCurrent>60.0</harmonieCurrent>
+      <vieRegenCurrent>1.0</vieRegenCurrent>
+      <harRegenCurrent>8.0</harRegenCurrent>
+      <puissanceCurrent>0.0</puissanceCurrent>
+      <defenseCurrent>8.0</defenseCurrent>
+      <vitesseCurrent>100.0</vitesseCurrent>
+      <concentrationCurrent>0.0</concentrationCurrent>
+      <skin>
+        <int>0</int>
+        <int>1</int>
+      </skin>
+      <mapID>45</mapID>
+      <direction>0</direction>
+      <orientation>0</orientation>
+      <hairChosen>300</hairChosen>
+      <bodyChosen>0</bodyChosen>
+      <hatChosen>0</hatChosen>
+      <animation>0</animation>
+      <animSelec>0</animSelec>
+      <bodySkin>
+        <minFilter>Nearest</minFilter>
+        <magFilter>Nearest</magFilter>
+        <uWrap>ClampToEdge</uWrap>
+        <vWrap>ClampToEdge</vWrap>
+        <glHandle>1597</glHandle>
+        <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+          <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+            <file>data\Skin\SKINS_FILLE.png</file>
+            <type>Internal</type>
+          </file>
+          <width>4096</width>
+          <height>1024</height>
+          <format>RGBA8888</format>
+          <useMipMaps>false</useMipMaps>
+          <isPrepared>false</isPrepared>
+        </data>
+      </bodySkin>
+      <body>
+        <texture reference="../../bodySkin"/>
+        <u>0.14648438</u>
+        <v>0.0</v>
+        <u2>0.21972656</u2>
+        <v2>0.29296875</v2>
+        <regionWidth>300</regionWidth>
+        <regionHeight>300</regionHeight>
+      </body>
+      <Calme>0</Calme>
+      <Lunatique>0</Lunatique>
+      <Vagabond>0</Vagabond>
+      <Altruiste>0</Altruiste>
+      <classe>Ulmo</classe>
+      <hairSkin>
+        <minFilter>Nearest</minFilter>
+        <magFilter>Nearest</magFilter>
+        <uWrap>ClampToEdge</uWrap>
+        <vWrap>ClampToEdge</vWrap>
+        <glHandle>1596</glHandle>
+        <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+          <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+            <file>data\Skin\COUPE_ULMOFILLE.png</file>
+            <type>Internal</type>
+          </file>
+          <width>4096</width>
+          <height>1024</height>
+          <format>RGBA8888</format>
+          <useMipMaps>false</useMipMaps>
+          <isPrepared>false</isPrepared>
+        </data>
+      </hairSkin>
+      <hair>
+        <texture reference="../../hairSkin"/>
+        <u>0.14648438</u>
+        <v>0.29296875</v>
+        <u2>0.21972656</u2>
+        <v2>0.5859375</v2>
+        <regionWidth>300</regionWidth>
+        <regionHeight>300</regionHeight>
+      </hair>
     </inits.Ulmo>
   </createdChar>
 </inits.Compte>

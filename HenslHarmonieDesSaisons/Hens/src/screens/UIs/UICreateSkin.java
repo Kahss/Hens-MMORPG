@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import screens.SCreateCaractere;
+import screens.SCreateChar;
 import screens.SCreateSkin;
 import screens.SGame;
 
@@ -33,6 +34,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class UICreateSkin extends Stage {
+	private SCreateChar sCreateChar;
 	private SCreateSkin sCreateSkin;
 	Skin	skinUICreaSkin;
 	TextButton boxHair1, boxHair2, boxHair3,
@@ -186,6 +188,9 @@ private void goToGame(){
 	goToGame=new TextButton("Go!",skinUICreaSkin.get("default",TextButtonStyle.class));
 	goToGame.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
+			XStreamUtil xStreamCreator = new XStreamUtil();
+			xStreamCreator.createChar(getsCreateSkin().getMe());
+			xStreamCreator.saveAccount(getsCreateSkin().getCompte());
 			getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
 		}	
 		});

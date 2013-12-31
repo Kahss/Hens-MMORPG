@@ -24,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class UIMenu extends Stage {
@@ -90,7 +91,12 @@ private void logins(){
 			Compte compteTest=new Compte(compteInput,mdpInput);
 			if(compteLoaded.getMdp().equals(compteTest.getMdp())){
 				System.out.println("Compte verifié!");
-				smenu.getHens().setScreen(new SLoadChar(smenu.getHens(),compteLoaded));
+				try {
+					smenu.getHens().setScreen(new SLoadChar(smenu.getHens(),compteLoaded));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 			}
 			else{

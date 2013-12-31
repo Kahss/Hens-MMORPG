@@ -2,6 +2,7 @@ package screens;
 
 import java.io.IOException;
 
+import inits.Compte;
 import inits.Personnage;
 import screens.UIs.UICreateChar;
 import screens.UIs.UICreateSkin;
@@ -34,10 +35,12 @@ public class SCreateSkin implements Screen {
 	private int skinPos,hairSelection;
 	int orientation,hairChosen;
 	private Personnage me;
+	private Compte compte;
 
 
 	
-public SCreateSkin (Hens hens, Personnage meselec) throws IOException{
+public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOException{
+	this.compte = compte;
 	this.setClasse(classe);
 	this.hens=hens;
 	this.me=meselec;
@@ -193,6 +196,16 @@ public Personnage getMe() {
 
 public void setMe(Personnage me) {
 	this.me = me;
+}
+
+
+public Compte getCompte() {
+	return compte;
+}
+
+
+public void setCompte(Compte compte) {
+	this.compte = compte;
 }
 
 }

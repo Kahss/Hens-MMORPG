@@ -1,9 +1,11 @@
 package screens.UIs;
 
 import inits.Personnage;
+import inits.Ulmo;
 import inits.util.XStreamUtil;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 
 import screens.SCreateChar;
@@ -37,7 +39,7 @@ public class UILoadChar extends Stage {
 		this.sLoadChar=loadChar;
 	}
 
-	public void loadUI(){
+	public void loadUI() throws FileNotFoundException{
 		skin = new Skin();
 		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
 		pixmap.setColor(Color.WHITE);
@@ -75,7 +77,7 @@ public class UILoadChar extends Stage {
 		});
 	}
 	
-	private void createCharListBt() {
+	private void createCharListBt() throws FileNotFoundException {
 		URL tempPath = UIMenu.class.getResource("");
 		String initialPath = tempPath.toString().substring("file:/".length(), tempPath.toString().length()-"/Hens/bin/screens/UIs".length()) + "Hens-android/assets/personnages/";
 		File fileChar = new File(initialPath);
@@ -90,10 +92,9 @@ public class UILoadChar extends Stage {
 		for(int i = 0; i < listChar.length; i++) {
 			listButton[i] = new TextButton(listChar[i], skin);
 			System.out.println(initialPath + listChar[i]);
-			character = xstream.loadChar(listChar[i]);
+			character = (Personnage) xstream.loadChar(listChar[i]);
 			listButton[i].addListener(new ChangeListener() {
 				public void changed (ChangeEvent event, Actor actor) {
-					// getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
 					sLoadChar.getHens().setScreen(new SGame (sLoadChar.getHens(), character));
 				}
 			});

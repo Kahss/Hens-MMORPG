@@ -1,5 +1,7 @@
 package screens;
 
+import java.io.FileNotFoundException;
+
 import screens.UIs.UILoadChar;
 import game.Hens;
 import inits.Compte;
@@ -23,7 +25,7 @@ public class SLoadChar implements Screen{
 	SpriteBatch batch;
 	UILoadChar stage;
 	private Compte myCompte;
-	public SLoadChar(Hens hens,Compte compte){
+	public SLoadChar(Hens hens,Compte compte) throws FileNotFoundException{
 		this.hens=hens;
 		this.setMyCompte(compte);
 		batch=new SpriteBatch();
