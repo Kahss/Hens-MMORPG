@@ -6745,7 +6745,7 @@
       <mapID defined-in="inits.Entite">0</mapID>
       <direction defined-in="inits.Entite">0</direction>
       <orientation defined-in="inits.Entite">0</orientation>
-      <pseudo>a</pseudo>
+      <pseudo>rrrrr</pseudo>
       <owner>effron</owner>
       <sexe>0</sexe>
       <niveau>1</niveau>
@@ -6801,7 +6801,7 @@
       <mapID defined-in="inits.Entite">0</mapID>
       <direction defined-in="inits.Entite">0</direction>
       <orientation defined-in="inits.Entite">0</orientation>
-      <pseudo></pseudo>
+      <pseudo>youpi</pseudo>
       <owner>effron</owner>
       <sexe>0</sexe>
       <niveau>1</niveau>

@@ -214,7 +214,7 @@ public void nameField(){
 			sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
 			try{
 			
-				XStreamUtil xStreamCreator= new XStreamUtil();
+				XStreamUtil xStreamCreator = new XStreamUtil();
 				xStreamCreator.createChar(sCreateChar.getMe().getPseudo());
 				xStreamCreator.saveAccount(sCreateChar.getMyCompte());
 				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe()));
