@@ -100,5 +100,29 @@ public class Ulmo extends Personnage {
 		this.classe = classe;
 	}
 
+	public int getHairSkin() {
+		return hairSkin;
+	}
+
+	public void setHairSkin(int hairSkin) {
+		this.hairSkin = hairSkin;
+	}
+
+	public int getHatSkin() {
+		return hatSkin;
+	}
+
+	public void setHatSkin(int hatSkin) {
+		this.hatSkin = hatSkin;
+	}
+
+	public int getClotheSkin() {
+		return clotheSkin;
+	}
+
+	public void setClotheSkin(int clotheSkin) {
+		this.clotheSkin = clotheSkin;
+	}
+
 
 }

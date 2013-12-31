@@ -32,7 +32,7 @@ public class SCreateSkin implements Screen {
 	Texture ulmoBody, ulmoHair,ulmoHabit;
 	TextureRegion ulmoBody1,ulmoHair1,bodyCurrent,hairCurrent,habitCurrent;
 	private int classe;
-	private int skinPos,hairSelection;
+	private int skinPos;
 	int orientation,hairChosen;
 	private Personnage me;
 	private Compte compte;
@@ -50,8 +50,6 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 	stage.loadUI();	
 	Gdx.input.setInputProcessor(stage);
 	skinPos=600;
-	bodyCurrent=me.loadCurrentBody(skinPos);
-	hairCurrent=me.loadCurrentHair(hairSelection, skinPos);
 }
 	
 
@@ -167,17 +165,6 @@ public int getSkinPos() {
 public void setSkinPos(int skinPos) {
 	this.skinPos = skinPos;
 }
-
-
-public int getHairSelection() {
-	return hairSelection;
-}
-
-
-public void setHairSelection(int hairSelection) {
-	this.hairSelection = hairSelection;
-}
-
 
 public int getClasse() {
 	return classe;

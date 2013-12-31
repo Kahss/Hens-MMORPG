@@ -13,42 +13,15 @@ public class Personnage extends Entite {
 	
 	private String pseudo;
 	private String owner;
-//	private int sexe;
-//	private int niveau;
-//	private float vie;
-//	private float harmonie;
-//	private float vieRegen;
-//	private float harRegen;
-//	private float puissance;
-//	private float defense;
-//	private float vitesse;
-//	private float concentration;
-//	
-//	float vieCurrent;
-//	float harmonieCurrent;
-//	float vieRegenCurrent;
-//	float harRegenCurrent;
-//	float puissanceCurrent;
-//	float defenseCurrent;
-//	float vitesseCurrent;
-//	float concentrationCurrent;
-	
-//	List<Integer> skin;
-//	List<Integer> pos;
-//	int mapID;
-//	int direction;
-//	int orientation;
-	
+
 	int hairChosen,bodyChosen,hatChosen,animation,animSelec;	
 	Texture bodySkin;
 	private TextureRegion body;
-	// Les getters et setters (merci la génération automatique *o* !) 
 	
 	public TextureRegion loadCurrentBody(int ori){
 		if(sexe==0){
 			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 			}
-		
 		if(sexe==1){
 			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 			}
