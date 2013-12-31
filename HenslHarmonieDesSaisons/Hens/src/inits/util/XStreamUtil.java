@@ -22,9 +22,6 @@ public class XStreamUtil {
 	XStream xStream;
 	
 public XStreamUtil()	{
-	/* initialPath = "C:/Users/Thibaut/Desktop/Workspace/Hens-android/assets/";
-	C:\Users\Denis\Documents\GitHub\Hens-MMORPG\HenslHarmonieDesSaisons\Hens\bin\screens\UIs\
-	URL tempPath0 = UIMenu.class.getResource("").toString().substring("file:/".length(), UIMenu.class.getResource("").toString().length()); */
 	URL tempPath = UIMenu.class.getResource("");
 	initialPath = tempPath.toString().substring("file:/".length(), tempPath.toString().length()-"/Hens/bin/screens/UIs".length()) + "Hens-android/assets/";
 	xStream = new XStream ( new DomDriver());
@@ -50,9 +47,8 @@ public void createChar(String pseudo){
 		}
 }
 
-public void loadChar(String pseudo){
-	perso = (Personnage)xStream.fromXML(initialPath+"personnages/"+pseudo+".xml");
-	
+public Personnage loadChar(String pseudo){
+	return (Personnage)xStream.fromXML(initialPath+"personnages/"+pseudo);
 }
 
 public void createAccount(String ndCompte, String mdp){

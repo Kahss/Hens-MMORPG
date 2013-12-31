@@ -1,6 +1,13 @@
 package screens.UIs;
 
+import inits.Personnage;
+import inits.util.XStreamUtil;
+
+import java.io.File;
+import java.net.URL;
+
 import screens.SCreateChar;
+import screens.SGame;
 import screens.SLoadChar;
 
 import com.badlogic.gdx.graphics.Color;
@@ -20,9 +27,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 public class UILoadChar extends Stage {
 	private SLoadChar sLoadChar;
+	private Personnage character;
 	Skin skin;
 	Table table;
 	TextButton createButton;
+	XStreamUtil xstream = new XStreamUtil();
+	
 	public UILoadChar (SLoadChar loadChar){
 		this.sLoadChar=loadChar;
 	}
@@ -48,7 +58,9 @@ public class UILoadChar extends Stage {
 		table = new Table();
 		table.setFillParent(true);
 		this.addActor(table);
+		
 		createBt();
+		createCharListBt();
 	}
 
 	private void createBt(){ //bouton sulimo creation perso
@@ -56,13 +68,38 @@ public class UILoadChar extends Stage {
 
 		table.add(createButton);
 
-		
 		createButton.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				sLoadChar.getHens().setScreen(new SCreateChar(sLoadChar.getHens(),sLoadChar.getMyCompte()));
-				
 			}	
 		});
+	}
+	
+	private void createCharListBt() {
+		URL tempPath = UIMenu.class.getResource("");
+		String initialPath = tempPath.toString().substring("file:/".length(), tempPath.toString().length()-"/Hens/bin/screens/UIs".length()) + "Hens-android/assets/personnages/";
+		File fileChar = new File(initialPath);
+			
+		String[] listChar = fileChar.list();
+		
+		TextButton[] listButton = new TextButton[listChar.length];
+		
+		System.out.println("longueur listChar : " + listChar.length);
+		System.out.println("longueur listButton : " + listButton.length);
+		
+		for(int i = 0; i < listChar.length; i++) {
+			listButton[i] = new TextButton(listChar[i], skin);
+			System.out.println(initialPath + listChar[i]);
+			character = xstream.loadChar(listChar[i]);
+			listButton[i].addListener(new ChangeListener() {
+				public void changed (ChangeEvent event, Actor actor) {
+					// getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
+					sLoadChar.getHens().setScreen(new SGame (sLoadChar.getHens(), character));
+				}
+			});
+			table.row();
+			table.add(listButton[i]);
+		}
 	}
 
 
