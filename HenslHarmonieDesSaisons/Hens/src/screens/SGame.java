@@ -32,6 +32,7 @@ public class SGame implements Screen {
 	private float nFrame;
 	private KBGeneral keyBinding;
 	private BitmapFont var1;
+	private int orientation;
 	
 	
 	public SGame (Hens hens, Personnage me){
@@ -52,6 +53,7 @@ public class SGame implements Screen {
 		yFinal=0;
 		x1=2000;
 		y1=0;
+		orientation=900;
 		
 		renderer.setView(camera);
 	}
@@ -71,11 +73,11 @@ public class SGame implements Screen {
 		 int[] layers ={0,1,2,3};
 		 int[] layersTop={4,5,6,7};
 		renderer.render(layers); //couches inférieures de la map
-				
+		renderer.render();
 		batch.begin();
 		
 
-		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
+		batch.draw(me.loadCurrentBody(orientation), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
 		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0); //cheveux ulmo
 
 		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0);
@@ -102,6 +104,7 @@ public class SGame implements Screen {
 		move();
 		camera.update();
 		keyBinding.setGame(this);
+		((Ulmo) me).hairUpdate(orientation);
 	}
 	
 	
@@ -120,6 +123,7 @@ public class SGame implements Screen {
 			setX1((int)(getX1()+xDelta/nFrame));
 			setY1((int)(getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!movement x:"+xDelta/nFrame+" movment y:"+yDelta/nFrame);
+			orientation=1800;
 			if(getX1()>=xClic-1||getY1()>=yClic-1){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -141,6 +145,7 @@ public class SGame implements Screen {
 			setX1((int) (getX1()-xDelta/nFrame));
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!3");
+			orientation=600;
 			if(getX1()<=xClic+1||getY1()<=yClic+1){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -162,6 +167,7 @@ public class SGame implements Screen {
 			setX1((int) (getX1()+xDelta/nFrame));
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!2");
+			orientation=1200;
 			if(getX1()>=xClic||getY1()<=yClic){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -182,6 +188,7 @@ public class SGame implements Screen {
 			setX1((int) (getX1()-xDelta/nFrame));
 			setY1((int) (getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!4");
+			orientation=0;
 			if(getX1()<=xClic||getY1()>=yClic){
 				xFinal=xClic;
 				yFinal=yClic;
