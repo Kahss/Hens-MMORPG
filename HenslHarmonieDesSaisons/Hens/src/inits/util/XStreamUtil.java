@@ -1,7 +1,6 @@
 package inits.util;
 
-import inits.Compte;
-import inits.Personnage;
+import inits.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +15,6 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class XStreamUtil {
-	Personnage perso;
 	Compte compte;
 	String initialPath, pathChar,pathCompte;
 	XStream xStream;
@@ -28,9 +26,9 @@ public XStreamUtil()	{
 }
 
 
-public void createChar(String pseudo){
+public void createChar(Personnage perso){
 	try{
-		pathChar = initialPath + "personnages/" + pseudo + ".xml";
+		pathChar = initialPath + "personnages/" + perso.getPseudo() + ".xml";
 		System.out.println(pathChar);
 		File fichier = new File (pathChar);
 	    FileOutputStream fos = new FileOutputStream(fichier);
@@ -47,11 +45,11 @@ public void createChar(String pseudo){
 		}
 }
 
-public Personnage loadChar(String pseudo){
-	return (Personnage)xStream.fromXML(initialPath+"personnages/"+pseudo);
+public Personnage loadChar(String pseudo) throws FileNotFoundException {
+	return (Personnage) xStream.fromXML( new FileReader(initialPath + "personnages/" + pseudo));
 }
 
-public void createAccount(String ndCompte, String mdp){
+public void createAccount(String ndCompte, String mdp) {
 try{	
 	pathCompte = initialPath + "comptes/" + ndCompte + ".xml";
 	System.out.println(pathCompte);
@@ -99,17 +97,6 @@ public Compte loadCompte(String ndcompte){
 	}
 	return compte;
 }
-
-
-public Personnage getPerso() {
-	return perso;
-}
-
-
-public void setPerso(Personnage perso) {
-	this.perso = perso;
-}
-
 
 public Compte getCompte() {
 	return compte;

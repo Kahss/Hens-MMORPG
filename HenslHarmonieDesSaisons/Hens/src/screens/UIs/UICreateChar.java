@@ -212,13 +212,10 @@ public void nameField(){
 	validChar.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
 			sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
-			try{
-			
-				XStreamUtil xStreamCreator = new XStreamUtil();
-				xStreamCreator.createChar(sCreateChar.getMe().getPseudo());
-				xStreamCreator.saveAccount(sCreateChar.getMyCompte());
-				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe()));
-			} catch (IOException e) {			
+			try {
+				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe(),sCreateChar.getMyCompte()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("ça marche?");
