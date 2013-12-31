@@ -180,7 +180,7 @@ private void goToCaractere(){
 		public void changed (ChangeEvent event, Actor actor) {
 			getsCreateSkin().getHens().setScreen(new SCreateCaractere(getsCreateSkin().getHens(),1));
 		}	
-		});
+	});
 }
 
 private void goToGame(){
@@ -193,9 +193,7 @@ private void goToGame(){
 			xStreamCreator.saveAccount(getsCreateSkin().getCompte());
 			getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
 		}	
-		});
-
-	
+	});
 }
 
 public SCreateSkin getsCreateSkin() {

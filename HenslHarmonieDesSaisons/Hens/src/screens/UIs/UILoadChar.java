@@ -62,6 +62,7 @@ public class UILoadChar extends Stage {
 		this.addActor(table);
 		
 		createBt();
+		createCharListBt();
 
 	}
 
@@ -95,6 +96,11 @@ public class UILoadChar extends Stage {
 			character = (Personnage) xstream.loadChar(listChar[i]);
 			listButton[i].addListener(new ChangeListener() {
 				public void changed (ChangeEvent event, Actor actor) {
+					System.out.println(character.toString());
+					System.out.println(character.getPseudo());
+					System.out.println(character.getNiveau());
+					System.out.println(character.getSexe());
+					
 					sLoadChar.getHens().setScreen(new SGame (sLoadChar.getHens(), character));
 				}
 			});
