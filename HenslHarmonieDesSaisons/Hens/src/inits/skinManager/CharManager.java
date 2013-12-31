@@ -64,20 +64,16 @@ public class CharManager {
 	
 	
 	//methodes tableau spritesheet découpé - développement
-	public void loadHair(){
-		int i =0;
-		hairUlmof=new TextureRegion[4][8];
-	while(i<=3){
-		int j =0;
-		while(j<=7){
-			hairUlmof[i][j]=new TextureRegion(hairUlmoF,hairParseOri,hairParseLine,300,300);
-			hairParseOri+=300;
-			j++;	
+	
+	public void loadHair( TextureRegion[][] tab, Texture tex ) {
+		tab = new TextureRegion[4][8];
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; i < 8; j++) {
+				tab[i][j] = new TextureRegion(tex, 300*j, 300*i, 300, 300);
+			}
 		}
-		hairParseLine+=300;
-		i++;
 	}
-	}
+	
 	// Skin cheveux
 	public TextureRegion CurrentHair(Personnage me){
 	
