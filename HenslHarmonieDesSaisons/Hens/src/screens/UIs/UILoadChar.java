@@ -60,7 +60,7 @@ public class UILoadChar extends Stage {
 		this.addActor(table);
 		
 		createBt();
-		createCharListBt();
+
 	}
 
 	private void createBt(){ //bouton sulimo creation perso
