@@ -14,20 +14,25 @@ public class CharManager {
 	private Texture hairUlmoF,hairAnarF,hairWilwarF,hairSulimoF;
 	private Texture hairUlmoG,hairAnarG,hairWilwarG,hairSulimoG;
 	private TextureRegion[][] hairUlmof,hairAnarf,hairWilwarf,hairSulimof;
+	private TextureRegion[][] hairUlmog,hairAnarg,hairWilwarg,hairSulimog;
 	private int hairParseLine,hairParseOri;
 	//spritesheets chapeaux
 	private Texture hatUlmoF,hatAnarF,hatWilwarF,hatSulimoF;
 	private Texture hatUlmoG,hatAnarG,hatWilwarG,hatSulimoG;
+	private TextureRegion[][] hatUlmof,hatAnarf,hatWilwarf,hatSulimof;
+	private TextureRegion[][] hatUlmog,hatAnarg,hatWilwarg,hatSulimog;
 	private int hatSkin;
 	//spritesheets habits
 	private Texture clotheUlmoF,clotheAnarF,clotheWilwarF,clotheSulimoF;
 	private Texture clotheUlmoG,clotheAnarG,clotheWilwarG,clotheSulimoG;
+	private TextureRegion[][] clotheUlmof,clotheAnarf,clotheWilwarf,clotheSulimof;
+	private TextureRegion[][] clotheUlmog,clotheAnarg,clotheWilwarg,clotheSulimog;
 	private int  clotheSkin;
 	
 	
 	
 	public CharManager(){
-		//init textures - hair
+	//init textures - hair
 		hairUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
@@ -36,7 +41,7 @@ public class CharManager {
 		hairAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-		//-hat
+	//-hat
 		hatUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hatAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hatWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
@@ -45,7 +50,7 @@ public class CharManager {
 		hatAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hatWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hatSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-		//-clothe
+	//-clothe
 		clotheUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
@@ -54,18 +59,40 @@ public class CharManager {
 		clotheAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-		//methodes tableau spritesheet découpé
-		loadHair();
-		loadHat();
-		loadClothe();
+	//methodes tableau spritesheet découpé -hair F
+		loadSpriteTable(hairUlmof,hairUlmoF);
+		loadSpriteTable(hairAnarf,hairAnarF);
+		loadSpriteTable(hairWilwarf,hairWilwarF);
+		loadSpriteTable(hairSulimof,hairSulimoF);
+	// hair G
+		loadSpriteTable(hairUlmog,hairUlmoG);
+		loadSpriteTable(hairAnarg,hairAnarG);
+		loadSpriteTable(hairWilwarg,hairWilwarG);
+		loadSpriteTable(hairSulimog,hairSulimoG);
+	//hat F
+		loadSpriteTable(hatUlmof,hatUlmoF);
+		loadSpriteTable(hatAnarf,hatAnarF);
+		loadSpriteTable(hatWilwarf,hatWilwarF);
+		loadSpriteTable(hatSulimof,hatSulimoF);
+	//hat G
+		loadSpriteTable(hatUlmog,hatUlmoG);
+		loadSpriteTable(hatAnarg,hatAnarG);
+		loadSpriteTable(hatWilwarg,hatWilwarG);
+		loadSpriteTable(hatSulimog,hatSulimoG);
+	//clothe F
+		loadSpriteTable(clotheUlmof,clotheUlmoF);
+		loadSpriteTable(clotheAnarf,clotheAnarF);
+		loadSpriteTable(clotheWilwarf,clotheWilwarF);
+		loadSpriteTable(clotheSulimof,clotheSulimoF);
+	//clothe G
+		loadSpriteTable(clotheUlmog,clotheUlmoG);
+		loadSpriteTable(clotheAnarg,clotheAnarG);
+		loadSpriteTable(clotheWilwarg,clotheWilwarG);
+		loadSpriteTable(clotheSulimog,clotheSulimoG);
 		
 	}
-	
-	
-	
 	//methodes tableau spritesheet découpé - développement
-	
-	public void loadHair( TextureRegion[][] tab, Texture tex ) {
+	public void loadSpriteTable( TextureRegion[][] tab, Texture tex ) {
 		tab = new TextureRegion[4][8];
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; i < 8; j++) {
@@ -76,48 +103,16 @@ public class CharManager {
 	
 	// Skin cheveux
 	public TextureRegion CurrentHair(Personnage me){
-	
-	}
-	//definir la colonne ( orientation)
-	public TextureRegion loadCurrentHair(int selec,int ori) {
-		hairUlmo=new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-		skin= new ArrayList<Integer>(5);
-		skin.add(0);
-		skin.add(0);
-	
-		skin.set(1, selec);
-		switch(skin.get(1)){
-		case 1: hairChosen=300;break;
-		case 2: hairChosen=600;break;
-		case 3: hairChosen=900;break;
-		case 4: hairChosen=1200;break;
-		case 5: hairChosen=1500;break;
-		case 6: hairChosen=1800;break;
-		case 7: hairChosen=2100;break;
+		TextureRegion renvoi= new TextureRegion();
+		if(me.getSexe()==1){
+			renvoi= hairUlmof[me.getHairChosen()][me.getOrientation()];
+		}
+		else if(me.getSexe()==0){
+			renvoi= hairUlmog[me.getHairChosen()][me.getOrientation()];
 		}
 		
-		hair = new TextureRegion(hairSkin);
-		hair.setRegion(ori,hairChosen,300,300);
-		return hair;
+		return renvoi;
 	}
-	
-	public void hairUpdate(int ori) {
-		hair = new TextureRegion(hairSkin);
-		hair.setRegion(ori,hairChosen,300,300);
-	}
-	
-	public TextureRegion loadCurrentHat(int ori){
-	
-		switch(skin.get(2)){
-		case 1: hatChosen=0;break;
-		case 2: hatChosen=300;break;
-		case 3: hatChosen=600;break;
-		case 4: hatChosen=1200;break;
-		case 5: hatChosen=1500;break;
-		case 6: hatChosen=1800;break;
-		case 7: hatChosen=2100;break;
-		}
-		return hat;
-	}
+
 }
 
