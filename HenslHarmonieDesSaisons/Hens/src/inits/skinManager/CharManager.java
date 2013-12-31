@@ -13,8 +13,8 @@ public class CharManager {
 	//spritesheets cheveux
 	private Texture hairUlmoF,hairAnarF,hairWilwarF,hairSulimoF;
 	private Texture hairUlmoG,hairAnarG,hairWilwarG,hairSulimoG;
-	private List<TextureRegion> hairUlmof,hairAnarf,hairWilwarf,hairSulimof;
-	private int hairSkin;
+	private TextureRegion[][] hairUlmof,hairAnarf,hairWilwarf,hairSulimof;
+	private int hairParseLine,hairParseOri;
 	//spritesheets chapeaux
 	private Texture hatUlmoF,hatAnarF,hatWilwarF,hatSulimoF;
 	private Texture hatUlmoG,hatAnarG,hatWilwarG,hatSulimoG;
@@ -66,10 +66,17 @@ public class CharManager {
 	//methodes tableau spritesheet découpé - développement
 	public void loadHair(){
 		int i =0;
-		while(i<=7){
-
-			i++;
+		hairUlmof=new TextureRegion[4][8];
+	while(i<=3){
+		int j =0;
+		while(j<=7){
+			hairUlmof[i][j]=new TextureRegion(hairUlmoF,hairParseOri,hairParseLine,300,300);
+			hairParseOri+=300;
+			j++;	
 		}
+		hairParseLine+=300;
+		i++;
+	}
 	}
 	// Skin cheveux
 	public TextureRegion CurrentHair(Personnage me){

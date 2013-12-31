@@ -5,6 +5,7 @@ import screens.keyBindings.KBGeneral;
 import game.Hens;
 import inits.Personnage;
 import inits.Ulmo;
+import inits.skinManager.CharManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -35,6 +36,7 @@ public class SGame implements Screen {
 	private KBGeneral keyBinding;
 	private BitmapFont var1;
 	private int orientation;
+	private CharManager cmanager;
 	
 	
 	public SGame (Hens hens, Personnage me){
@@ -56,6 +58,7 @@ public class SGame implements Screen {
 		x1=2000;
 		y1=0;
 		orientation=900;
+		cmanager=new CharManager();
 		
 		renderer.setView(camera);
 	}
@@ -80,10 +83,7 @@ public class SGame implements Screen {
 		
 
 		batch.draw(me.loadCurrentBody(orientation), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
-		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0); //cheveux ulmo
-
-		batch.draw(me.getBody(), 437, 309, 0, 0, 150, 150, 1, 1, 0);
-		batch.draw(((Ulmo) me).getHair(),437 , 309, 0, 0, 150, 150, 1, 1, 0);
+		batch.draw(cmanager.CurrentHair(me),437 , 309, 0, 0, 150, 150, 1, 1, 0);
 
 		xCurrentV.draw(batch, "xCurrent : " + String.valueOf(xCurrent),10,120);
 		yCurrentV.draw(batch, "yCurrent : " + String.valueOf(yCurrent),10,100);
@@ -106,7 +106,6 @@ public class SGame implements Screen {
 		move();
 		camera.update();
 		keyBinding.setGame(this);
-		((Ulmo) me).hairUpdate(orientation);
 	}
 	
 	
