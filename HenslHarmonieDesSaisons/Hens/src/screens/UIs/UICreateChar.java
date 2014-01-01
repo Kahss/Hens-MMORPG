@@ -89,9 +89,6 @@ public UICreateChar(SCreateChar sCreateChar1){
 	
 }
 
-
-
-
 public void ulmoBt(){ //bouton ulmo creation perso
 	 ulmoButton = new TextButton("Ulmo", skin);
 	ulmoButton.setHeight(25);
@@ -175,7 +172,6 @@ public void nameField(){
 	table.row();
 	table.add();
 	table.add();table.add();table.add();
-
 	
 	enterNameField = new TextField("", skin,"field");
 	table.add(enterNameField);
@@ -211,7 +207,7 @@ public void nameField(){
 	table.add(validChar);
 	validChar.addListener(new ChangeListener() {
 		public void changed (ChangeEvent event, Actor actor) {
-			sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
+		//	sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
 			try {
 				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe(),sCreateChar.getMyCompte()));
 			} catch (IOException e) {

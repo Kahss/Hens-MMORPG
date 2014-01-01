@@ -38,10 +38,10 @@ public class UICreateSkin extends Stage {
 	private SCreateSkin sCreateSkin;
 	Skin	skinUICreaSkin;
 	TextButton boxHair1, boxHair2, boxHair3,
-	boxHabit1,boxHabit2,boxHabit3,
+	boxClothe1,boxClothe2,boxClothe3,
 	turnSkinRight,turnSkinLeft,goToCar, goToGame;
 	Table table;
-	Label titre, tHair,tHabit;
+	Label titre, tHair,tClothe;
 	XStream xstream = new XStream ( new DomDriver());
 	
 	public UICreateSkin(SCreateSkin sCreateSkin) {
@@ -73,7 +73,7 @@ public class UICreateSkin extends Stage {
 		table.setFillParent(true);
 		texts();
 		boxHair();
-		boxHabit();
+		boxClothe();
 		rotateSkin();
 		goToCaractere();
 		goToGame();
@@ -88,11 +88,11 @@ public class UICreateSkin extends Stage {
 		table.add(boxHair2).left();
 		table.add(boxHair3).spaceLeft(10);
 		table.row();
-		table.add(tHabit).left().colspan(2);
+		table.add(tClothe).left().colspan(2);
 		table.row();
-		table.add(boxHabit1);
-		table.add(boxHabit2).left();
-		table.add(boxHabit3);
+		table.add(boxClothe1);
+		table.add(boxClothe2).left();
+		table.add(boxClothe3);
 		table.row().height(50);
 		table.row().padTop(200);
 		table.add();table.add();table.add();
@@ -109,30 +109,52 @@ public class UICreateSkin extends Stage {
 		boxHair1=new TextButton("Cheveux1",skinUICreaSkin.get("default",TextButtonStyle.class));
 		boxHair2=new TextButton("Cheveux2",skinUICreaSkin.get("default",TextButtonStyle.class));
 		boxHair3=new TextButton("Cheveux3",skinUICreaSkin.get("default",TextButtonStyle.class));
+		//Choisir la coiffure1
 		boxHair1.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				getsCreateSkin().getMe().setHairChosen(0);	
-				sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
-			}	
+				//sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
+			}	 
 		});
+		//Choisir la coiffure2
 		boxHair2.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				getsCreateSkin().getMe().setHairChosen(1);	
-				sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
+				//sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
 			}
 		});
+		//Choisir la coiffure3
 		boxHair3.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
-				getsCreateSkin().getMe().setHairChosen(3);	
-				sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
+				getsCreateSkin().getMe().setHairChosen(2);	
+				//sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
 			}
 		});
 	}
 		
-	private void boxHabit(){ //choix du chapeau
-		boxHabit1=new TextButton("Habits1",skinUICreaSkin.get("default",TextButtonStyle.class));
-		boxHabit2=new TextButton("Habits2",skinUICreaSkin.get("default",TextButtonStyle.class));
-		boxHabit3=new TextButton("Habits3",skinUICreaSkin.get("default",TextButtonStyle.class));
+	private void boxClothe(){ //choix du chapeau
+		boxClothe1=new TextButton("Clothes1",skinUICreaSkin.get("default",TextButtonStyle.class));
+		boxClothe2=new TextButton("Clothes2",skinUICreaSkin.get("default",TextButtonStyle.class));
+		boxClothe3=new TextButton("Clothes3",skinUICreaSkin.get("default",TextButtonStyle.class));
+		
+		boxClothe1.addListener(new ChangeListener() {
+			public void changed (ChangeEvent event, Actor actor) {
+				getsCreateSkin().getMe().setClotheChosen(0);	
+				//sCreateSkin.setClotheCurrent(sCreateSkin.getMe().loadCurrentClothe(sCreateSkin.getMe().getClotheChosen(),sCreateSkin.getSkinPos()));
+			}	 
+		});
+		boxClothe2.addListener(new ChangeListener() {
+			public void changed (ChangeEvent event, Actor actor) {
+				getsCreateSkin().getMe().setClotheChosen(1);	
+				//sCreateSkin.setClotheCurrent(sCreateSkin.getMe().loadCurrentClothe(sCreateSkin.getMe().getClotheChosen(),sCreateSkin.getSkinPos()));
+			}
+		});
+		boxClothe3.addListener(new ChangeListener() {
+			public void changed (ChangeEvent event, Actor actor) {
+				getsCreateSkin().getMe().setClotheChosen(2);	
+				//sCreateSkin.setClotheCurrent(sCreateSkin.getMe().loadCurrentClothe(sCreateSkin.getMe().getClotheChosen(),sCreateSkin.getSkinPos()));
+			}
+		});
 	}
 	
 	private void rotateSkin(){ // boutons pour orienter le skin
@@ -140,38 +162,31 @@ public class UICreateSkin extends Stage {
 		turnSkinLeft=new TextButton("Rotate left",skinUICreaSkin.get("default",TextButtonStyle.class));
 		turnSkinLeft.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {	
-				if(getsCreateSkin().getSkinPos()>=0){
-					getsCreateSkin().setSkinPos(getsCreateSkin().getSkinPos()-300);
+				if(getsCreateSkin().getMe().getOrientation()>=0){
+					getsCreateSkin().getMe().setOrientation(getsCreateSkin().getMe().getOrientation()-1);
 				}
-				if(getsCreateSkin().getSkinPos()==-300){
-					getsCreateSkin().setSkinPos(2100);
+				if(getsCreateSkin().getMe().getOrientation()==-1){
+					getsCreateSkin().getMe().setOrientation(7);
 				}
-				System.out.println("allo?")	;	
-				sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
-				sCreateSkin.setBodyCurrent(sCreateSkin.getMe().loadCurrentBody(sCreateSkin.getSkinPos()));
 			}	
 		});
 	
 		turnSkinRight.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
-				if(getsCreateSkin().getSkinPos()<=2100){
-					getsCreateSkin().setSkinPos(getsCreateSkin().getSkinPos()+300);
+				if(getsCreateSkin().getMe().getOrientation()<=2100){
+					getsCreateSkin().getMe().setOrientation(getsCreateSkin().getMe().getOrientation()+300);
 				}
-				if(getsCreateSkin().getSkinPos()==2400){
-					getsCreateSkin().setSkinPos(0);
+				if(getsCreateSkin().getMe().getOrientation()==2400){
+					getsCreateSkin().getMe().setOrientation(0);
 				}
-				System.out.println("allo?");
-				sCreateSkin.setHairCurrent(sCreateSkin.getMe().loadCurrentHair(sCreateSkin.getMe().getHairChosen(),sCreateSkin.getSkinPos()));
-				sCreateSkin.setBodyCurrent(sCreateSkin.getMe().loadCurrentBody(sCreateSkin.getSkinPos()));
 			}	
-			
 		});
 	}
 	
 	private void texts(){
 		titre= new Label("Choix de l'apparence",skinUICreaSkin,"texts");
 		tHair=new Label("Choix de la coupe de cheveux",skinUICreaSkin,"texts");
-		tHabit=new Label("Choix des vêtements",skinUICreaSkin,"texts");
+		tClothe=new Label("Choix des vêtements",skinUICreaSkin,"texts");
 	}
 	
 	private void goToCaractere(){
@@ -191,7 +206,7 @@ public class UICreateSkin extends Stage {
 				XStreamUtil xStreamCreator = new XStreamUtil();
 				xStreamCreator.createChar(getsCreateSkin().getMe());
 				xStreamCreator.saveAccount(getsCreateSkin().getCompte());
-				getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe()));
+				getsCreateSkin().getHens().setScreen(new SGame(getsCreateSkin().getHens(),getsCreateSkin().getMe(), getsCreateSkin().getCompte()));
 			}	
 		});
 	}

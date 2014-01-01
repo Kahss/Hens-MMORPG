@@ -40,6 +40,7 @@ public class UILoadChar extends Stage {
 	}
 
 	public void loadUI() throws FileNotFoundException{
+		//apparence de l'interface
 		skin = new Skin();
 		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
 		pixmap.setColor(Color.WHITE);
@@ -57,15 +58,16 @@ public class UILoadChar extends Stage {
 		textFieldStyle.background=skin.newDrawable("white",Color.BLACK);
 		skin.add("field", textFieldStyle);
 		skin.add("default", textButtonStyle);
+		//mise en page 
 		table = new Table();
 		table.setFillParent(true);
 		this.addActor(table);
-		
+		//methodes de creation des boutons
 		createBt();
 		createCharListBt();
 
 	}
-
+	//Bouton creation personnage
 	private void createBt(){ //bouton sulimo creation perso
 		 createButton = new TextButton("Créez votre personnage", skin);
 
@@ -77,7 +79,7 @@ public class UILoadChar extends Stage {
 			}	
 		});
 	}
-	
+	//Liste des personnages du joueur
 	private void createCharListBt() throws FileNotFoundException {
 		URL tempPath = UIMenu.class.getResource("");
 		String initialPath = tempPath.toString().substring("file:/".length(), tempPath.toString().length()-"/Hens/bin/screens/UIs".length()) + "Hens-android/assets/personnages/";
@@ -101,7 +103,7 @@ public class UILoadChar extends Stage {
 					System.out.println(character.getNiveau());
 					System.out.println(character.getSexe());
 					
-					sLoadChar.getHens().setScreen(new SGame (sLoadChar.getHens(), character));
+					sLoadChar.getHens().setScreen(new SGame (sLoadChar.getHens(), character, sLoadChar.getMyCompte()));
 				}
 			});
 			table.row();

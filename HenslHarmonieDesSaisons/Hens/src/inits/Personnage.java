@@ -9,30 +9,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Personnage extends Entite {
 
-	// Les attributs
-	
+	// Les attributs spécifique aux PJ
 	private String pseudo;
 	private String owner;
-
-	int hairChosen,bodyChosen,hatChosen,animation,animSelec;	
-	Texture bodySkin;
-	private TextureRegion body;
-	
-	public TextureRegion loadCurrentBody(int ori){
-		if(sexe==0){
-			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-			}
-		if(sexe==1){
-			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-			}
-		
-		setBody(new TextureRegion(bodySkin));
-		getBody().setRegion(ori,0,300,300);
-		return getBody();
-	}
+	//attributs du Skin Choisi
+	int hairChosen,clotheChosen,hatChosen,animation,animSelec;
 
 	// Le constructeur
-
 	public Personnage(
 		String pseudo,
 		String owner,
@@ -133,14 +116,6 @@ public class Personnage extends Entite {
 		this.hairChosen = hairChosen;
 	}
 
-	public int getBodyChosen() {
-		return bodyChosen;
-	}
-
-	public void setBodyChosen(int bodyChosen) {
-		this.bodyChosen = bodyChosen;
-	}
-
 	public int getHatChosen() {
 		return hatChosen;
 	}
@@ -165,20 +140,11 @@ public class Personnage extends Entite {
 		this.animSelec = animSelec;
 	}
 
-	public Texture getBodySkin() {
-		return bodySkin;
+	public int getClotheChosen() {
+		return clotheChosen;
 	}
 
-	public void setBodySkin(Texture bodySkin) {
-		this.bodySkin = bodySkin;
+	public void setClotheChosen(int clotheChosen) {
+		this.clotheChosen = clotheChosen;
 	}
-
-	public TextureRegion getBody() {
-		return body;
-	}
-
-	public void setBody(TextureRegion body) {
-		this.body = body;
-	}
-
 }

@@ -3,6 +3,7 @@ package screens;
 import screens.UIs.UIGameGeneral;
 import screens.keyBindings.KBGeneral;
 import game.Hens;
+import inits.Compte;
 import inits.Personnage;
 import inits.Ulmo;
 import inits.skinManager.CharManager;
@@ -39,7 +40,7 @@ public class SGame implements Screen {
 	private CharManager cmanager;
 	
 	
-	public SGame (Hens hens, Personnage me){
+	public SGame (Hens hens, Personnage me, Compte myCompte){
 		this.hens=hens;
 		this.me=me;
 		stage= new UIGameGeneral(this);
@@ -82,7 +83,7 @@ public class SGame implements Screen {
 		batch.begin();
 		
 
-		batch.draw(me.loadCurrentBody(orientation), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
+		batch.draw(cmanager.CurrentBody(me), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
 		batch.draw(cmanager.CurrentHair(me),437 , 309, 0, 0, 150, 150, 1, 1, 0);
 
 		xCurrentV.draw(batch, "xCurrent : " + String.valueOf(xCurrent),10,120);

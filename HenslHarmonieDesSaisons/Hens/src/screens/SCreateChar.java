@@ -75,15 +75,7 @@ public class SCreateChar implements Screen  {
 		// Prendre ici pour afficher texte
 		
 		BitmapFont verif = new BitmapFont();
-		batch.begin();
-		BitmapFont classe = new BitmapFont();
-		
-		if(Gdx.input.isKeyPressed(Keys.N)){
-			verif.draw(batch,"Un Anarien à été crée, son nom est ",50,20);
-			sFond = new Sprite(fondUlmo);
-			
-		}
-		
+		batch.begin();	
 		if(getMe()!=null){
 			if(verifs.equals("Anar")){
 				verif.draw(batch,"Un Anarien à été crée, son nom est "+getMe().getPseudo(),10,20);
@@ -184,7 +176,7 @@ public void CreatePersonnage(String Name, String Classe,  String NdCompte ){
 		if(Classe.equals("Anar"))
 		 setMe(new Anar (Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Ulmo"))
-		 setMe(new Ulmo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
+		 setMe(new Ulmo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map,0));
 		if(Classe.equals("Wilwar"))
 		 setMe(new Wilwar(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Sulimo"))
