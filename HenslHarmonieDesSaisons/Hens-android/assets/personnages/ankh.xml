@@ -1,0 +1,93 @@
+<inits.Ulmo>
+  <sexe>0</sexe>
+  <niveau>1</niveau>
+  <vie>60.0</vie>
+  <harmonie>80.0</harmonie>
+  <vieRegen>1.0</vieRegen>
+  <harRegen>8.0</harRegen>
+  <puissance>0.0</puissance>
+  <defense>8.0</defense>
+  <vitesse>100.0</vitesse>
+  <concentration>0.0</concentration>
+  <vieCurrent>60.0</vieCurrent>
+  <harmonieCurrent>60.0</harmonieCurrent>
+  <vieRegenCurrent>1.0</vieRegenCurrent>
+  <harRegenCurrent>8.0</harRegenCurrent>
+  <puissanceCurrent>0.0</puissanceCurrent>
+  <defenseCurrent>8.0</defenseCurrent>
+  <vitesseCurrent>100.0</vitesseCurrent>
+  <concentrationCurrent>0.0</concentrationCurrent>
+  <skin>
+    <int>0</int>
+    <int>0</int>
+  </skin>
+  <mapID>45</mapID>
+  <direction>0</direction>
+  <orientation>0</orientation>
+  <pseudo>ankh</pseudo>
+  <owner>effron</owner>
+  <hairChosen>0</hairChosen>
+  <bodyChosen>0</bodyChosen>
+  <hatChosen>0</hatChosen>
+  <animation>0</animation>
+  <animSelec>0</animSelec>
+  <bodySkin>
+    <minFilter>Nearest</minFilter>
+    <magFilter>Nearest</magFilter>
+    <uWrap>ClampToEdge</uWrap>
+    <vWrap>ClampToEdge</vWrap>
+    <glHandle>1557</glHandle>
+    <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+      <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+        <file>data\Skin\SKINS_FILLE.png</file>
+        <type>Internal</type>
+      </file>
+      <width>4096</width>
+      <height>1024</height>
+      <format>RGBA8888</format>
+      <useMipMaps>false</useMipMaps>
+      <isPrepared>false</isPrepared>
+    </data>
+  </bodySkin>
+  <body>
+    <texture reference="../../bodySkin"/>
+    <u>0.14648438</u>
+    <v>0.0</v>
+    <u2>0.21972656</u2>
+    <v2>0.29296875</v2>
+    <regionWidth>300</regionWidth>
+    <regionHeight>300</regionHeight>
+  </body>
+  <Calme>0</Calme>
+  <Lunatique>0</Lunatique>
+  <Vagabond>0</Vagabond>
+  <Altruiste>0</Altruiste>
+  <classe>Ulmo</classe>
+  <hairSkin>
+    <minFilter>Nearest</minFilter>
+    <magFilter>Nearest</magFilter>
+    <uWrap>ClampToEdge</uWrap>
+    <vWrap>ClampToEdge</vWrap>
+    <glHandle>1558</glHandle>
+    <data class="com.badlogic.gdx.graphics.glutils.FileTextureData">
+      <file class="com.badlogic.gdx.backends.lwjgl.LwjglFileHandle">
+        <file>data\Skin\COUPE_ULMOFILLE.png</file>
+        <type>Internal</type>
+      </file>
+      <width>4096</width>
+      <height>1024</height>
+      <format>RGBA8888</format>
+      <useMipMaps>false</useMipMaps>
+      <isPrepared>false</isPrepared>
+    </data>
+  </hairSkin>
+  <hair>
+    <texture reference="../../hairSkin"/>
+    <u>0.14648438</u>
+    <v>0.0</v>
+    <u2>0.21972656</u2>
+    <v2>0.29296875</v2>
+    <regionWidth>300</regionWidth>
+    <regionHeight>300</regionHeight>
+  </hair>
+</inits.Ulmo>

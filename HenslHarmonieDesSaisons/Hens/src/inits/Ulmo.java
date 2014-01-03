@@ -15,8 +15,8 @@ public class Ulmo extends Personnage {
 	private int Lunatique;
 	private int Vagabond;
 	private int Altruiste;
-	//déf classe
 	private String classe="Ulmo";
+	private int hairSkin,hatSkin,clotheSkin;
 	
 	public Ulmo(String pseudo,
 			String owner,
@@ -39,18 +39,16 @@ public class Ulmo extends Personnage {
 			float concentrationCurrent,
 			List<Integer> skin,
 			List<Integer> pos,
-			int mapID,
-			int orientation) {
+			int mapID) {
 		super(pseudo, owner, niveau, vie, harmonie, vieRegen, harRegen, puissance,
 				defense, vitesse, concentration, vieCurrent, harmonieCurrent,
 				vieRegenCurrent, harRegenCurrent, puissanceCurrent, defenseCurrent,
 				vitesseCurrent, concentrationCurrent, skin, pos, mapID);
-		//initialisation des caractères
+		
 		Calme=0;
 		Lunatique=0;
 		Vagabond=0;
 		Altruiste=0;
-		this.orientation=orientation;
 	}
 
 	public int getCalme() {
@@ -100,6 +98,30 @@ public class Ulmo extends Personnage {
 
 	public void setClasse(String classe) {
 		this.classe = classe;
+	}
+
+	public int getHairSkin() {
+		return hairSkin;
+	}
+
+	public void setHairSkin(int hairSkin) {
+		this.hairSkin = hairSkin;
+	}
+
+	public int getHatSkin() {
+		return hatSkin;
+	}
+
+	public void setHatSkin(int hatSkin) {
+		this.hatSkin = hatSkin;
+	}
+
+	public int getClotheSkin() {
+		return clotheSkin;
+	}
+
+	public void setClotheSkin(int clotheSkin) {
+		this.clotheSkin = clotheSkin;
 	}
 
 

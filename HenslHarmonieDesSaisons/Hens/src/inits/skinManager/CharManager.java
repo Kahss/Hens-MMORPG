@@ -10,9 +10,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class CharManager {
-	//spritesheets Corps
-	private Texture bodySkinF,bodySkinG;
-	private TextureRegion[]  bodySkinf,bodySking;
 	//spritesheets cheveux
 	private Texture hairUlmoF,hairAnarF,hairWilwarF,hairSulimoF;
 	private Texture hairUlmoG,hairAnarG,hairWilwarG,hairSulimoG;
@@ -35,10 +32,7 @@ public class CharManager {
 	
 	
 	public CharManager(){
-	//init textures - Corps
-		bodySkinF= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-		bodySkinG= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-	//-hair
+	//init textures - hair
 		hairUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		hairWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
@@ -65,11 +59,7 @@ public class CharManager {
 		clotheAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 		clotheSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-	
-	//methodes tableau spritesheet découpé
-		loadBodySpriteTable(bodySkinf,bodySkinF);
-		loadBodySpriteTable(bodySking,bodySkinG);
-	//-hair F
+	//methodes tableau spritesheet découpé -hair F
 		loadSpriteTable(hairUlmof,hairUlmoF);
 		loadSpriteTable(hairAnarf,hairAnarF);
 		loadSpriteTable(hairWilwarf,hairWilwarF);
@@ -105,20 +95,12 @@ public class CharManager {
 	public void loadSpriteTable( TextureRegion[][] tab, Texture tex ) {
 		tab = new TextureRegion[4][8];
 		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 8; j++) {
+			for (int j = 0; i < 8; j++) {
 				tab[i][j] = new TextureRegion(tex, 300*j, 300*i, 300, 300);
 			}
 		}
 	}
 	
-	public void loadBodySpriteTable( TextureRegion[] tab, Texture tex ) {
-		tab = new TextureRegion[8];
-		for (int i = 0; i < 8; i++) {
-			tab[i] = new TextureRegion(tex,300*i, 0, 300, 300);
-		}
-	}
-	
-//methodes d'update du skin affiché.
 	// Skin cheveux
 	public TextureRegion CurrentHair(Personnage me){
 		TextureRegion renvoi= new TextureRegion();
@@ -131,41 +113,6 @@ public class CharManager {
 		
 		return renvoi;
 	}
-	//Skin chapeau
-	public TextureRegion CurrentHat(Personnage me){
-		TextureRegion renvoi= new TextureRegion();
-		if(me.getSexe()==1){
-			renvoi= hatUlmof[me.getHatChosen()][me.getOrientation()];
-		}
-		else if(me.getSexe()==0){
-			renvoi= hatUlmog[me.getHatChosen()][me.getOrientation()];
-		}
-		
-		return renvoi;
-	}
-	//Skin Habits
-	public TextureRegion CurrentClothe(Personnage me){
-		TextureRegion renvoi= new TextureRegion();
-		if(me.getSexe()==1){
-			renvoi= clotheUlmof[me.getClotheChosen()][me.getOrientation()];
-		}
-		else if(me.getSexe()==0){
-			renvoi= clotheUlmog[me.getClotheChosen()][me.getOrientation()];
-		}
-		
-		return renvoi;
-	}
-	//Skin Corps
-	public TextureRegion CurrentBody(Personnage me){
-		TextureRegion renvoi= new TextureRegion();
-		if(me.getSexe()==1){
-			renvoi= bodySkinf[me.getOrientation()];
-		}
-		else if(me.getSexe()==0){
-			renvoi= bodySking[me.getOrientation()];
-		}
-		
-		return renvoi;
-	}
+
 }
 

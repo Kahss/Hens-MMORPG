@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import inits.Compte;
 import inits.Personnage;
-import inits.skinManager.CharManager;
 import screens.UIs.UICreateChar;
 import screens.UIs.UICreateSkin;
 import game.Hens;
@@ -30,41 +29,77 @@ public class SCreateSkin implements Screen {
 	UICreateSkin stage;
 	SpriteBatch batch;
 	Skin skinCreaSkin;
+	Texture ulmoBody, ulmoHair,ulmoHabit;
+	TextureRegion ulmoBody1,ulmoHair1,bodyCurrent,hairCurrent,habitCurrent;
+	private int classe;
+	private int skinPos;
+	int orientation,hairChosen;
 	private Personnage me;
 	private Compte compte;
-	private CharManager cmanager;
+
 
 	
-public SCreateSkin (Hens hens, Personnage me, Compte compte) throws IOException{
+public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOException{
 	this.compte = compte;
+	this.setClasse(classe);
 	this.hens=hens;
-	this.me=me;
+	this.me=meselec;
 	batch = new SpriteBatch();
 	stage = new UICreateSkin(this);
+	textureLoad();
 	stage.loadUI();	
-	cmanager=new CharManager();
 	Gdx.input.setInputProcessor(stage);
+	skinPos=600;
 }
 	
 
 	@Override
 	public void render(float delta) {
-		// Clean écran
+		// TODO Auto-generated method stub
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		Gdx.gl.glClearColor(0.3f, 0.35f, 0.3f, 1);
-		// Début de l'affichage
 		batch.begin();
-		//affichage du skin
-		batch.draw(cmanager.CurrentBody(me), 340, 250, 0, 0, 300, 300, 1, 1, 0);
-		batch.draw(cmanager.CurrentHair(me), 340, 250, 0, 0, 300, 300, 1, 1, 0);
+	
+		//habitCurrent=me.loadCurrentHabit();
+		batch.draw(bodyCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
+		batch.draw(hairCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
 		//batch.draw(habitCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
 		batch.end();
-		//affichage de l'interface
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 		stage.setsCreateSkin(this);
 	
 	}
+
+	public TextureRegion getBodyCurrent() {
+		return bodyCurrent;
+	}
+
+
+	public void setBodyCurrent(TextureRegion bodyCurrent) {
+		this.bodyCurrent = bodyCurrent;
+	}
+
+
+	public TextureRegion getHairCurrent() {
+		return hairCurrent;
+	}
+
+
+	public void setHairCurrent(TextureRegion hairCurrent) {
+		this.hairCurrent = hairCurrent;
+	}
+
+
+	public TextureRegion getHabitCurrent() {
+		return habitCurrent;
+	}
+
+
+	public void setHabitCurrent(TextureRegion habitCurrent) {
+		this.habitCurrent = habitCurrent;
+	}
+
 
 	public Hens getHens() {
 		return hens;
@@ -111,6 +146,35 @@ public SCreateSkin (Hens hens, Personnage me, Compte compte) throws IOException{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void textureLoad(){
+	ulmoBody=new Texture(Gdx.files.internal("data/skin/SKINS_FILLE.png"));
+	ulmoHair=new Texture(Gdx.files.internal("data/skin/COUPE_ULMOFILLE.png"));
+	ulmoHair1=new TextureRegion(ulmoHair,600,0,300,300);
+	ulmoBody1=new TextureRegion(ulmoBody,600,0,300,300);
+	
+}
+	
+
+
+public int getSkinPos() {
+	return skinPos;
+}
+
+
+public void setSkinPos(int skinPos) {
+	this.skinPos = skinPos;
+}
+
+public int getClasse() {
+	return classe;
+}
+
+
+public void setClasse(int classe) {
+	this.classe = classe;
+}
+
 
 public Personnage getMe() {
 	return me;
@@ -129,16 +193,6 @@ public Compte getCompte() {
 
 public void setCompte(Compte compte) {
 	this.compte = compte;
-}
-
-
-public CharManager getCmanager() {
-	return cmanager;
-}
-
-
-public void setCmanager(CharManager cmanager) {
-	this.cmanager = cmanager;
 }
 
 }
