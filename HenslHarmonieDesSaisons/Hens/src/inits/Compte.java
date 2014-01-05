@@ -1,19 +1,11 @@
 package inits;
 
-import inits.util.XStreamUtil;
-
-import java.io.File;
 import java.util.ArrayList;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Compte {
 private String nomDeCompte, mdp;
 String pathCompte,initialPath;
 private ArrayList<Personnage> createdChar;
-private XStreamUtil xStreamUtil;
-
 
 public Compte (String ndc,String mdp){
 	this.nomDeCompte=ndc;

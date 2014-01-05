@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import inits.Compte;
 import inits.Personnage;
+import inits.skinManager.CharManager;
 import screens.UIs.UICreateChar;
 import screens.UIs.UICreateSkin;
 import game.Hens;
@@ -30,12 +31,13 @@ public class SCreateSkin implements Screen {
 	SpriteBatch batch;
 	Skin skinCreaSkin;
 	Texture ulmoBody, ulmoHair,ulmoHabit;
-	TextureRegion ulmoBody1,ulmoHair1,bodyCurrent,hairCurrent,habitCurrent;
+	TextureRegion bodyCurrent,hairCurrent,habitCurrent;
 	private int classe;
 	private int skinPos;
 	int orientation,hairChosen;
 	private Personnage me;
 	private Compte compte;
+	private CharManager charManager;
 
 
 	
@@ -44,9 +46,10 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 	this.setClasse(classe);
 	this.hens=hens;
 	this.me=meselec;
+	charManager = new CharManager();
 	batch = new SpriteBatch();
 	stage = new UICreateSkin(this);
-	textureLoad();
+	textureLoad(charManager);
 	stage.loadUI();	
 	Gdx.input.setInputProcessor(stage);
 	skinPos=600;
@@ -60,10 +63,11 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 		Gdx.gl.glClearColor(0.3f, 0.35f, 0.3f, 1);
 		batch.begin();
 	
-		//habitCurrent=me.loadCurrentHabit();
+//		habitCurrent=me.loadCurrentHabit();
+//		hairCurrent = charManager.getHairUlmof()[0][4];
 		batch.draw(bodyCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
 		batch.draw(hairCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
-		//batch.draw(habitCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
+//		batch.draw(habitCurrent, 340, 250, 0, 0, 300, 300, 1, 1, 0);
 		batch.end();
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
@@ -147,12 +151,12 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 		
 	}
 	
-	public void textureLoad(){
+	public void textureLoad(CharManager charManager){
 	ulmoBody=new Texture(Gdx.files.internal("data/skin/SKINS_FILLE.png"));
-	ulmoHair=new Texture(Gdx.files.internal("data/skin/COUPE_ULMOFILLE.png"));
-	ulmoHair1=new TextureRegion(ulmoHair,600,0,300,300);
-	ulmoBody1=new TextureRegion(ulmoBody,600,0,300,300);
-	
+//	ulmoHair=new Texture(Gdx.files.internal("data/skin/COUPE_ULMOFILLE.png"));
+//	setHairCurrent(new TextureRegion(ulmoHair,600,0,300,300));
+	setBodyCurrent(new TextureRegion(ulmoBody,600,0,300,300));
+	setHairCurrent(charManager.getHairUlmof()[0][2]);
 }
 	
 

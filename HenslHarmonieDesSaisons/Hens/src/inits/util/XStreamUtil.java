@@ -90,6 +90,8 @@ try{
 
 public Compte loadCompte(String ndcompte){
 	try {
+		System.out.println("initialPath : " + initialPath);
+		// TODO : Le crash du jeu vient de la désérialisation
 		compte = (Compte)xStream.fromXML(new FileReader(initialPath+"comptes/"+ndcompte+".xml"));
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
