@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-package game;
+package sandbox;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;

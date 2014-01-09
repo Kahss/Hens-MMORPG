@@ -45,7 +45,7 @@ public class Wilwar extends Personnage {
 
 
 	public void setSage(int Sage) {
-		Sage = Sage;
+		this.Sage = Sage;
 	}
 
 
@@ -55,7 +55,7 @@ public class Wilwar extends Personnage {
 
 
 	public void setIndomptable(int Indomptable) {
-		Indomptable = Indomptable;
+		this.Indomptable = Indomptable;
 	}
 
 
@@ -65,7 +65,7 @@ public class Wilwar extends Personnage {
 
 
 	public void setDoux(int Doux) {
-		Doux = Doux;
+		this.Doux = Doux;
 	}
 
 
@@ -75,7 +75,7 @@ public class Wilwar extends Personnage {
 
 
 	public void setDetermine(int Determine) {
-		Determine = Determine;
+		this.Determine = Determine;
 	}
 
 }

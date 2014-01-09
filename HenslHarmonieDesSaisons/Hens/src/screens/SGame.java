@@ -5,7 +5,7 @@ import screens.keyBindings.KBGeneral;
 import game.Hens;
 import inits.Personnage;
 import inits.Ulmo;
-import inits.skinManager.CharManager;
+import inits.util.SkinManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -36,7 +36,7 @@ public class SGame implements Screen {
 	private KBGeneral keyBinding;
 	private BitmapFont var1;
 	private int orientation;
-	private CharManager cmanager;
+	private SkinManager cmanager;
 	
 	
 	public SGame (Hens hens, Personnage me){
@@ -58,7 +58,7 @@ public class SGame implements Screen {
 		x1=2000;
 		y1=0;
 		orientation=900;
-		cmanager=new CharManager();
+		cmanager=new SkinManager();
 		
 		renderer.setView(camera);
 	}

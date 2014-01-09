@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import inits.Compte;
 import inits.Personnage;
-import inits.skinManager.CharManager;
+import inits.util.SkinManager;
 import screens.UIs.UICreateChar;
 import screens.UIs.UICreateSkin;
 import game.Hens;
@@ -37,7 +37,7 @@ public class SCreateSkin implements Screen {
 	int orientation,hairChosen;
 	private Personnage me;
 	private Compte compte;
-	private CharManager charManager;
+	private SkinManager charManager;
 
 
 	
@@ -46,7 +46,7 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 	this.setClasse(classe);
 	this.hens=hens;
 	this.me=meselec;
-	charManager = new CharManager();
+	charManager = new SkinManager();
 	batch = new SpriteBatch();
 	stage = new UICreateSkin(this);
 	textureLoad(charManager);
@@ -151,7 +151,7 @@ public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOExcep
 		
 	}
 	
-	public void textureLoad(CharManager charManager){
+	public void textureLoad(SkinManager charManager){
 	ulmoBody=new Texture(Gdx.files.internal("data/skin/SKINS_FILLE.png"));
 //	ulmoHair=new Texture(Gdx.files.internal("data/skin/COUPE_ULMOFILLE.png"));
 //	setHairCurrent(new TextureRegion(ulmoHair,600,0,300,300));

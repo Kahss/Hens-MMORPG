@@ -44,7 +44,7 @@ public class Sulimo extends Personnage {
 
 
 	public void setSolitaire(int Solitaire) {
-		Solitaire = Solitaire;
+		this.Solitaire = Solitaire;
 	}
 
 
@@ -54,7 +54,7 @@ public class Sulimo extends Personnage {
 
 
 	public void setLibre(int Libre) {
-		Libre = Libre;
+		this.Libre = Libre;
 	}
 
 
@@ -64,7 +64,7 @@ public class Sulimo extends Personnage {
 
 
 	public void setGenereux(int Genereux) {
-		Genereux = Genereux;
+		this.Genereux = Genereux;
 	}
 
 
@@ -74,7 +74,7 @@ public class Sulimo extends Personnage {
 
 
 	public void setTurbulent(int Turbulent) {
-		Turbulent = Turbulent;
+		this.Turbulent = Turbulent;
 	}
 
 }

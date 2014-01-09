@@ -1,12 +1,9 @@
 package game;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Vector;
-
-import javax.swing.JTextArea;
 
 
 class ClientThread extends Thread implements Runnable{

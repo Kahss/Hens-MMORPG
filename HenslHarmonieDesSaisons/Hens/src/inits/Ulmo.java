@@ -1,14 +1,6 @@
 package inits;
 
-import inits.skinManager.CharManager;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Ulmo extends Personnage {
 	private int Calme;

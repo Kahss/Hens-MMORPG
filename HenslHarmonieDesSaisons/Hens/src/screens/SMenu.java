@@ -3,24 +3,19 @@ package screens;
 import screens.UIs.UIMenu;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-
 import game.*;
 
 public class SMenu implements Screen {
 	private SpriteBatch batch;
-	private Texture fond,GUI,fondCreaChar,fond2CreaChar;
-	private Sprite sprite,sFondUlmo;
+	private Texture fond;
+	private Sprite sprite;
 	private game.Hens hens;
 	private UIMenu stage;
 	
@@ -28,6 +23,7 @@ public class SMenu implements Screen {
 		// TODO Auto-generated method stub
 		this.setHens(hens);
 		batch = new SpriteBatch();
+		// Trois lignes pour obtenir une sprite -> TODO : refactoriser
 		fond = new Texture(Gdx.files.internal("data/fond.jpg"));
 		TextureRegion fond1 = new TextureRegion(fond, 0, 0, 1024, 768);
 		sprite = new Sprite(fond1);
