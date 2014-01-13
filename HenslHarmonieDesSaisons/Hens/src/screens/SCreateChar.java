@@ -1,5 +1,7 @@
 /*******************************************************************************
- * Copyright 2011 See AUTHORS file.
+ * Copyright 2011 See
+
+ AUTHORS file.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +23,6 @@ import java.util.List;
 import screens.UIs.UICreateChar;
 import game.Hens;
 import inits.*;
-import inits.util.XStreamUtil;
-
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
@@ -76,8 +76,6 @@ public class SCreateChar implements Screen  {
 		
 		BitmapFont verif = new BitmapFont();
 		batch.begin();
-		BitmapFont classe = new BitmapFont();
-		
 		if(Gdx.input.isKeyPressed(Keys.N)){
 			verif.draw(batch,"Un Anarien à été crée, son nom est ",50,20);
 			sFond = new Sprite(fondUlmo);
@@ -181,6 +179,7 @@ public void CreatePersonnage(String Name, String Classe,  String NdCompte ){
 		vieC=60; harC=60; vieRC=1; harRC=8;
 		puisC=0; defC=8; vitC=100; concC=0; 
 		map=45;
+		// TODO : ça marche, mais il doit y avoir moyen de factoriser pour rendre ça un peu plus propre
 		if(Classe.equals("Anar"))
 		 setMe(new Anar (Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
 		if(Classe.equals("Ulmo"))
