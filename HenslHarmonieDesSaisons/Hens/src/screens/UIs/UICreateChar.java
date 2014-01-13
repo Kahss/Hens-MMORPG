@@ -93,7 +93,7 @@ public void ulmoBt(){ //bouton ulmo creation perso
 			wilwarButton.setText("Wilwar");
 			sulimoButton.setText("Sulimo");
 			sCreateChar.setsFond(new Sprite(sCreateChar.getFondUlmo()));
-			classSelected=4;
+			classSelected=3;
 		}
 	});	
 }
@@ -112,7 +112,7 @@ public void sulimoBt(){ //bouton sulimo creation perso
 			anarButton.setText("Anar");
 			wilwarButton.setText("Wilwar");
 			sCreateChar.setsFond(new Sprite(sCreateChar.getFondSulimo()));
-			classSelected=3;
+			classSelected=2;
 			
 		}
 	});
@@ -132,7 +132,7 @@ public void anarBt(){ //bouton sulimo creation perso
 			wilwarButton.setText("Wilwar");
 			sulimoButton.setText("Sulimo");
 			sCreateChar.setsFond(new Sprite(sCreateChar.getFondAnar()));
-			classSelected=2;
+			classSelected=1;
 		}
 	});
 }
@@ -151,7 +151,7 @@ public void wilwarBt(){ //bouton sulimo creation perso
 			anarButton.setText("Anar");
 			sulimoButton.setText("Sulimo");
 			sCreateChar.setsFond(new Sprite(sCreateChar.getFondWilwar()));
-			classSelected=1;
+			classSelected=4;
 		}
 	});
 
@@ -176,22 +176,21 @@ public void nameField(){
 			name=enterNameField.getText();
 			switch(classSelected){
 			case 1:
-				sCreateChar.CreatePersonnage(name,"Wilwar",sCreateChar.getMyCompte().getNomDeCompte());
-				break;
-			case 2:
 				sCreateChar.CreatePersonnage(name,"Anar",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
-			case 3: 
+			case 2:
 				sCreateChar.CreatePersonnage(name,"Sulimo",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
-			case 4:
+			case 3: 
 				sCreateChar.CreatePersonnage(name,"Ulmo",sCreateChar.getMyCompte().getNomDeCompte());
 				break;
-
+			case 4:
+				sCreateChar.CreatePersonnage(name,"Wilwar",sCreateChar.getMyCompte().getNomDeCompte());
+				break;
 			}
-		
 		}
-		});
+	});
+	
 	table.row();
 	TextButton validChar= new TextButton("Choisir son apparence",skin);
 	
@@ -200,7 +199,7 @@ public void nameField(){
 		public void changed (ChangeEvent event, Actor actor) {
 			sCreateChar.getMyCompte().getCreatedChar().add(sCreateChar.getMe());
 			try {
-				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe(),sCreateChar.getMyCompte()));
+				sCreateChar.getHens().setScreen(new SCreateSkin(sCreateChar.getHens(),sCreateChar.getMe(),sCreateChar.getMyCompte(), classSelected));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

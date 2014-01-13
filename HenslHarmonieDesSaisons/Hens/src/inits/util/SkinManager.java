@@ -8,8 +8,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class SkinManager {
 	//spritesheets corps
-	private Texture bodySkinGlobal;
-	private TextureRegion[][] bodySkinDecoupe;
+	private Texture bodySkinGlobalf, bodySkinGlobalg;
+	private TextureRegion[][] bodySkinDecoupef, bodySkinDecoupeg;
 	//spritesheets cheveux
 	private Texture hairUlmoF,hairAnarF,hairWilwarF,hairSulimoF;
 	private Texture hairUlmoG,hairAnarG,hairWilwarG,hairSulimoG;
@@ -28,7 +28,7 @@ public class SkinManager {
 	
 	public SkinManager(){
 	// init textures - body
-		bodySkinGlobal = new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
+		bodySkinGlobalf = new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 	//init textures - hair
 	// TODO : faire correspondre les bons tableaux avec les bonnes images
 		hairUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
@@ -58,8 +58,8 @@ public class SkinManager {
 //		clotheWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 //		clotheSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 	//methode tableau spritesheet découpé corps
-		bodySkinDecoupe = new TextureRegion[1][8];
-		loadSpriteTable(bodySkinDecoupe, bodySkinGlobal, 1, 8);
+		bodySkinDecoupef = new TextureRegion[1][8];
+		loadSpriteTable(bodySkinDecoupef, bodySkinGlobalf, 1, 8);
 	//methodes tableau spritesheet découpé -hair F
 		hairUlmof = new TextureRegion[4][8];
 		loadSpriteTable(hairUlmof,hairUlmoF, 4, 8);
@@ -311,12 +311,20 @@ public class SkinManager {
 		this.clotheSulimog = clotheSulimog;
 	}
 
-	public TextureRegion[][] getBodySkinDecoupe() {
-		return bodySkinDecoupe;
+	public TextureRegion[][] getBodySkinDecoupef() {
+		return bodySkinDecoupef;
 	}
 
-	public void setBodySkinDecoupe(TextureRegion[][] bodySkinDecoupe) {
-		this.bodySkinDecoupe = bodySkinDecoupe;
+	public void setBodySkinDecoupef(TextureRegion[][] bodySkinDecoupe) {
+		this.bodySkinDecoupef = bodySkinDecoupe;
+	}
+
+	public TextureRegion[][] getBodySkinDecoupeg() {
+		return bodySkinDecoupeg;
+	}
+
+	public void setBodySkinDecoupeg(TextureRegion[][] bodySkinDecoupeg) {
+		this.bodySkinDecoupeg = bodySkinDecoupeg;
 	}
 
 	

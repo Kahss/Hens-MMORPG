@@ -22,6 +22,7 @@ public class SCreateSkin implements Screen {
 	SpriteBatch batch;
 	Skin skinCreaSkin;
 	Texture ulmoBody, ulmoHair,ulmoHabit;
+	TextureRegion[][] tBodyCurrent, tHairCurrent, tHabitCurrent;
 	TextureRegion bodyCurrent,hairCurrent,habitCurrent;
 	private int classe;
 	private int skinPos;
@@ -30,16 +31,18 @@ public class SCreateSkin implements Screen {
 	private Compte compte;
 	private SkinManager charManager;
 	private int styleChosen, posChosen;
+	private int classSelected;
 
 	// le constructeur
 	
-	public SCreateSkin (Hens hens, Personnage meselec, Compte compte) throws IOException{
+	public SCreateSkin (Hens hens, Personnage meselec, Compte compte, int classSelected) throws IOException{
 	this.compte = compte;
 	this.setClasse(classe);
 	this.hens=hens;
 	this.me=meselec;
 	this.styleChosen = 0;
 	this.posChosen = 2;
+	this.setClassSelected(classSelected);
 	charManager = new SkinManager();
 	batch = new SpriteBatch();
 	stage = new UICreateSkin(this);
@@ -106,11 +109,33 @@ public class SCreateSkin implements Screen {
 	public void textureLoad(SkinManager charManager){
 	int i = getStyleChosen();
 	int j = getPosChosen();
-	setBodyCurrent(charManager.getBodySkinDecoupe()[0][j]);
-	// TODO : implémenter pour tous les villages
-	setHairCurrent(charManager.getHairUlmof()[i][j]);
+	loadClassSkin();
+	setBodyCurrent(charManager.getBodySkinDecoupef()[0][j]);
+	setHairCurrent(tHairCurrent[i][j]);
 	}
 	
+	// TODO : La méthode ne marche que pour les filles, à implémenter aussi pour les garçons
+	// On pourra faire une autre méthode qui ne gère que les sexes, vu que les skins ne dépendents pas des classes choisies
+	public void loadClassSkin() {
+		switch(this.classSelected) {
+		case 1:
+//			settHairCurrent(this.charManager.getHairAnarf());
+//			settHabitCurrent(this.charManager.getClotheAnarf());
+			break;
+		case 2 :
+//			settHairCurrent(this.charManager.getHairSulimof());
+//			settHabitCurrent(this.charManager.getClotheSulimof());
+			break;
+		case 3 :
+			settHairCurrent(this.charManager.getHairUlmof());
+//			settHabitCurrent(this.charManager.getClotheUlmof());
+			break;
+		case 4 : 
+//			settHairCurrent(this.charManager.getHairWilwarf());
+//			settHabitCurrent(this.charManager.getClotheWilwarf());
+			break;
+		}
+	}
 	
 	public void turnSkinLeft() {
 		setPosChosen((getPosChosen() + 1) % 8);
@@ -246,5 +271,37 @@ public class SCreateSkin implements Screen {
 
 	public void setHens(Hens hens) {
 		this.hens = hens;
+	}
+
+	public int getClassSelected() {
+		return classSelected;
+	}
+
+	public void setClassSelected(int classSelected) {
+		this.classSelected = classSelected;
+	}
+
+	public TextureRegion[][] gettBodyCurrent() {
+		return tBodyCurrent;
+	}
+
+	public void settBodyCurrent(TextureRegion[][] tBodyCurrent) {
+		this.tBodyCurrent = tBodyCurrent;
+	}
+
+	public TextureRegion[][] gettHairCurrent() {
+		return tHairCurrent;
+	}
+
+	public void settHairCurrent(TextureRegion[][] tHairCurrent) {
+		this.tHairCurrent = tHairCurrent;
+	}
+
+	public TextureRegion[][] gettHabitCurrent() {
+		return tHabitCurrent;
+	}
+
+	public void settHabitCurrent(TextureRegion[][] tHabitCurrent) {
+		this.tHabitCurrent = tHabitCurrent;
 	}
 }
