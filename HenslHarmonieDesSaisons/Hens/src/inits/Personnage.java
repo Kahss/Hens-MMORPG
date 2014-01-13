@@ -13,22 +13,25 @@ public class Personnage extends Entite {
 	private String pseudo;
 	private String owner;
 
-	int hairChosen,bodyChosen,hatChosen,animation,animSelec;	
-	Texture bodySkin;
-	private TextureRegion body;
+	int hairChosen,
+	bodyChosen,
+	hatChosen,
+	animation,
+	animSelec,
+	orientation,
+	classeInt;
 	
-	public TextureRegion loadCurrentBody(int ori){
-		if(sexe==0){
-			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-			}
-		if(sexe==1){
-			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-			}
-		
-		setBody(new TextureRegion(bodySkin));
-		getBody().setRegion(ori,0,300,300);
-		return getBody();
-	}
+//	public TextureRegion loadCurrentBody(int ori){
+//		if(sexe==0){
+//			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
+//			}
+//		if(sexe==1){
+//			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
+//			}
+//		setBody(new TextureRegion(bodySkin));
+//		getBody().setRegion(ori,0,300,300);
+//		return getBody();
+//	}
 
 	// Le constructeur
 
@@ -163,21 +166,19 @@ public class Personnage extends Entite {
 	public void setAnimSelec(int animSelec) {
 		this.animSelec = animSelec;
 	}
-
-	public Texture getBodySkin() {
-		return bodySkin;
+	public int getOrientation() {
+		return orientation;
 	}
 
-	public void setBodySkin(Texture bodySkin) {
-		this.bodySkin = bodySkin;
+	public void setOrientation(int orientation) {
+		this.orientation = orientation;
 	}
 
-	public TextureRegion getBody() {
-		return body;
+	public int getClasseInt() {
+		return classeInt;
 	}
 
-	public void setBody(TextureRegion body) {
-		this.body = body;
+	public void setClasseInt(int classeInt) {
+		this.classeInt = classeInt;
 	}
-
 }

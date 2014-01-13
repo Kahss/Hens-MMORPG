@@ -73,6 +73,11 @@ public class UICreateSkin extends Stage {
 		goToCaractere();
 		goToGame();
 		this.addActor(table);
+		loadInterface(table);
+		}
+	
+	// C'est ici que l'on définit l'emplacement des boutons, touça touça
+	private void loadInterface(Table table) {
 		table.top().left();
 		table.add(titre).left();
 		table.row();table.add().height(200);
@@ -102,9 +107,9 @@ public class UICreateSkin extends Stage {
 		table.add(goToCar);
 		table.row();
 		table.add(goToGame);
-		
-		}
-		
+	}
+	
+	// TODO : Cette méthode doit être prise comme base pour le choix de toutes les autres caractéristiques
 	private void boxHair(){ // Choix des cheveux
 		boxHair1=new TextButton("Cheveux1",skinUICreaSkin.get("default",TextButtonStyle.class));
 		boxHair2=new TextButton("Cheveux2",skinUICreaSkin.get("default",TextButtonStyle.class));
@@ -112,16 +117,19 @@ public class UICreateSkin extends Stage {
 		boxHair1.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				sCreateSkin.changeHair(0);
+				sCreateSkin.getMe().setHairChosen(0);
 			}	
 		});
 		boxHair2.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				sCreateSkin.changeHair(1);
+				sCreateSkin.getMe().setHairChosen(1);
 			}
 		});
 		boxHair3.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				sCreateSkin.changeHair(2);
+				sCreateSkin.getMe().setHairChosen(2);
 			}
 		});
 	}

@@ -36,7 +36,7 @@ public class Ulmo extends Personnage {
 				defense, vitesse, concentration, vieCurrent, harmonieCurrent,
 				vieRegenCurrent, harRegenCurrent, puissanceCurrent, defenseCurrent,
 				vitesseCurrent, concentrationCurrent, skin, pos, mapID);
-		
+		this.classeInt = 2;
 		Calme=0;
 		Lunatique=0;
 		Vagabond=0;

@@ -4,7 +4,6 @@ import screens.UIs.UIGameGeneral;
 import screens.keyBindings.KBGeneral;
 import game.Hens;
 import inits.Personnage;
-import inits.Ulmo;
 import inits.util.SkinManager;
 
 import com.badlogic.gdx.Gdx;
@@ -12,35 +11,29 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 
 public class SGame implements Screen {
 	private Personnage me;
-	private Hens hens;
 	private UIGameGeneral stage;
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	private TiledMap map;
 	private IsometricTiledMapRenderer renderer;
 	private TmxMapLoader loader;
-	private int xFinal,yFinal,x1,y1,xCurrent,yCurrent,xClic,yClic;
-	private int xDiff,yDiff,xDelta,yDelta;
+	private int xFinal,yFinal,x1,y1,xClic,yClic;
+	private int xDelta,yDelta;
 	private float nFrame;
 	private KBGeneral keyBinding;
-	private BitmapFont var1;
 	private int orientation;
-	private SkinManager cmanager;
+	private SkinManager skinManager;
 	
 	
 	public SGame (Hens hens, Personnage me){
-		this.hens=hens;
 		this.me=me;
 		stage= new UIGameGeneral(this);
 		batch = new SpriteBatch();
@@ -51,22 +44,18 @@ public class SGame implements Screen {
 		keyBinding=new KBGeneral(this);
 		Gdx.input.setInputProcessor(new InputMultiplexer(stage,keyBinding));
 		stage.loadUI();
-		xCurrent=2000;
-		yCurrent=0;
 		xFinal=2000;
 		yFinal=0;
 		x1=2000;
 		y1=0;
 		orientation=900;
-		cmanager=new SkinManager();
+		skinManager=new SkinManager();
 		
 		renderer.setView(camera);
 	}
 
 	@Override
 	public void render(float delta) {
-		BitmapFont xCurrentV = new BitmapFont();
-		BitmapFont yCurrentV = new BitmapFont();
 		BitmapFont xFinalV = new BitmapFont();
 		BitmapFont yFinalV = new BitmapFont();
 		BitmapFont x1V = new BitmapFont();
@@ -81,12 +70,9 @@ public class SGame implements Screen {
 		renderer.render();
 		batch.begin();
 		
+		batch.draw(skinManager.getBodyGlobal()[me.getSexe()][0][me.getBodyChosen()][me.getOrientation()],437 , 309, 0, 0, 150, 150, 1, 1, 0);
+		batch.draw(skinManager.getHairGlobal()[me.getSexe()][me.getClasseInt()][me.getHairChosen()][me.getOrientation()], 437, 309, 0, 0, 150, 150, 1, 1, 0);
 
-		batch.draw(me.loadCurrentBody(orientation), 437, 309, 0, 0, 150, 150, 1, 1, 0); // corps du perso
-		batch.draw(cmanager.CurrentHair(me),437 , 309, 0, 0, 150, 150, 1, 1, 0);
-
-		xCurrentV.draw(batch, "xCurrent : " + String.valueOf(xCurrent),10,120);
-		yCurrentV.draw(batch, "yCurrent : " + String.valueOf(yCurrent),10,100);
 		xFinalV.draw(batch, "xFinal : " + String.valueOf(xFinal),10,80);
 		yFinalV.draw(batch, "yFinal : " + String.valueOf(yFinal),10,60);
 		x1V.draw(batch, "x1 : " + String.valueOf(x1),10,40);
@@ -96,7 +82,6 @@ public class SGame implements Screen {
 		
 
 		renderer.render(layersTop); //couches supérieures de la map
-
 		renderer.render(layersTop);
 
 		xClic=keyBinding.getX();
@@ -125,6 +110,7 @@ public class SGame implements Screen {
 			setY1((int)(getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!movement x:"+xDelta/nFrame+" movment y:"+yDelta/nFrame);
 			orientation=1800;
+			me.setOrientation(6);
 			if(getX1()>=xClic-1||getY1()>=yClic-1){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -147,6 +133,7 @@ public class SGame implements Screen {
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!3");
 			orientation=600;
+			me.setOrientation(2);
 			if(getX1()<=xClic+1||getY1()<=yClic+1){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -169,6 +156,7 @@ public class SGame implements Screen {
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!2");
 			orientation=1200;
+			me.setOrientation(4);
 			if(getX1()>=xClic||getY1()<=yClic){
 				xFinal=xClic;
 				yFinal=yClic;
@@ -190,6 +178,7 @@ public class SGame implements Screen {
 			setY1((int) (getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!4");
 			orientation=0;
+			me.setOrientation(0);
 			if(getX1()<=xClic||getY1()>=yClic){
 				xFinal=xClic;
 				yFinal=yClic;

@@ -25,6 +25,8 @@ public class SkinManager {
 	private Texture clotheUlmoG,clotheAnarG,clotheWilwarG,clotheSulimoG;
 	private TextureRegion[][] clotheUlmof,clotheAnarf,clotheWilwarf,clotheSulimof;
 	private TextureRegion[][] clotheUlmog,clotheAnarg,clotheWilwarg,clotheSulimog;
+	// tableaux globaux pour les différentes catégories à 4 dimensions : sexe - village - style - orientation
+	private TextureRegion[][][][] bodyGlobal, hairGlobal, hatGlobal, clotheGlobal;
 	
 	public SkinManager(){
 	// init textures - body
@@ -61,8 +63,8 @@ public class SkinManager {
 		bodySkinDecoupef = new TextureRegion[1][8];
 		loadSpriteTable(bodySkinDecoupef, bodySkinGlobalf, 1, 8);
 	//methodes tableau spritesheet découpé -hair F
-		hairUlmof = new TextureRegion[4][8];
-		loadSpriteTable(hairUlmof,hairUlmoF, 4, 8);
+		hairUlmof = new TextureRegion[3][8];
+		loadSpriteTable(hairUlmof,hairUlmoF, 3, 8);
 //		loadSpriteTable(hairAnarf,hairAnarF, 4, 8);
 //		loadSpriteTable(hairWilwarf,hairWilwarF, 4, 8);
 //		loadSpriteTable(hairSulimof,hairSulimoF, 4, 8);
@@ -72,8 +74,8 @@ public class SkinManager {
 //		loadSpriteTable(hairWilwarg,hairWilwarG, 4, 8);
 //		loadSpriteTable(hairSulimog,hairSulimoG, 4, 8);
 	//hat F
-		hatUlmof = new TextureRegion[4][8];
-		loadSpriteTable(hatUlmof,hatUlmoF, 4, 8);
+		hatUlmof = new TextureRegion[3][8];
+		loadSpriteTable(hatUlmof,hatUlmoF, 3, 8);
 //		loadSpriteTable(hatAnarf,hatAnarF, 4, 8);
 //		loadSpriteTable(hatWilwarf,hatWilwarF, 4, 8);
 //		loadSpriteTable(hatSulimof,hatSulimoF, 4, 8);
@@ -83,8 +85,8 @@ public class SkinManager {
 //		loadSpriteTable(hatWilwarg,hatWilwarG, 4, 8);
 //		loadSpriteTable(hatSulimog,hatSulimoG, 4, 8);
 	//clothe F
-		clotheUlmof = new TextureRegion[4][8];
-		loadSpriteTable(clotheUlmof,clotheUlmoF, 4, 8);
+		clotheUlmof = new TextureRegion[3][8];
+		loadSpriteTable(clotheUlmof,clotheUlmoF, 3, 8);
 //		loadSpriteTable(clotheAnarf,clotheAnarF, 4, 8);
 //		loadSpriteTable(clotheWilwarf,clotheWilwarF, 4, 8);
 //		loadSpriteTable(clotheSulimof,clotheSulimoF, 4, 8);
@@ -93,7 +95,30 @@ public class SkinManager {
 //		loadSpriteTable(clotheAnarg,clotheAnarG, 4, 8);
 //		loadSpriteTable(clotheWilwarg,clotheWilwarG, 4, 8);
 //		loadSpriteTable(clotheSulimog,clotheSulimoG, 4, 8);
+	// Concaténation des différents tableaux dans un tableau commun
+		this.setHairGlobal(concatenationHair());
+		this.setBodyGlobal(concatenationBody());
 	}
+	
+	private TextureRegion[][][][] concatenationHair() {
+		TextureRegion[][][][] retour = new TextureRegion[][][][]{{getHairAnarf(),getHairSulimof(),getHairUlmof(),getHairWilwarf()},{getHairAnarg(),getHairSulimog(),getHairUlmog(),getHairWilwarg()}};
+		return retour;
+	}
+	
+	private TextureRegion[][][][] concatenationBody() {
+		TextureRegion[][][][] retour = new TextureRegion[][][][]{{getBodySkinDecoupef(),getBodySkinDecoupef(),getBodySkinDecoupef(),getBodySkinDecoupef()},{getBodySkinDecoupeg(),getBodySkinDecoupeg(),getBodySkinDecoupeg(),getBodySkinDecoupeg()}};
+		return retour;
+	}	
+	
+	// TODO : compléter les concaténations pour chaque type de données
+//	private TextureRegion[][][][] concatenationBody() {
+//	}
+//	
+//	private TextureRegion[][][][] concatenationHat() {
+//	}
+//	
+//	private TextureRegion[][][][] concatenationClothe() {
+//	}
 	
 	//methodes tableau spritesheet découpé - développement
 	//hauteur et largeur ont ete rajoute pour permettre une plus grand flexibilite de la methode
@@ -108,12 +133,13 @@ public class SkinManager {
 	
 	// Skin cheveux, ne fonctionne pour le moment qu'avec Ulmo
 	// TODO : implémenter la méthodes pour les autres villages
+	// 0 = fille // 1 = garçon
 	public TextureRegion CurrentHair(Personnage me){
 		TextureRegion renvoi= new TextureRegion();
-		if(me.getSexe()==1){
+		if(me.getSexe()==0){
 			renvoi= hairUlmof[me.getHairChosen()][me.getOrientation()];
 		}
-		else if(me.getSexe()==0){
+		else if(me.getSexe()==1){
 			renvoi= hairUlmog[me.getHairChosen()][me.getOrientation()];
 		}
 		return renvoi;
@@ -325,6 +351,38 @@ public class SkinManager {
 
 	public void setBodySkinDecoupeg(TextureRegion[][] bodySkinDecoupeg) {
 		this.bodySkinDecoupeg = bodySkinDecoupeg;
+	}
+
+	public TextureRegion[][][][] getHairGlobal() {
+		return hairGlobal;
+	}
+
+	public void setHairGlobal(TextureRegion[][][][] hairGlobal) {
+		this.hairGlobal = hairGlobal;
+	}
+
+	public TextureRegion[][][][] getBodyGlobal() {
+		return bodyGlobal;
+	}
+
+	public void setBodyGlobal(TextureRegion[][][][] bodyGlobal) {
+		this.bodyGlobal = bodyGlobal;
+	}
+
+	public TextureRegion[][][][] getHatGlobal() {
+		return hatGlobal;
+	}
+
+	public void setHatGlobal(TextureRegion[][][][] hatGlobal) {
+		this.hatGlobal = hatGlobal;
+	}
+
+	public TextureRegion[][][][] getClotheGlobal() {
+		return clotheGlobal;
+	}
+
+	public void setClotheGlobal(TextureRegion[][][][] clotheGlobal) {
+		this.clotheGlobal = clotheGlobal;
 	}
 
 	
