@@ -2,8 +2,6 @@ package inits;
 
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Personnage extends Entite {
@@ -21,18 +19,6 @@ public class Personnage extends Entite {
 	orientation,
 	classeInt;
 	
-//	public TextureRegion loadCurrentBody(int ori){
-//		if(sexe==0){
-//			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-//			}
-//		if(sexe==1){
-//			bodySkin= new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
-//			}
-//		setBody(new TextureRegion(bodySkin));
-//		getBody().setRegion(ori,0,300,300);
-//		return getBody();
-//	}
-
 	// Le constructeur
 
 	public Personnage(
@@ -93,6 +79,8 @@ public class Personnage extends Entite {
 		this.skin = skin;
 		this.pos = pos;
 		this.mapID = mapID;
+		
+		this.orientation = 2;
 	}
 
 	public Personnage(){

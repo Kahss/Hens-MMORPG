@@ -29,7 +29,6 @@ public class SGame implements Screen {
 	private int xDelta,yDelta;
 	private float nFrame;
 	private KBGeneral keyBinding;
-	private int orientation;
 	private SkinManager skinManager;
 	
 	
@@ -48,7 +47,6 @@ public class SGame implements Screen {
 		yFinal=0;
 		x1=2000;
 		y1=0;
-		orientation=900;
 		skinManager=new SkinManager();
 		
 		renderer.setView(camera);
@@ -109,7 +107,6 @@ public class SGame implements Screen {
 			setX1((int)(getX1()+xDelta/nFrame));
 			setY1((int)(getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!movement x:"+xDelta/nFrame+" movment y:"+yDelta/nFrame);
-			orientation=1800;
 			me.setOrientation(6);
 			if(getX1()>=xClic-1||getY1()>=yClic-1){
 				xFinal=xClic;
@@ -132,7 +129,6 @@ public class SGame implements Screen {
 			setX1((int) (getX1()-xDelta/nFrame));
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!3");
-			orientation=600;
 			me.setOrientation(2);
 			if(getX1()<=xClic+1||getY1()<=yClic+1){
 				xFinal=xClic;
@@ -155,7 +151,6 @@ public class SGame implements Screen {
 			setX1((int) (getX1()+xDelta/nFrame));
 			setY1((int) (getY1()-yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!2");
-			orientation=1200;
 			me.setOrientation(4);
 			if(getX1()>=xClic||getY1()<=yClic){
 				xFinal=xClic;
@@ -177,7 +172,6 @@ public class SGame implements Screen {
 			setX1((int) (getX1()-xDelta/nFrame));
 			setY1((int) (getY1()+yDelta/nFrame));
 			System.out.println("Je suis en train d'animer!4");
-			orientation=0;
 			me.setOrientation(0);
 			if(getX1()<=xClic||getY1()>=yClic){
 				xFinal=xClic;

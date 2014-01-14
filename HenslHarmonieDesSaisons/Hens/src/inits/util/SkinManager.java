@@ -25,79 +25,105 @@ public class SkinManager {
 	private Texture clotheUlmoG,clotheAnarG,clotheWilwarG,clotheSulimoG;
 	private TextureRegion[][] clotheUlmof,clotheAnarf,clotheWilwarf,clotheSulimof;
 	private TextureRegion[][] clotheUlmog,clotheAnarg,clotheWilwarg,clotheSulimog;
-	// tableaux globaux pour les différentes catégories à 4 dimensions : sexe - village - style - orientation
+	// tableaux globaux pour les différentes catégories à quatre dimensions : sexe - village - style - orientation
 	private TextureRegion[][][][] bodyGlobal, hairGlobal, hatGlobal, clotheGlobal;
 	
 	public SkinManager(){
 	// init textures - body
 		bodySkinGlobalf = new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
+		bodySkinGlobalg = new Texture(Gdx.files.internal("data/Skin/SKINS_FILLE.png"));
 	//init textures - hair
 	// TODO : faire correspondre les bons tableaux avec les bonnes images
 		hairUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hairSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hairSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 	//-hat
 		hatUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		hatSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		hatSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 	//-clothe
 		clotheUlmoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
-//		clotheSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheAnarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheWilwarF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheSulimoF= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheUlmoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheAnarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheWilwarG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
+		clotheSulimoG= new Texture(Gdx.files.internal("data/Skin/COUPE_ULMOFILLE.png"));
 	//methode tableau spritesheet découpé corps
 		bodySkinDecoupef = new TextureRegion[1][8];
 		loadSpriteTable(bodySkinDecoupef, bodySkinGlobalf, 1, 8);
+		bodySkinDecoupeg = new TextureRegion[1][8];
+		loadSpriteTable(bodySkinDecoupeg, bodySkinGlobalg, 1, 8);
 	//methodes tableau spritesheet découpé -hair F
 		hairUlmof = new TextureRegion[3][8];
+		hairAnarf = new TextureRegion[3][8];
+		hairSulimof = new TextureRegion[3][8];
+		hairWilwarf = new TextureRegion[3][8];
 		loadSpriteTable(hairUlmof,hairUlmoF, 3, 8);
-//		loadSpriteTable(hairAnarf,hairAnarF, 4, 8);
-//		loadSpriteTable(hairWilwarf,hairWilwarF, 4, 8);
-//		loadSpriteTable(hairSulimof,hairSulimoF, 4, 8);
+		loadSpriteTable(hairAnarf,hairAnarF, 3, 8);
+		loadSpriteTable(hairWilwarf,hairWilwarF, 3, 8);
+		loadSpriteTable(hairSulimof,hairSulimoF, 3, 8);
 	// hair G
-//		loadSpriteTable(hairUlmog,hairUlmoG, 4, 8);
-//		loadSpriteTable(hairAnarg,hairAnarG, 4, 8);
-//		loadSpriteTable(hairWilwarg,hairWilwarG, 4, 8);
-//		loadSpriteTable(hairSulimog,hairSulimoG, 4, 8);
+		hairUlmog = new TextureRegion[3][8];
+		hairAnarg = new TextureRegion[3][8];
+		hairSulimog = new TextureRegion[3][8];
+		hairWilwarg = new TextureRegion[3][8];
+		loadSpriteTable(hairUlmog,hairUlmoG, 3, 8);
+		loadSpriteTable(hairAnarg,hairAnarG, 3, 8);
+		loadSpriteTable(hairWilwarg,hairWilwarG, 3, 8);
+		loadSpriteTable(hairSulimog,hairSulimoG, 3, 8);
 	//hat F
 		hatUlmof = new TextureRegion[3][8];
+		hatAnarf = new TextureRegion[3][8];
+		hatSulimof = new TextureRegion[3][8];
+		hatWilwarf = new TextureRegion[3][8];
 		loadSpriteTable(hatUlmof,hatUlmoF, 3, 8);
-//		loadSpriteTable(hatAnarf,hatAnarF, 4, 8);
-//		loadSpriteTable(hatWilwarf,hatWilwarF, 4, 8);
-//		loadSpriteTable(hatSulimof,hatSulimoF, 4, 8);
+		loadSpriteTable(hatAnarf,hatAnarF, 3, 8);
+		loadSpriteTable(hatWilwarf,hatWilwarF, 3, 8);
+		loadSpriteTable(hatSulimof,hatSulimoF, 3, 8);
 	//hat G
-//		loadSpriteTable(hatUlmog,hatUlmoG, 4, 8);
-//		loadSpriteTable(hatAnarg,hatAnarG, 4, 8);
-//		loadSpriteTable(hatWilwarg,hatWilwarG, 4, 8);
-//		loadSpriteTable(hatSulimog,hatSulimoG, 4, 8);
+		hatUlmog = new TextureRegion[3][8];
+		hatAnarg = new TextureRegion[3][8];
+		hatSulimog = new TextureRegion[3][8];
+		hatWilwarg = new TextureRegion[3][8];
+		loadSpriteTable(hatUlmog,hatUlmoG, 3, 8);
+		loadSpriteTable(hatAnarg,hatAnarG, 3, 8);
+		loadSpriteTable(hatWilwarg,hatWilwarG, 3, 8);
+		loadSpriteTable(hatSulimog,hatSulimoG, 3, 8);
 	//clothe F
 		clotheUlmof = new TextureRegion[3][8];
+		clotheAnarf = new TextureRegion[3][8];
+		clotheSulimof = new TextureRegion[3][8];
+		clotheWilwarf = new TextureRegion[3][8];
 		loadSpriteTable(clotheUlmof,clotheUlmoF, 3, 8);
-//		loadSpriteTable(clotheAnarf,clotheAnarF, 4, 8);
-//		loadSpriteTable(clotheWilwarf,clotheWilwarF, 4, 8);
-//		loadSpriteTable(clotheSulimof,clotheSulimoF, 4, 8);
+		loadSpriteTable(clotheAnarf,clotheAnarF, 3, 8);
+		loadSpriteTable(clotheWilwarf,clotheWilwarF, 3, 8);
+		loadSpriteTable(clotheSulimof,clotheSulimoF, 3, 8);
 	//clothe G
-//		loadSpriteTable(clotheUlmog,clotheUlmoG, 4, 8);
-//		loadSpriteTable(clotheAnarg,clotheAnarG, 4, 8);
-//		loadSpriteTable(clotheWilwarg,clotheWilwarG, 4, 8);
-//		loadSpriteTable(clotheSulimog,clotheSulimoG, 4, 8);
+		clotheUlmog = new TextureRegion[3][8];
+		clotheAnarg = new TextureRegion[3][8];
+		clotheSulimog = new TextureRegion[3][8];
+		clotheWilwarg = new TextureRegion[3][8];
+		loadSpriteTable(clotheUlmog,clotheUlmoG, 3, 8);
+		loadSpriteTable(clotheAnarg,clotheAnarG, 3, 8);
+		loadSpriteTable(clotheWilwarg,clotheWilwarG, 3, 8);
+		loadSpriteTable(clotheSulimog,clotheSulimoG, 3, 8);
 	// Concaténation des différents tableaux dans un tableau commun
 		this.setHairGlobal(concatenationHair());
 		this.setBodyGlobal(concatenationBody());
+		this.setHatGlobal(concatenationHat());
+		this.setClotheGlobal(concatenationClothe());
 	}
 	
 	private TextureRegion[][][][] concatenationHair() {
@@ -111,14 +137,16 @@ public class SkinManager {
 	}	
 	
 	// TODO : compléter les concaténations pour chaque type de données
-//	private TextureRegion[][][][] concatenationBody() {
-//	}
-//	
-//	private TextureRegion[][][][] concatenationHat() {
-//	}
-//	
-//	private TextureRegion[][][][] concatenationClothe() {
-//	}
+	
+	private TextureRegion[][][][] concatenationHat() {
+		TextureRegion[][][][] retour = new TextureRegion[][][][]{{getHatAnarf(),getHatSulimof(),getHatUlmof(),getHatWilwarf()},{getHatAnarg(),getHatSulimog(),getHatUlmog(),getHatWilwarg()}};
+		return retour;
+	}
+	
+	private TextureRegion[][][][] concatenationClothe() {
+		TextureRegion[][][][] retour = new TextureRegion[][][][]{{getClotheAnarf(),getClotheSulimof(),getClotheUlmof(),getClotheWilwarf()},{getClotheAnarg(),getClotheSulimog(),getClotheUlmog(),getClotheWilwarg()}};
+		return retour;
+	}
 	
 	//methodes tableau spritesheet découpé - développement
 	//hauteur et largeur ont ete rajoute pour permettre une plus grand flexibilite de la methode
