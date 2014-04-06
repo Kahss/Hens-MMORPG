@@ -58,7 +58,7 @@ public class SCreateChar implements Screen  {
  	
  	}
  	
-	@Override
+	
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
@@ -116,12 +116,12 @@ public class SCreateChar implements Screen  {
 
 	}
 
-	@Override
+	
 	public void resize (int width, int height) {
 		stage.setViewport(width, height, false);
 	}
 
-	@Override
+	
 	public void dispose () {
 		stage.dispose();
 	}
@@ -143,25 +143,25 @@ public void textureLoad(){
 
 
 
-@Override
+
 public void show() {
 	// TODO Auto-generated method stub
 	
 }
 
-@Override
+
 public void hide() {
 	// TODO Auto-generated method stub
 	
 }
 
-@Override
+
 public void pause() {
 	// TODO Auto-generated method stub
 	
 }
 
-@Override
+
 public void resume() {
 	// TODO Auto-generated method stub
 	

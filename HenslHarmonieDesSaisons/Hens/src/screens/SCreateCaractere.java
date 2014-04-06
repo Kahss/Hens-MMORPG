@@ -25,8 +25,6 @@ public class SCreateCaractere implements Screen {
  	
  	}
 	
-	
-	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0.3f, 0.35f, 0.3f, 1);
 		batch.begin();
@@ -39,37 +37,37 @@ public class SCreateCaractere implements Screen {
 		
 	}
 
-	@Override
+	
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void show() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void hide() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void pause() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void dispose() {
 		// TODO Auto-generated method stub
 		

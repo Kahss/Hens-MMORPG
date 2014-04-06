@@ -52,7 +52,7 @@ public class SGame implements Screen {
 		renderer.setView(camera);
 	}
 
-	@Override
+	
 	public void render(float delta) {
 		BitmapFont xFinalV = new BitmapFont();
 		BitmapFont yFinalV = new BitmapFont();
@@ -184,7 +184,7 @@ public class SGame implements Screen {
 
 
 
-	@Override
+	
 	public void resize(int width, int height) {
 		camera.viewportWidth=width;
 		camera.viewportHeight=height;
@@ -199,31 +199,31 @@ public class SGame implements Screen {
 		this.camera = camera;
 	}
 
-	@Override
+	
 	public void show() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void hide() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void pause() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void dispose() {
 		// TODO Auto-generated method stub
 		

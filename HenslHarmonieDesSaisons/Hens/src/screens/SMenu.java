@@ -32,7 +32,7 @@ public class SMenu implements Screen {
 		Gdx.input.setInputProcessor(stage);
 		
 	}
-	@Override
+	
 	public void render(float delta) {
 		// TODO Auto-generated method stub
 		Gdx.gl.glClearColor(0.1f, 0.1f, 1, 1);
@@ -47,35 +47,35 @@ public class SMenu implements Screen {
 	}
 	
 
-	@Override
+	
 	public void resize(int width, int height) {
 		
 	}
 
-	@Override
+	
 	public void show() {
 
 	}
 
-	@Override
+	
 	public void hide() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void pause() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void dispose() {
 		// TODO Auto-generated method stub
 		

@@ -61,7 +61,7 @@ public class UITest extends Game {
 	Texture texture2;
 	Label fpsLabel;
 
-	@Override
+	
 	public void create () {
 		batch = new SpriteBatch();
 		skin = new Skin(Gdx.files.internal("data/uiskin.json"));
@@ -165,7 +165,7 @@ public class UITest extends Game {
 		});
 	}
 
-	@Override
+	
 	public void render () {
 		Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
@@ -177,12 +177,12 @@ public class UITest extends Game {
 		Table.drawDebug(stage);
 	}
 
-	@Override
+	
 	public void resize (int width, int height) {
 		stage.setViewport(width, height, false);
 	}
 
-	@Override
+	
 	public void dispose () {
 		stage.dispose();
 		skin.dispose();
