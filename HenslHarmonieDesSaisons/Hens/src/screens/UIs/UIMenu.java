@@ -86,6 +86,7 @@ public class UIMenu extends Stage {
 		loginBt.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				String compteInput=compteField.getText();
+				System.out.println("compte chargé : " + compteInput);
 				String mdpInput=mdpField.getText();
 				Compte compteLoaded =xStreamUtil.loadCompte(compteInput);
 				Compte compteTest=new Compte(compteInput,mdpInput);

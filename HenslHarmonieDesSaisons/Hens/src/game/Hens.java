@@ -4,10 +4,9 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
+import screens.SCreateChar;
 import screens.SCreateSkin;
 import screens.SMenu;
-import screens.SCreateChar;
-
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
