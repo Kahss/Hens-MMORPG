@@ -1,9 +1,7 @@
 package com.me.Hens;
 
-import java.net.URL;
+import game.Hens;
 
-import screens.UIs.UIMenu;
-import game.*;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
