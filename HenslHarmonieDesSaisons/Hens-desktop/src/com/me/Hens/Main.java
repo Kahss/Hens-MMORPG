@@ -14,7 +14,7 @@ public class Main {
 		cfg.height = 768;
 		
 		 // fullscreen
-     //   cfg.fullscreen = true;
+     //   cfg.fullscreen = true;	
         // vSync
         cfg.vSyncEnabled = true;
 	
