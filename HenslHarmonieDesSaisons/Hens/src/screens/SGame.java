@@ -4,6 +4,7 @@ import screens.UIs.UIGameGeneral;
 import screens.keyBindings.KBGeneral;
 import game.Hens;
 import inits.Personnage;
+import inits.monstres.Sanglion;
 import inits.util.SkinManager;
 
 import com.badlogic.gdx.Gdx;
@@ -19,6 +20,9 @@ import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 
 public class SGame implements Screen {
 	private Personnage me;
+	//sanglier provisoire
+	private Sanglion sang;
+	private int oriSang,oriF;
 	private UIGameGeneral stage;
 	private SpriteBatch batch;
 	
@@ -37,11 +41,12 @@ public class SGame implements Screen {
 	private BitmapFont yFinalV = new BitmapFont();
 	private BitmapFont x1V = new BitmapFont();
 	private BitmapFont y1V = new BitmapFont();
+	private BitmapFont oriSanglion = new BitmapFont();
 	
 	
 	public SGame (Hens hens, Personnage me){
 		this.me=me;
-		
+		sang= new Sanglion(5, 1);
 		stage= new UIGameGeneral(this);
 		batch = new SpriteBatch();
 		
@@ -70,9 +75,11 @@ public class SGame implements Screen {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT); // nettoyer l'écran
 		
 		renderer.setView(camera);
-		
+
 		renderer.render(layers); //couches inférieures de la map
 		afficheSkin();
+		
+		
 		renderer.render(layersTop); //couches supérieures de la map
 		afficheCoordonnees();
 		
@@ -88,7 +95,9 @@ public class SGame implements Screen {
 		xFinalV.draw(batch, "xFinal : " + String.valueOf(xFinal),10,80);
 		yFinalV.draw(batch, "yFinal : " + String.valueOf(yFinal),10,60);
 		x1V.draw(batch, "x1 : " + String.valueOf(x1),10,40);
-		y1V.draw(batch, "y1 : " + String.valueOf(y1),10,20);		
+		y1V.draw(batch, "y1 : " + String.valueOf(y1),10,20);	
+		//sanglion provisoire
+		oriSanglion.draw(batch, "orientation Sanglion : " + String.valueOf(oriF),10,100);	
 		batch.end();
 	}
 
@@ -97,6 +106,17 @@ public class SGame implements Screen {
 		batch.begin();
 		batch.draw(skinManager.getBodyGlobal()[me.getSexe()][0][me.getBodyChosen()][me.getOrientation()],437 , 309, 0, 0, 150, 150, 1, 1, 0);
 		batch.draw(skinManager.getHairGlobal()[me.getSexe()][me.getClasseInt()][me.getHairChosen()][me.getOrientation()], 437, 309, 0, 0, 150, 150, 1, 1, 0);
+		//dessin provisoire du sanglion
+		oriSang++;
+		if(oriSang==60){
+			oriSang=0;
+			oriF=oriF+300;
+			if(oriF==2400){
+				oriF=0;
+			}
+		}
+		batch.draw(sang.loadCurrentSkin(oriF),600-getX1() , 100-getY1(), 0, 0, 150, 150, 1, 1, 0);
+		
 		batch.end();		
 	}
 
@@ -198,7 +218,6 @@ public class SGame implements Screen {
 
 
 
-	
 	public void resize(int width, int height) {
 		Gdx.app.log("SGame","resize()");
 
@@ -217,7 +236,7 @@ public class SGame implements Screen {
 
 	
 	public void show() {
-		Gdx.app.log("SGame","show()");
+		Gdx.app.log("SGame","show");
 
 		map = new TmxMapLoader().load("maps/MAP_1.tmx");
 		renderer = new IsometricTiledMapRenderer(map);

@@ -10,7 +10,7 @@ public class Sanglion extends Monstre {
 		int orientation,state;
 	
 	public Sanglion(int niveau,int sexe){
-		skinSheet=new Texture(Gdx.files.internal("data/skinsMonstres/sanglionSkin.png"));
+		skinSheet=new Texture(Gdx.files.internal("data/Skin/SANGLION.png"));
 		skin=new TextureRegion(skinSheet);
 		skin.setRegion(orientation, state, 400, 300);
 		vie=60+12*niveau;
