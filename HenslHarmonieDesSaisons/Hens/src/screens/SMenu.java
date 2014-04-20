@@ -19,6 +19,7 @@ public class SMenu implements Screen {
 	private game.Hens hens;
 	private UIMenu stage;
 	
+	
 	public SMenu(Hens hens){
 		// TODO Auto-generated method stub
 		this.setHens(hens);
@@ -29,6 +30,7 @@ public class SMenu implements Screen {
 		sprite = new Sprite(fond1);
 		stage = new UIMenu(this);
 		stage.loadUI();
+		stage.setViewport(1024, 768, false, 0, -14, 1024, 768);
 		Gdx.input.setInputProcessor(stage);
 		
 	}

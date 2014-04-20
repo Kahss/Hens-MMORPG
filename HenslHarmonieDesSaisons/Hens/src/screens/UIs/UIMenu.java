@@ -36,7 +36,6 @@ public class UIMenu extends Stage {
 		
 	public void loadUI(){
 		skin = new Skin();
-		// Qu'est-ce qu'une pixmap ?
 		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
 		pixmap.setColor(Color.WHITE);
 		pixmap.fill();
@@ -62,7 +61,7 @@ public class UIMenu extends Stage {
 		table = new Table();
 		table.setFillParent(true);
 		this.addActor(table);
-	
+		xStreamUtil=new XStreamUtil();
 		logins();
 		createAccountBt();
 	}
@@ -73,7 +72,6 @@ public class UIMenu extends Stage {
 		mdpField=new TextField("Uchiwa",skin,"field");
 		mdpField.setPasswordMode(true);
 		loginBt=new TextButton("Connexion",skin);
-		xStreamUtil=new XStreamUtil();
 		// Pour faire un code plus clair, on doit pouvoir creer des méthodes du genre sauterLigne(), toussa toussa
 		table.row();
 		table.add(compteField).padBottom(10);
