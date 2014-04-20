@@ -3,34 +3,30 @@ package inits;
 import java.util.List;
 
 public class Anar extends Personnage {
+	
 	private int Colerique;
 	private int Courageux;
 	private int Jovial;
 	private int Orgueilleux;
-	private String classe="Anar";
-	
-	
-	public String getClasse() {
-		return classe;
-	}
 
+	public Anar(String pseudo, 
+			String owner, 
+			int niveau,
+			int sexe,
+			float vie,
+			float harmonie, 
+			float vieRegen, 
+			float harRegen, 
+			float puissance,
+			float defense, 
+			float vitesse, 
+			float concentration,
 
-	public void setClasse(String classe) {
-		this.classe = classe;
-	}
-
-
-	public Anar(String pseudo, String owner, int niveau, float vie,
-			float harmonie, float vieRegen, float harRegen, float puissance,
-			float defense, float vitesse, float concentration,
-			float vieCurrent, float harmonieCurrent, float vieRegenCurrent,
-			float harRegenCurrent, float puissanceCurrent,
-			float defenseCurrent, float vitesseCurrent,
-			float concentrationCurrent, List<Integer> skin,  List<Integer> pos, int mapID) {
-		super(pseudo, owner, niveau, vie, harmonie, vieRegen, harRegen, puissance,
-				defense, vitesse, concentration, vieCurrent, harmonieCurrent,
-				vieRegenCurrent, harRegenCurrent, puissanceCurrent, defenseCurrent,
-				vitesseCurrent, concentrationCurrent, skin, pos, mapID);
+			List<Integer> skin,  
+			List<Integer> pos, 
+			int mapID) {
+		
+		super(pseudo, owner, sexe, niveau, vie, harmonie, vieRegen, harRegen, puissance, defense, vitesse, concentration, skin, pos, mapID);
 		
 		Colerique=0;
 		Courageux=0;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Personnage extends Entite {
+public abstract class Personnage extends Entite {
 
 	// Les attributs
 	
@@ -21,12 +21,12 @@ public class Personnage extends Entite {
 	
 	// Le constructeur
 
-	public Personnage(
+	public Personnage (
 		String pseudo,
 		String owner,
 		
 		int niveau,
-		
+		int sexe,
 		float vie,
 		float harmonie,
 		float vieRegen,
@@ -36,55 +36,19 @@ public class Personnage extends Entite {
 		float vitesse,
 		float concentration,
 		
-		float vieCurrent,
-		float harmonieCurrent,
-		float vieRegenCurrent,
-		float harRegenCurrent,
-		float puissanceCurrent,
-		float defenseCurrent,
-		float vitesseCurrent,
-		float concentrationCurrent,
-		
 		List<Integer> skin,
 		List<Integer> pos,
 		int mapID) {
 		
+		super(sexe, niveau, vie, harmonie, vieRegen, harRegen, puissance, defense, vitesse, concentration, skin, pos, mapID);
+
 		this.pseudo = pseudo;
 		this.owner = owner;
 		
-		this.niveau = niveau;
-		this.vie = vie;
-		this.harmonie = harmonie;
-		this.vieRegen = vieRegen;
-		this.harRegen = harRegen;
-		this.puissance = puissance;
-		this.defense = defense;
-		this.vitesse = vitesse;
-		this.concentration = concentration;
-		
-		// TODO : à voir quand est-ce que le constructeur du perso est appelé
-		// si construit uniquement à la création du personnage on aura
-		// this.vieCurrent = this.vie = vie;
-		// -> raccourcissement du constructeur.
-		
-		this.vieCurrent = vieCurrent;
-		this.harmonieCurrent = harmonieCurrent;
-		this.vieRegenCurrent = vieRegenCurrent;
-		this.harRegenCurrent = harRegenCurrent;
-		this.puissanceCurrent = puissanceCurrent;
-		this.defenseCurrent = defenseCurrent;
-		this.vitesseCurrent = vitesseCurrent;
-		this.concentrationCurrent = concentrationCurrent;
-		
-		this.skin = skin;
-		this.pos = pos;
-		this.mapID = mapID;
-		
-		this.orientation = 2;
 	}
 
 	public Personnage(){
-	
+		// TODO : Faire un constructeur qui cree un monstre bidon, mais non vide
 	}
 
 

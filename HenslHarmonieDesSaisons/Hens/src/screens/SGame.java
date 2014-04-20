@@ -1,11 +1,10 @@
 package screens;
 
-import screens.UIs.UIGameGeneral;
-import screens.keyBindings.KBGeneral;
 import game.Hens;
 import inits.Personnage;
-import inits.monstres.Sanglion;
 import inits.util.SkinManager;
+import screens.UIs.UIGameGeneral;
+import screens.keyBindings.KBGeneral;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -21,7 +20,6 @@ import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
 public class SGame implements Screen {
 	private Personnage me;
 	//sanglier provisoire
-	private Sanglion sang;
 	private int oriSang,oriF;
 	private UIGameGeneral stage;
 	private SpriteBatch batch;
@@ -46,7 +44,6 @@ public class SGame implements Screen {
 	
 	public SGame (Hens hens, Personnage me){
 		this.me=me;
-		sang= new Sanglion(5, 1);
 		stage= new UIGameGeneral(this);
 		batch = new SpriteBatch();
 		
@@ -115,7 +112,6 @@ public class SGame implements Screen {
 				oriF=0;
 			}
 		}
-		batch.draw(sang.loadCurrentSkin(oriF),600-getX1() , 100-getY1(), 0, 0, 150, 150, 1, 1, 0);
 		
 		batch.end();		
 	}

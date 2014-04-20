@@ -2,7 +2,7 @@ package inits;
 
 import java.util.List;
 
-public class Entite{
+public class Entite {
 
 	protected int sexe;
 	protected int niveau;
@@ -14,6 +14,7 @@ public class Entite{
 	protected float defense;
 	protected float vitesse;
 	protected float concentration;
+	
 	protected float vieCurrent;
 	protected float harmonieCurrent;
 	protected float vieRegenCurrent;
@@ -22,26 +23,26 @@ public class Entite{
 	protected float defenseCurrent;
 	protected float vitesseCurrent;
 	protected float concentrationCurrent;
+	
 	protected List<Integer> skin;
 	protected List<Integer> pos;
 	protected int mapID;
-	protected int direction;
 	protected int orientation;
-	
-	
-	public Entite(){
-		
-	}
 
-	public Entite(int sexe, int niveau, float vie, float harmonie,
-			float vieRegen, float harRegen, float puissance, float defense,
-			float vitesse, float concentration, float vieCurrent,
-			float harmonieCurrent, float vieRegenCurrent,
-			float harRegenCurrent, float puissanceCurrent,
-			float defenseCurrent, float vitesseCurrent,
-			float concentrationCurrent, List<Integer> skin, List<Integer> pos,
-			int mapID, int direction, int orientation) {
-		super();
+	public Entite(int sexe,
+			int niveau,
+			float vie,
+			float harmonie,
+			float vieRegen,
+			float harRegen,
+			float puissance,
+			float defense,
+			float vitesse,
+			float concentration,
+			List<Integer> skin,
+			List<Integer> pos,
+			int mapID) {
+
 		this.sexe = sexe;
 		this.niveau = niveau;
 		this.vie = vie;
@@ -52,19 +53,27 @@ public class Entite{
 		this.defense = defense;
 		this.vitesse = vitesse;
 		this.concentration = concentration;
-		this.vieCurrent = vieCurrent;
-		this.harmonieCurrent = harmonieCurrent;
-		this.vieRegenCurrent = vieRegenCurrent;
-		this.harRegenCurrent = harRegenCurrent;
-		this.puissanceCurrent = puissanceCurrent;
-		this.defenseCurrent = defenseCurrent;
-		this.vitesseCurrent = vitesseCurrent;
-		this.concentrationCurrent = concentrationCurrent;
+
+		this.vieCurrent = vie;
+		this.harmonieCurrent = harmonie;
+		this.vieRegenCurrent = vieRegen;
+		this.harRegenCurrent = harRegen;
+		this.puissanceCurrent = puissance;
+		this.defenseCurrent = defense;
+		this.vitesseCurrent = vitesse;
+		this.concentrationCurrent = concentration;
+		
 		this.pos = pos;
 		this.mapID = mapID;
-		this.direction = direction;
-		this.orientation = orientation;
+
+		this.orientation = 0;
 	}
+	
+
+	public Entite(){
+		// TODO : cree une entite bidon mais non vide
+	}
+
 
 	public int getSexe() {
 		return sexe;
@@ -234,14 +243,6 @@ public class Entite{
 		this.mapID = mapID;
 	}
 
-	public int getDirection() {
-		return direction;
-	}
-
-	public void setDirection(int direction) {
-		this.direction = direction;
-	}
-
 	public int getOrientation() {
 		return orientation;
 	}
@@ -249,7 +250,7 @@ public class Entite{
 	public void setOrientation(int orientation) {
 		this.orientation = orientation;
 	}
-	
-	
-	
+
+
+
 }

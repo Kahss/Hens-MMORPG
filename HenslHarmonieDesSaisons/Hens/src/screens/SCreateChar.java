@@ -168,26 +168,26 @@ public void resume() {
 }
 
 public void CreatePersonnage(String Name, String Classe,  String NdCompte ){
-	int lvl,map;
-	float vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC;
+	int lvl,map,sexe;
+	float vie,har,vieR,harR,puis,def,vit,conc;
 	List<Integer> skin = null;
 	List<Integer> pos =null;
 	lvl=1;
+	sexe=0;
+	
 		verifs=Classe;
 		vie=60;	har=80;	vieR=1;	harR=8;
 		puis=0; def=8; vit=100; conc=0;
-		vieC=60; harC=60; vieRC=1; harRC=8;
-		puisC=0; defC=8; vitC=100; concC=0; 
 		map=45;
 		// TODO : ça marche, mais il doit y avoir moyen de factoriser pour rendre ça un peu plus propre
 		if(Classe.equals("Anar"))
-		 setMe(new Anar (Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
+		 setMe(new Anar (Name,NdCompte, lvl, sexe, vie,har,vieR,harR,puis,def,vit,conc,skin,pos,map));
 		if(Classe.equals("Ulmo"))
-		 setMe(new Ulmo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
+		 setMe(new Ulmo(Name,NdCompte, lvl, sexe, vie,har,vieR,harR,puis,def,vit,conc,skin,pos,map));
 		if(Classe.equals("Wilwar"))
-		 setMe(new Wilwar(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
+		 setMe(new Wilwar(Name,NdCompte, lvl, sexe, vie,har,vieR,harR,puis,def,vit,conc,skin,pos,map));
 		if(Classe.equals("Sulimo"))
-		 setMe(new Sulimo(Name,NdCompte, lvl,vie,har,vieR,harR,puis,def,vit,conc,vieC,harC,vieRC,harRC,puisC,defC,vitC,concC,skin,pos,map));
+		 setMe(new Sulimo(Name,NdCompte, lvl, sexe, vie,har,vieR,harR,puis,def,vit,conc,skin,pos,map));
 }
 
 public TextureRegion getFondAnar() {

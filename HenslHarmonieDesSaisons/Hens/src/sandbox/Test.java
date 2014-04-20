@@ -1,7 +1,9 @@
 package sandbox;
 
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public class Test extends Stage{
+public class Test {
+
+	public static void main(String[] args) {
+	}
 
 }

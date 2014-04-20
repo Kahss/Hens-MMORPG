@@ -38,8 +38,6 @@ public class UICreateSkin extends Stage {
 	
 	public UICreateSkin(SCreateSkin sCreateSkin) {
 		this.setsCreateSkin(sCreateSkin);
-		// cette ligne est carrément bizarre, tu stockes me de sCreateSkin dans me de sCreateSkin ?
-		sCreateSkin.setMe(this.getsCreateSkin().getMe());
 	}
 	
 	public void loadUI() {

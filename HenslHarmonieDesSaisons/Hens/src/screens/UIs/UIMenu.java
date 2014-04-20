@@ -68,8 +68,8 @@ public class UIMenu extends Stage {
 	
 	private void logins(){
 		// Ajout des boutons
-		compteField=new TextField("effron",skin,"field");
-		mdpField=new TextField("Uchiwa",skin,"field");
+		compteField=new TextField("Shin",skin,"field");
+		mdpField=new TextField("youpi",skin,"field");
 		mdpField.setPasswordMode(true);
 		loginBt=new TextButton("Connexion",skin);
 		// Pour faire un code plus clair, on doit pouvoir creer des méthodes du genre sauterLigne(), toussa toussa
