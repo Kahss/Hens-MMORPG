@@ -1,7 +1,6 @@
 package screens.UIs;
 
 import inits.Personnage;
-import inits.Ulmo;
 import inits.util.XStreamUtil;
 
 import java.io.File;
@@ -25,7 +24,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 public class UILoadChar extends Stage {
 	private SLoadChar sLoadChar;

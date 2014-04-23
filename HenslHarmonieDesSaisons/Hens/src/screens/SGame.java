@@ -82,7 +82,8 @@ public class SGame implements Screen {
 		
 		recupereXY();		
 		move();
-		
+		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+		stage.draw();
 		camera.update();
 	}
 	
