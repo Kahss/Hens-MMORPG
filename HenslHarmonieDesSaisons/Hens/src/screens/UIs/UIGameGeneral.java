@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -22,9 +24,14 @@ public class UIGameGeneral extends Stage{
 	SGame sGame;
 	Skin skin;
 	Table table;
-	TextButton exitButton;
+	boolean open;
+	TextButton retourButton,showButton;
+	ShapeRenderer shapeRenderer;
+	int wait;
 	public UIGameGeneral(SGame sGame) {
 	this.sGame=sGame;
+	shapeRenderer = new ShapeRenderer();
+	wait=10;
 	}
 	
 	
@@ -46,22 +53,60 @@ public class UIGameGeneral extends Stage{
 		this.addActor(table);
 		table.left();
 		table.top();
-		table.padTop(10);
+		table.padTop(40);
 		//table.setPosition(-1024/2, 768/2);
-		exitBt();
+		retourBt();
+		showBt();
 	}
-	//Gdx.app.exit()
+	//Gdx.app.retour()
 	
-	private void exitBt(){ //bouton sulimo creation perso
-		exitButton = new TextButton("Quitter le jeu", skin);
+	private void retourBt(){ //bouton sulimo creation perso
+		retourButton = new TextButton("Retour compte", skin);
 
-		table.add(exitButton);
+		table.add(retourButton);
 
-		exitButton.addListener(new ChangeListener() {
+		retourButton.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
-				Gdx.app.exit();
+
+				sGame.getHens().setScreen(new SCreateChar(sGame.getHens(),sGame.getMyCompte()));
 			}	
 		});
+	}
+	
+	private void showBt(){ //bouton sulimo creation perso
+		showButton = new TextButton("Ouvrir la fenêtre", skin);
+		table.row();
+		table.padTop(40);
+		table.add(showButton);
+
+		showButton.addListener(new ChangeListener() {
+			public void changed (ChangeEvent event, Actor actor) {
+				if(open){
+					close();
+					wait=10;
+				}
+			
+				if(!open&&wait==0){
+					open();
+				}
+			}	
+		});
+	}
+	
+	private void close(){
+
+		 Gdx.app.log("machin", "fermer");
+		 open=false;
+	}
+	private void open(){
+		 Gdx.app.log("machin", "ouvrir");
+		 open=true;
+	}
+	
+	public void updateUI(){
+		if(wait>0){
+		wait--;
+		}
 	}
 }
 

@@ -22,12 +22,13 @@ public class SGame implements Screen {
 	//sanglier provisoire
 	private int oriSang,oriF;
 	private UIGameGeneral stage;
+	Hens hens;
 	private SpriteBatch batch;
-	
 	private OrthographicCamera camera;
+	//map
 	private TiledMap map;
 	private IsometricTiledMapRenderer renderer;
-	
+	//calcul pos/déplacement
 	private int xFinal,yFinal,x1,y1,xClic,yClic;
 	private int xDelta,yDelta;
 	private float nFrame;
@@ -41,6 +42,8 @@ public class SGame implements Screen {
 	private BitmapFont y1V = new BitmapFont();
 	private BitmapFont oriSanglion = new BitmapFont();
 	
+	//différentes couches d'UI
+	InputMultiplexer inputMulti;
 	
 	public SGame (Hens hens, Personnage me){
 		this.me=me;
@@ -50,10 +53,8 @@ public class SGame implements Screen {
 		camera=new OrthographicCamera();
 		
 		keyBinding=new KBGeneral(this);
-		Gdx.input.setInputProcessor(new InputMultiplexer(stage,keyBinding));
-		
+		Gdx.input.setInputProcessor(inputMulti = new InputMultiplexer(stage,keyBinding));
 		stage.loadUI();
-		
 		xFinal=2000;
 		yFinal=0;
 		x1=2000;
@@ -63,7 +64,7 @@ public class SGame implements Screen {
 
 	
 	public void render(float delta) {
-		Gdx.app.log("SGame","render()");
+		//Gdx.app.log("SGame","render()");
 		
 		int[] layers ={0,1,2,3};
 		int[] layersTop={4,5,6,7};
@@ -84,6 +85,7 @@ public class SGame implements Screen {
 		move();
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
+		stage.updateUI();
 		camera.update();
 	}
 	
@@ -126,7 +128,7 @@ public class SGame implements Screen {
 	}
 
 	private void move(){
-		Gdx.app.log("SGame","move()");
+		//Gdx.app.log("SGame","move()");
 
 		if(xClic>=xFinal&&yClic>yFinal){
 			yDelta=yClic-yFinal;
@@ -297,6 +299,9 @@ public class SGame implements Screen {
 
 	public void setY1(int y1) {
 		this.y1 = y1;
+	}
+	public Hens getHens() {
+		return hens;
 	}
 
 }
